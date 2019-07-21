@@ -1,0 +1,272 @@
+.loader{
+    display: none;
+}
+
+.cargando_laoder{
+    width: 100%;
+    text-align: center;
+    margin-top: -50px;
+    color: white;
+
+}
+
+.opacity_loader{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: #000000ad;
+}
+
+.loader_outer {
+    display: table;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+.loader_middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.loader_inner {
+    margin-left: auto;
+    margin-right: auto; 
+    width: 118px;
+}
+
+
+.loader_inner svg {
+    height:200px;
+}
+
+.book1 {
+    animation: book1-anim 2.25s infinite ease-in-out;
+
+}
+
+.book2 {
+    animation: book2-anim 2.25s infinite ease-in-out;
+}
+
+.book3 {
+    animation: book3-anim 2.25s infinite ease-in-out;
+}
+
+.book4 {
+    animation: book4-anim 2.25s infinite ease-in-out;
+}
+
+.book5 {
+    animation: book5-anim 2.25s infinite ease-in-out;
+}
+
+.book6 {
+    animation: book6-anim 2.25s infinite ease-in-out;
+}
+
+@keyframes book1-anim {
+    0% {
+        transform: translateY(0px);
+    }
+
+    14.28% {
+        transform: translateY(-30px);
+    }
+
+    28.57% {
+        transform: translateY(0px);
+    }
+
+    42.85% {
+        transform: translateY(0px);
+    }
+
+    57.14% {
+        transform: translateY(0px);
+    }
+
+    71.42% {
+        transform: translateY(0px);
+    }
+
+    85.71% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes book2-anim {
+    0% {
+        transform: translateY(0px);
+    }
+
+    14.28% {
+        transform: translateY(0px);
+    }
+
+    28.57% {
+        transform: translateY(-30px);
+    }
+
+    42.85% {
+        transform: translateY(0px);
+    }
+
+    57.14% {
+        transform: translateY(0px);
+    }
+
+    71.42% {
+        transform: translateY(0px);
+    }
+
+    85.71% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes book3-anim {
+    0% {
+        transform: translateY(0px);
+    }
+
+    14.28% {
+        transform: translateY(0px);
+    }
+
+    28.57% {
+        transform: translateY(0px);
+    }
+
+    42.85% {
+        transform: translateY(-30px);
+    }
+
+    57.14% {
+        transform: translateY(0px);
+    }
+
+    71.42% {
+        transform: translateY(0px);
+    }
+
+    85.71% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes book4-anim {
+    0% {
+        transform: translateY(0px);
+    }
+
+    14.28% {
+        transform: translateY(0px);
+    }
+
+    28.57% {
+        transform: translateY(0px);
+    }
+
+    42.85% {
+        transform: translateY(0px);
+    }
+
+    57.14% {
+        transform: translateY(-30px);
+    }
+
+    71.42% {
+        transform: translateY(0px);
+    }
+
+    85.71% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes book5-anim {
+    0% {
+        transform: translateY(0px);
+    }
+
+    14.28% {
+        transform: translateY(0px);
+    }
+
+    28.57% {
+        transform: translateY(0px);
+    }
+
+    42.85% {
+        transform: translateY(0px);
+    }
+
+    57.14% {
+        transform: translateY(0px);
+    }
+
+    71.42% {
+        transform: translateY(-30px);
+    }
+
+    85.71% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes book6-anim {
+    0% {
+        transform: translateY(0px);
+    }
+
+    14.28% {
+        transform: translateY(0px);
+    }
+
+    28.57% {
+        transform: translateY(0px);
+    }
+
+    42.85% {
+        transform: translateY(0px);
+    }
+
+    57.14% {
+        transform: translateY(0px);
+    }
+
+    71.42% {
+        transform: translateY(0px);
+    }
+
+    85.71% {
+        transform: translateY(-30px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}

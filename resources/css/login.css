@@ -1,0 +1,17 @@
+.login_btn_social, .login_btn_social:hover{
+	color: white !important;
+	cursor: pointer;
+}
+
+.login_btn_social{
+	padding-bottom: 35px !important;
+	text-decoration: none !important;
+}
+
+.login_btn_social:hover{
+	padding-bottom: 33px !important;
+}
+
+.login_btn_social span{
+	margin-top: -3px;
+}

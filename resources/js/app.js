@@ -4,29 +4,21 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
 
-window.Vue = require('vue');
+global.$ = global.jQuery = require('./../../node_modules/jquery/dist/jquery');
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+require('./../../node_modules/bootstrap/dist/js/bootstrap');
+require('./../../node_modules/popper.js/dist/popper');
+require('./../vendor/parsley/parsley');
+require('./../vendor/slick/js/slick');
+require('./../../node_modules/parsleyjs/dist/i18n/es');
 
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+require('./template');
+require('./login');
+require('./general');
+require('./escritorio');
+require('./reset_password');
+require('./registro');
+require('./ajax_request');
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-const app = new Vue({
-    el: '#app',
-});
