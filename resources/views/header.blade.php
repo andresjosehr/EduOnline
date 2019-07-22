@@ -41,6 +41,10 @@
                         <a class="nav-link text-white font-weight-bold" href="foro"><i class="fa fa-comments"></i>
                             Foro</a>
                     </li>
+                    <li class="ml-3 nav-item">
+                        <a class="nav-link text-white font-weight-bold" href="survey"><i class="fa fa-list"></i>
+                            Crear Prueba</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ml-auto d-flex align-items-center">
                     <li class="ml-lg-4 nav-item">

@@ -1,0 +1,39 @@
+{
+  "Categories": [
+    {
+      "Name": "Survey-Creator-Overview",
+      "Title": "Survey Creator Overview"
+    },
+    {
+      "Name": "Add-Survey-Creator-into-your-Web-Page",
+      "Title": "Add Survey Creator into you Web Page"
+    },
+    {
+      "Name": "BuilderOverview",
+      "Title": "Overview",
+      "IsHidden": true
+    },
+    {
+      "Name": "api",
+      "Title": "Survey Creator API",
+      "Items": [
+        {
+          "Name": "surveycreator",
+          "Title": "Survey Creator"
+        },
+        {
+          "Name": "questiontoolbox",
+          "Title": "Toolbox"
+        },
+        {
+          "Name": "iquestiontoolboxitem",
+          "Title": "Toolbox Item"
+        },
+        {
+          "Name": "itoolbaritem",
+          "Title": "Toolbar Item"
+        }
+      ]
+    }
+  ]
+}

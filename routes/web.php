@@ -61,7 +61,7 @@ Route::group(['middleware' => ['ValidarSesion']], function () {
 	Route::get('descubrir', function(){return view("descubrir");});
 	Route::get('ranking', function(){return view("ranking");});
 	Route::get('ver-perfil', function(){return view("perfil_usuario");});
-
+	Route::get('survey', function(){return view("survey");});
 });
 
 Route::resource('Prueba', 'PruebaController');
