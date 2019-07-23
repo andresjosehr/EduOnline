@@ -28,6 +28,7 @@
         "parsleyjs": "^2.9.1",
         "popper": "^1.0.1",
         "slick": "^1.12.2",
-        "slick-carousel": "^1.8.1"
+        "slick-carousel": "^1.8.1",
+        "sweetalert": "^2.1.2"
     }
 }

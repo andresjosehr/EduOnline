@@ -7,11 +7,11 @@
 					<div class="row justify-content-center">
 						<div class="col-11 mr-lg-3 mr-xl-0 ml-md-3 ml-lg-0 col-md-5 col-lg-11 profile-header mt-3 mt-lg-0 order-1 order-md-2 order-lg-1">
 							<div class="user_name mt-3 d-flex align-items-center">
-								<i class="fa fa-user"></i>
+								<i class="fa fa-user user_circle"></i>
 								<div class="profile_name ml-3">
 									<a href="perfil">
-										<h5 class="text-white p-0 m-0">Jose Andres</h5>
-										<h6 class="text_name p-0 m-0">andresjosehr</h6>
+										<h5 class="text-white p-0 m-0">{{Auth::user()->nombres}}</h5>
+										<h6 class="text_name p-0 m-0">{{Auth::user()->username}}</h6>
 									</a>
 								</div>
 							</div>
@@ -412,7 +412,14 @@
 	</main>
 
 	<script>
-		window.onload=function(){ EscritorioSlider(); }
+		$(document).ready(function(){
+			EscritorioSlider();
+			VerifyPopup();
+
+			@if (isset($_GET["email-cambiado"]))
+				swal("¡Listo!" ,"Email cambiado existosamente", "success");
+			@endif
+		});
 	</script>
 
 @include("footer");

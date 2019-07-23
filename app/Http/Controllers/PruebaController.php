@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mail;
+use Carbon;
 
 class PruebaController extends Controller
 {
@@ -15,16 +16,8 @@ class PruebaController extends Controller
     public function index()
     {
 
-         return view("emails.reset_pass");
-        // $data = array('name' => "Curso Laravel");
-
-        // Mail::send("emails.reset_pass", $data, function($messaje){
-        //     $messaje->from("joseandreshernandezross@gmail.com", "Curso Laravel");
-        //     $messaje->to("joseandreshernandezross@gmail.com", "Curso Laravel")->subject("Asunto de prueba");
-        // });
-
-        // return "Email enviado exitosamente";
-
+        $mytime = Carbon\Carbon::now();
+        return $mytime->toDateTimeString();
 
     }
 

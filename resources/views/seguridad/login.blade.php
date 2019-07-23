@@ -54,7 +54,7 @@
                         </span>
                          Ingresar con Google
                      </a>
-                    <a href="{{ route('seguridad.facebook', 'facebook') }}"  class="col-12 btn btn-info btn-fb text-center font-weight-bold login_btn_social">
+                    <a onclick='window.open("{{ route('seguridad.facebook', 'facebook') }}", "Ingresar", "width=780,height=410,toolbar=0,scrollbars=0,status=0,resizable=0,location=0,menuBar=0,left=" + 500 + ",top=" + 200);'  class="col-12 btn btn-info btn-fb text-center font-weight-bold login_btn_social">
                         <span class="float-left">
                             <img src="{{ asset('img/icons/facebook.png') }}" alt="facebook">
                         </span> 

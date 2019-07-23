@@ -33,3 +33,17 @@ $('.slider-area').slick({
 			]
 		});
 }
+
+
+window.VerifyPopup=function(){
+	if (window.opener && window.opener !== window) {
+		window.opener.ExitoFacebook();
+	  	window.opener.location.reload(true);
+      	window.close();
+	} 
+}
+
+window.ExitoFacebook=function(){
+	 $(".alert").addClass("d-none");
+	 $(".login_success_messaje").removeClass("d-none");
+}

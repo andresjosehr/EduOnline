@@ -32,3 +32,18 @@ textarea.parsley-error {
 .nounderline:hover{
     text-decoration: none;
 }
+
+.color_prin{
+    color: #46178f;
+}
+
+.dropdown-item_sub_config:hover{
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: black !important;
+    text-decoration: none !important;
+    background-color: transparent !important;
+}

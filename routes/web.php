@@ -45,23 +45,18 @@ Route::post('seguridad/registro', "SeguridadController@Registro");
 
 
 Route::group(['middleware' => ['ValidarSesion']], function () {
-	Route::get('panel-de-control', function () {
-	    echo "Estas Logueado";
-	    echo "<br>";
-	    echo "<a href='cerrar-sesion'>Cerrar Sesion</a>";
-	});
-	Route::resource('perfil/', 'PerfilController');
+	
+	Route::get('escritorio/', 'GeneralController@Escritorio');
+
+	Route::resource('perfil', 'PerfilController');
+
 	Route::get('cerrar_sesion/', 'SeguridadController@CerrarSesion');
 
-
-	Route::get('escritorio', 'GeneralController@Escritorio');
-
-	Route::get('perfil', function(){return view("perfil");});
-	Route::get('foro', function(){return view("foro");});
-	Route::get('descubrir', function(){return view("descubrir");});
-	Route::get('ranking', function(){return view("ranking");});
-	Route::get('ver-perfil', function(){return view("perfil_usuario");});
-	Route::get('survey', function(){return view("survey");});
+	// Route::get('foro', function(){return view("foro");});
+	// Route::get('descubrir', function(){return view("descubrir");});
+	// Route::get('ranking', function(){return view("ranking");});
+	// Route::get('ver-perfil', function(){return view("perfil_usuario");});
+	// Route::get('survey', function(){return view("survey");});
 });
 
 Route::resource('Prueba', 'PruebaController');

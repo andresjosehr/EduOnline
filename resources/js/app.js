@@ -12,11 +12,13 @@ require('./../../node_modules/popper.js/dist/popper');
 require('./../vendor/parsley/parsley');
 require('./../vendor/slick/js/slick');
 require('./../../node_modules/parsleyjs/dist/i18n/es');
+require('./../../node_modules/sweetalert/dist/sweetalert.min.js');
 
 
 
 require('./template');
 require('./login');
+require('./perfil');
 require('./general');
 require('./escritorio');
 require('./reset_password');

@@ -798,7 +798,7 @@ div .border_classes {
   height: fit-content;
 }
 
-i.fa-user {
+i.fa-user.user_circle {
   font-size: 2rem !important;
   padding: 7px 10px;
   border: 4px solid #25076b;
@@ -1364,4 +1364,41 @@ div .search_class form input {
   /* ms-overflow-style: -ms-autohiding-scrollbar; */
   /* margin: 0; */
   /* padding: 0; */
+}
+
+
+.dropdown-menu {
+  animation-name: slidenavAnimation;
+  animation-duration:.2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-name: slidenavAnimation;
+  -webkit-animation-duration:.2s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+
+  -moz-animation-name: slidenavAnimation;
+  -moz-animation-duration:.2s;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-timing-function: ease;
+  -moz-animation-fill-mode: forwards;
+}
+@keyframes slidenavAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slidenavAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

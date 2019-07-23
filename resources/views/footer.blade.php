@@ -2,7 +2,6 @@
 
     @include("loader");
     
-	<script src="{{ asset('js/app.js') }}"></script>
 	
 </body>
 

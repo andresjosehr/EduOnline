@@ -31,7 +31,7 @@ class SeguridadController extends Controller
 	    // Metodo encargado de la redireccion a Facebook
 	    public function redirectToProvider($provider)
 	    {
-	        return Socialite::driver($provider)->redirect();
+	        return Socialite::driver($provider)->asPopup()->redirect();
 	    }
 	    
 	    // Metodo encargado de obtener la información del usuario

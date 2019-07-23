@@ -22,9 +22,12 @@ class UsuariosTable extends Migration
             $table->string('universidad')->nullable();
             $table->string('materia')->nullable();
             $table->string('espacio_trabajo')->nullable();
-            $table->string('email_code')->nullable();
+            $table->string('email_confirm_code')->nullable();
+            $table->string('email_change_code')->nullable();
+            $table->string('nuevo_email')->nullable();
             $table->string('password_code')->nullable();
             $table->string('avatar')->nullable();
+            $table->text('biografia')->nullable();
             $table->string('rol')->nullable();
             $table->timestamps();
         });

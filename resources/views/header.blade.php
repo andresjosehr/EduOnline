@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+    <script src="{{ asset('js/app.js') }}"></script>
+
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     
     <title>Acceso | EduOnline</title>
@@ -52,7 +54,25 @@
                     </li>
                     <li class="col nav-item d-flex justify-content-center pt-3 pt-lg-0">
                         <a href="#"><i class="ml-lg-4 fa fa-bell text-white"></i></a>
-                        <a href="cerrar_sesion"><i class="ml-lg-4 fa fa-cog text-white"></i></a>
+                        {{-- <a href="cerrar_sesion"><i class="ml-lg-4 fa fa-cog text-white"></i></a> --}}
+                        <div class="dropdown">
+                            <a href="#" id="dropdownMenuButton" data-toggle="dropdown"><i class="ml-lg-4 fa fa-cog text-white"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right mt-3 w-auto" aria-labelledby="dropdownMenuButton" style="width: 400px !important">
+                              <span class="dropdown-item font-weight-bold color_prin"><i class="fa fa-user mr-2" style="font-size: 17px"></i> {{Auth::user()->email}}</span>
+                              <a class="dropdown-item dropdown-item_sub_config pl-5" href="#">Mi perfil</a>
+                              <a class="dropdown-item dropdown-item_sub_config pl-5" href="perfil">Editar cuenta</a>
+                              <a class="dropdown-item dropdown-item_sub_config pl-5" href="#">Eliminar mi cuenta</a>
+                              <div class="dropdown-divider"></div>
+                              <span class="dropdown-item font-weight-bold color_prin"><i class="fa fa-folder mr-2" style="font-size: 17px"></i>
+                                @if (Auth::user()->universidad!="") {{Auth::user()->universidad}}
+                                @else Añade tu colegio o universidad
+                                @endif
+                              </span>
+                              <a class="dropdown-item dropdown-item_sub_config pl-5" href="#">Comprar un plan</a>
+                              <div class="dropdown-divider"></div>
+                              <a href="cerrar_sesion" class="dropdown-item text-danger font-weight-bold color_prin"><i class="fa fa-close mr-2" style="font-size: 17px"></i> Cerrar sesion</a>
+                            </div>
+                        </div>
                         <a href="#"><i class="ml-lg-4 fa fa-info-circle text-white"></i></a>
                     </li>
                 </ul>
