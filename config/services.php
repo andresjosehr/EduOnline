@@ -47,7 +47,7 @@ return [
     'facebook' => [
         'client_id' => '2038370349802941',
         'client_secret' => '716aa3a5a5c6841cb38d66bb092e0167',
-        'redirect' => 'http://localhost/Temporal/Workana/EduOnline/public/seguridad/facebook/callback'
+        'redirect' => url("seguridad/facebook/callback"),
     ],
     'google' => [
        //Id suministrado por google        
