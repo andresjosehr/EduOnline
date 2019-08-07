@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Validator;
 use Str;
+use Hash;
 use App\Usuarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -69,17 +70,39 @@ class PerfilController extends Controller
             Usuarios::where("email_change_code", $codigo)->update([
                 "email" => $Usuario->nuevo_email,
                 "nuevo_email" => NULL,
-                "email_change_code" => NULL
+                "email_change_code" => NULL,
+                "email_confirm_code" => NULL
             ]);
 
             Auth::logout();
             Auth::login($Usuario);
 
-            return redirect()->to('escritorio?email-cambiado');
+            return redirect()->to('escritorio?confirmacion-email');
 
-        } else{
+        } 
+
+
+        $Usuario=Usuarios::where("email_confirm_code", $codigo)->first();
+
+        if ($Usuario) {
+
+            Usuarios::where("email_confirm_code", $codigo)->update([
+                "nuevo_email" => NULL,
+                "email_change_code" => NULL,
+                "email_confirm_code" => NULL
+            ]);
+
+            Auth::logout();
+            Auth::login($Usuario);
+
+            return redirect()->to('escritorio?confirmacion-email');
+
+        } 
+
+
+
             return redirect("login");
-        }
+        
     }
 
     /**
@@ -149,5 +172,11 @@ class PerfilController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function CambioPass(Request $request)
+    {
+        
+        Usuarios::where("id", Auth::user()->id)->update(["password" => Hash::make($request->password)]);
+        return "CambioPassExito()";
     }
 }

@@ -33,7 +33,7 @@ Route::post('reset-pass', "SeguridadController@ResetPass");
 Route::get('reset-pass-2/{codigo}', "SeguridadController@ResetPass2");
 Route::post('reset-pass-2/{codigo}', "SeguridadController@ResetPass3");
 
-Route::get('registro', function(){return view("seguridad/registro");});
+Route::get('registro', function(){ return view("seguridad/registro"); });
 
 Route::post('seguridad/registro', "SeguridadController@Registro");
 
@@ -46,17 +46,46 @@ Route::post('seguridad/registro', "SeguridadController@Registro");
 
 Route::group(['middleware' => ['ValidarSesion']], function () {
 	
-	Route::get('escritorio/', 'GeneralController@Escritorio');
+	Route::get('escritorio/', 'GeneralController@Escritorio')->name("escritorio");
 
 	Route::resource('perfil', 'PerfilController');
 
 	Route::get('cerrar_sesion/', 'SeguridadController@CerrarSesion');
+	Route::get('cambio-pass/', function(){return view("perfil.cambio_pass");})->name("cambio-pass");
+	Route::post('cambio-pass/', "PerfilController@CambioPass");
 
-	// Route::get('foro', function(){return view("foro");});
-	// Route::get('descubrir', function(){return view("descubrir");});
+
+	Route::get('crear/', function(){return view("constructores.index");} );
+
+
+	Route::prefix('crear')->group(function () {
+
+		Route::post('clase', "Constructores\LeccionesController@CrearClase" );
+		Route::prefix('lecciones')->group(function () {
+		    	Route::get('/{id_leccion}', function () { return view("constructores.lecciones.crear"); });
+		    	Route::post('subir-foto-leccion', "Constructores\LeccionesController@SubirFotoLeccion");
+		    	Route::post('subir-foto-clase', "Constructores\LeccionesController@SubirFotoClase");
+		    	Route::post('crear-leccion', "Constructores\LeccionesController@CrearLeccion");
+		    	Route::post('eliminar-leccion', "Constructores\LeccionesController@EliminarLeccion");
+		    	Route::post('duplicar-leccion', "Constructores\LeccionesController@DuplicarLeccion");
+		    	Route::post('update-contenido-lecciones', "Constructores\LeccionesController@UpdateContenidoLecciones");
+		});
+	});
+
+
+	Route::get('recursos', function(){return view("consulta_recursos.index");} )->name("recursos");;
+
+	Route::prefix('editor-js')->group(function () {
+    	Route::get('embebed-link', "EditorController@EmbebedLink");
+    	Route::post('upload-img', "EditorController@UploadImg");
+    	Route::post('upload-file', "EditorController@UploadFile");
+	});
+
+	Route::get('foro', function(){return view("foro");})->name("foro");
+	Route::get('descubrir', function(){return view("descubrir");})->name("descubrir");
 	// Route::get('ranking', function(){return view("ranking");});
 	// Route::get('ver-perfil', function(){return view("perfil_usuario");});
-	// Route::get('survey', function(){return view("survey");});
+	Route::get('survey', function(){return view("survey");})->name("survey");
 });
 
 Route::resource('Prueba', 'PruebaController');

@@ -12,6 +12,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-11 col-md-6 order-2 order-md-1">
+                    @csrf
                     <form class="col-12 px-0" id="perfil_form" data-parsley-validate="" enctype="multipart/form-data">
                         <div class="alert alert-success update_profile_success_messaje d-none" role="alert">
                         </div>

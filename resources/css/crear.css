@@ -1,0 +1,57 @@
+	/*! CSS Used from: https://create.kahoot.it/assets/create.sass.2d936a4ee965a6d1284a.css */
+.carousel__background{
+    overflow: hidden;
+    position: absolute;
+    top: 22rem;
+    z-index: 1;
+    width: 80%;
+    height: 32%;
+    background: #1368ce;
+    border-radius: 0.25rem;
+    left: 10.1%;
+}
+.carousel__background--circle{
+	width:50rem;
+    height:50rem;
+    margin:auto;
+    background:#0542b9;
+    border-radius:50%;
+    opacity:.4;
+}
+.row_create{
+	z-index: 99999;
+    position: relative;
+}
+
+.create .card {
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+}
+.create .card:hover {
+  top: -10px;
+}
+.a_card{
+    text-decoration: none;
+}
+.a_card:hover{
+    text-decoration: none;
+}
+
+@media (max-width: 767.98px) {
+    .carousel__background {
+        height: 72%;
+        top: 15rem;
+        left: 3.5%;
+        width: 93%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .carousel__background {
+        height: 108%;
+        top: 21rem;
+        left: 0%;
+        width: 100%;
+    }
+}

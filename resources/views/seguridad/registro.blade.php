@@ -49,6 +49,7 @@
       <div class="row justify-content-center pb-3">
          <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 d-flex align-items-center">
             <form class="col-12 px-0" id="registro_form">
+              @csrf
             	<input type="hidden" id="rol">
                <div class="form-group">
                   <label for="school_university_input">Escribe tus nombres (requerido)</label>

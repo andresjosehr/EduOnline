@@ -1,0 +1,172 @@
+.img_lesson_at_create{
+		border-radius: 12px;
+		margin:0 auto; height: 200px;
+		width: 300px !important;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	#column_apertura_programada{
+		display: none;
+	}
+	.dtp{
+		z-index: 999999 !important;
+		font-family: "Montserrat";
+	}
+	.dtp-content{
+		overflow: hidden;
+		max-width: 315px !important;
+	}
+	.add_new_lesson_card{
+		min-height: 50px;
+	    border: #969696;
+	    border-style: dashed;
+	    cursor: pointer;
+	}
+	.descripcion_leccion{
+		overflow: auto;
+		height: 520px;
+	}
+	.active_lesson{
+		/*filter: drop-shadow(2px 4px 6px black);*/
+	}
+	.icon_lesson_disabled{
+		z-index: 1;
+	    left: 17%;
+	    top: 15px;
+	    position: absolute;
+	    font-size: 50px !important;
+	}
+	.disabled_lesson{
+		filter: grayscale(1);
+		cursor: not-allowed;
+	}
+	.lesson_card{
+		background: #f2f2f2; 
+		border-radius: 10px
+	}
+	.numero_lesson_card{
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+	    background-position: center;
+	    background-size: cover;
+    	background-repeat: no-repeat;
+	}
+
+	.descripcion_leccion::-webkit-scrollbar, .div_editor::-webkit-scrollbar {
+	    width: .4em;
+	}
+	 
+	.descripcion_leccion::-webkit-scrollbar-track, .div_editor::-webkit-scrollbar-track {
+	    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	}
+	 
+	.descripcion_leccion::-webkit-scrollbar-track, .div_editor::-webkit-scrollbar-thumb {
+	  background-color: darkgrey;
+	  outline: 1px solid slategrey;
+	}
+	.crear_leccion{
+		padding-top: 50px;
+		box-shadow: #afafaf 0px 0px 10px 4px;
+    	background: white;
+    	border-radius: 14px;
+	}
+	.col_editor{
+		background-color: #f2f2f2;
+		height: 1000px;
+	}
+	.div_editor{
+		height: 783px;
+    	overflow: auto;
+    	padding: 15px;
+    	height: 100%;
+	}
+	.profile_inf_leccion_create1{
+		font-size: 14px;
+	}
+	.profile_inf_leccion_create2{
+		font-size: 12px;
+	}
+	.create_leccion{
+		font-family: Montserrat;
+	}
+	.a_menu_leccion{
+		padding-left: 40px !important;
+	}
+	.menu_leccion_create{
+		box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 4px 2px
+	}
+	.menu_leccion_icon{
+		font-size: 20px !important;
+	}
+	.create_leccion .icon_create{
+		font-size: 25px !important;
+	}
+	.btn_constructor_leccion{
+		padding-bottom: 2.2rem;
+		padding-bottom: 2.2rem;
+	}
+	.feature_leccion_img{
+		    height: 336px;
+		    background-repeat: no-repeat;
+    		background-size: cover;
+    		background-position: center;
+	}
+	.descripcion_leccion{
+		padding-left: 2rem !important;
+		padding-right: 2rem !important;
+	}
+
+	.move_lesson{
+		cursor: -webkit-grab;
+		margin-top: 19px;
+    	margin-right: 5px;
+	}
+
+	.feeature_img_lesson_overlay {
+  background: rgba(38, 38, 38, 0.75);
+  height: 100%;
+  opacity: 0;
+  transition: opacity .5s ease-out;
+}
+
+.feature_leccion_img:hover .feeature_img_lesson_overlay {
+  opacity: 1;
+}
+
+.feeature_img_lesson_custom-button:hover {
+	color: white !important;
+	text-decoration: none !important;
+}
+
+.feeature_img_lesson_custom-button {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  height: 20px;
+  width: auto;
+  padding: 5px;
+  color: #fff !important;
+  padding-bottom: 26px;
+}
+
+.feeature_img_lesson_overlay {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+	@media (min-width: 991.98px) {
+
+		#body_create_lesson{
+			overflow: hidden;
+		}
+	}
+
+
+@media (max-width: 991.98px) {
+		.container_child{
+			width: 100%;
+		}
+	}
+

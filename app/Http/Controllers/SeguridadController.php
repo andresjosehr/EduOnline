@@ -100,20 +100,21 @@ class SeguridadController extends Controller
 				
 
 
-				// //Si no lo tiene crea el usuatrio
-				// if(empty($userInDB)) {
+				//Si no lo tiene crea el usuatrio
+				if(empty($userInDB)) {
 
-				// 	$userInDB = new User;
-				//     $userInDB->email = $socialUser->email;
-				// }
+					$userInDB = new User;
+				    $userInDB->email = $socialUser->email;
+				}
 
-				// $userInDB->name = $socialUser->name; //Actualiza el name
-				// $userInDB->save();
+				$userInDB->name = $socialUser->name; //Actualiza el name
+				$userInDB->save();	
+
 					        
 
-				// auth()->login($userInDB, true);//Autentica al usuario
+				auth()->login($userInDB, true);//Autentica al usuario
 					        
-				// return redirect('/home');//Redirecciona al home
+				return redirect('/home');//Redirecciona al home
 		}
 
 
@@ -266,7 +267,7 @@ class SeguridadController extends Controller
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		///////
-		/////// Funcion de registro de usuario
+		/////// Funcion de registro de usuario por el formulario
 		/////// 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -282,8 +283,21 @@ class SeguridadController extends Controller
 	 
 	        if ($v->fails()) return "MostrarErrores(`".$v->errors()."`)";
 
+	        $Request->merge(["email_confirm_code" => Str::random(50)]);
+	        $Request->merge(["password" => Hash::make($Request->password)]);
+
 			Usuarios::insert($Request->except("accept_terms_checkbox_input"));
 			Auth::login(Usuarios::where("email", $Request->email)->first());
+
+			$EnvioEmail = new EmailController();
+			$EnvioEmail->confirmEmail($Request->email, $Request->email_confirm_code);
+
 			return "ExitoRegistro()";
 		}
+
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		///////
+		/////// Fin
+		/////// 
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

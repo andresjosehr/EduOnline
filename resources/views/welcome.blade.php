@@ -1,99 +1,89 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+@include("header")
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+<style>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
 
-            .full-height {
-                height: 100vh;
-            }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+.overlay {
+  background: rgba(105, 105, 105, 0.75);
+  height: 100%;
+  opacity: 0;
+  transition: opacity .5s ease-out;
+}
 
-            .position-ref {
-                position: relative;
-            }
+.box:hover .overlay {
+  opacity: 1;
+}
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+.hover-text {
+  font-family: Helvetica;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  padding: 15px;
+}
 
-            .content {
-                text-align: center;
-            }
+.box {
+  height: 175px;
+  width: 200px;
+  background-image: url(http://myzerly.com/img/solidify-sketches/hotspot-4.png);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 
-            .title {
-                font-size: 84px;
-            }
+.custom-button {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  height: 20px;
+  width: auto;
+  padding: 5px;
+  color: #fff !important;
+}
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+.box {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+}
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+.overlay {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+</style>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+<div class="row">
+  <div class="small-12 medium-4 column">
+  
+ <!--This is the important block of code for the hover effect. The rest were replicated to demonstrate that it works in a grid system. ***You don't need Foundation to make this work.***-->
+    <div class="box">
+      <div class="overlay">
+        <p class="hover-text">This is sample hover text</p>
+        <a class="custom-button" href="http://myzerly.com" target="_blank">click me</a>
+      </div>
+    </div>
+<!-- End code block-->
+    
+  </div>
+  <div class="small-12 medium-4 column">
+    <div class="box">
+      <div class="overlay">
+        <p class="hover-text">This is sample hover text</p>
+        <a class="custom-button" href="http://myzerly.com" target="_blank">click me</a>
+      </div>
+    </div>
+  </div>
+  <div class="small-12 medium-4 column">
+    <div class="box">
+      <div class="overlay">
+        <p class="hover-text">This is sample hover text</p>
+        <a class="custom-button" href="http://myzerly.com" target="_blank">click me</a>
+      </div>
+    </div>
+  </div>
+</div>

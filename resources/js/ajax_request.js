@@ -30,7 +30,7 @@ window.AjaxFileRequest=function (metodo, ruta, idArchivo) {
 
     var file_data = $('#'+idArchivo).prop('files')[0];   
     var form_data = new FormData();     
-    form_data.append('_method', "PUT");             
+    form_data.append('_method', metodo);             
     form_data.append('file', file_data);
 
     $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });                   
@@ -42,7 +42,7 @@ window.AjaxFileRequest=function (metodo, ruta, idArchivo) {
         contentType: false,
         processData: false,
         data: form_data,                         
-        type: metodo,
+        type: "POST",
         success: function(result) {
 			$(".loader").hide();
 			eval(result);

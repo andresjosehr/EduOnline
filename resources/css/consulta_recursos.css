@@ -1,0 +1,50 @@
+.recursos_card:hover, .recursos_card:focus {
+  animation: boing 300ms ease-in-out;
+  cursor: pointer;
+  
+
+}
+
+@media (min-width: 992px) { 
+  .recursos_btn_sidebar{
+   display: none !important;
+  }
+}
+@media (max-width: 992px) { 
+    .recursos_sidebar{
+      position: fixed !important;
+      z-index: 999;
+      background: white;
+      height: 100%;
+      border: 0px;
+      width: 75% !important;
+      display: none;
+    }
+
+    .recursos_sidebar_list_active:after{
+      margin-top: 82px;
+    }
+}
+
+@media (max-width: 767.98px) { 
+.recurso_titulo{
+      font-size: 16px;
+    }
+    .recursos_div_btn_visualizar{
+      text-align: center;
+    }
+}
+
+
+
+@keyframes boing {
+  15%, 40%, 75%, 100% {
+      transform-origin: center center;
+  }
+  50% {
+      transform: scale(0.995, 0.995);
+  }
+  100% {
+      transform: scale(1, 1);
+  }
+}

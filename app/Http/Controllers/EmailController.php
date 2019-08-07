@@ -25,12 +25,27 @@ class EmailController extends Controller
     public function ChangeEmail($Email, $CodigoEmail)
     {
 
-    	$Data = array('Email' => $Email, "Codigo" => $CodigoEmail);
+        $Data = array('Email' => $Email, "Codigo" => $CodigoEmail);
 
-        Mail::send("emails.confirm_email", ["Data" => $Data], function($mensaje) use ($Data) {
+        Mail::send("emails.change_email", ["Data" => $Data], function($mensaje) use ($Data) {
             $mensaje->from("joseandreshernandezross@gmail.com", "Curso Laravel");
             $mensaje->to($Data["Email"], "Cambio de Email")->subject("Cambio de Email");
         });
 
     }
+
+
+
+    public function confirmEmail($Email, $CodigoEmail)
+    {
+
+        $Data = array('Email' => $Email, "Codigo" => $CodigoEmail);
+
+        Mail::send("emails.confirm_email", ["Data" => $Data], function($mensaje) use ($Data) {
+            $mensaje->from("joseandreshernandezross@gmail.com", "Curso Laravel");
+            $mensaje->to($Data["Email"], "Confirmacion de email")->subject("Confirmacion de Email");
+        });
+
+    }
 }
+

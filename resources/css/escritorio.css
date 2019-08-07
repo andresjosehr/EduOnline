@@ -2,3 +2,35 @@
 .progress-bar{
 	background: transparent !important;
 }
+
+.numero_pruebas_presentadas{
+	margin-left: .35px;
+    margin-top: -.5px;
+}
+
+.ultimas_clases_shadow{
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px;
+}
+.checkList::after {
+	margin-left: 15px;
+}
+
+.guia_inicio_pasos{
+	width: 90% !important;
+}
+
+
+@media (min-width: 1200px) { 
+	.es_profile_menu{
+		max-width: 82% !important;
+	}
+ }
+
+
+ @media (min-width: 992px) and (max-width: 1199.98px) { 
+
+	.es_profile_menu{
+		max-width: 77% !important;
+    margin-right: 0px !important;
+	}
+ }

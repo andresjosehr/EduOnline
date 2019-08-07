@@ -13,4 +13,8 @@ const mix = require('laravel-mix');
 
 mix.setResourceRoot ('../')
 	.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+    .browserSync({
+   	  proxy: "localhost",
+    files: ['resources/views/**/*.php', 'resources/views/*.php', 'public/js/*.js', 'public/css/*.css']
+   });

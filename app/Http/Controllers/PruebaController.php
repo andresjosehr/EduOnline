@@ -16,8 +16,9 @@ class PruebaController extends Controller
     public function index()
     {
 
-        $mytime = Carbon\Carbon::now();
-        return $mytime->toDateTimeString();
+
+          return view("welcome");
+
 
     }
 

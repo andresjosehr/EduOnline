@@ -334,11 +334,20 @@
                                                    <tr>
                                                       <td align="center" class="mcnButtonBlockInner" id="td_73c6_10" valign="top" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding-top: 0;padding-right: 18px;padding-bottom: 18px;padding-left: 18px;">
                                                          <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" id="table_73c6_12" style="mso-table-lspace: 0;mso-table-rspace: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border-radius: 48px;background-color: #17a2b8;border-collapse: separate !important;">
-                                                            <tbody>
+                                                            <tbody class="mcnButtonBlockOuter">
                                                                <tr>
-                                                                  <td align="center" class="mcnButtonContent" id="td_73c6_11" valign="middle" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-family: 'Asap', Helvetica, sans-serif;font-size: 16px;padding-top: 24px;padding-right: 48px;padding-bottom: 24px;padding-left: 48px;">
-                                                                     <a class="mcnButton " href="{{Request::root()}}/reset-pass-2/{{$Data['Codigo']}}" id="a_73c6_3" target="_blank" title="Review Lingo kit
-                                                                        invitation" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;display: block;color: #FFFFFF;font-weight: normal;text-decoration: none;letter-spacing: 1px;line-height: 100%;text-align: center;text-transform: uppercase;">Resetear contraseña</a>
+                                                                  <td align="center" class="mcnButtonBlockInner" id="td_73c6_10" valign="top" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding-top: 0;padding-right: 18px;padding-bottom: 0px !important;padding-left: 18px;">
+                                                                     <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" id="table_73c6_12" style="mso-table-lspace: 0;mso-table-rspace: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border-radius: 48px;background-color: #17a2b8;border-collapse: separate !important;">
+                                                                        <tbody>
+                                                                           <tr>
+                                                                              <td align="center">
+                                                                                <a target="_blank" style="    mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-family: 'Asap', Helvetica, sans-serif;font-size: 16px;padding-top: 0px;padding-right: 56px;padding-bottom: 36px;padding-left: 179px;text-decoration: none;" href='{{Request::root()}}/reset-pass-2/{{$Data['Codigo']}}'>
+                                                                                 <span class="mcnButton" id="a_73c6_3" target="_blank" title="Review Lingo kit invitation" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;display: block;color: #FFFFFF;font-weight: normal;text-decoration: none;letter-spacing: 1px;line-height: 100%;text-align: center;text-transform: uppercase;">Confirmar Email</span>
+                                                                                 </a>
+                                                                              </td>
+                                                                           </tr>
+                                                                        </tbody>
+                                                                     </table>
                                                                   </td>
                                                                </tr>
                                                             </tbody>

@@ -5,7 +5,7 @@
 			<div class="row mt-3 d-flex justify-content-center">
 				<div class="col-lg-3 p-md-0 order-3 order-lg-1">
 					<div class="row justify-content-center">
-						<div class="col-11 mr-lg-3 mr-xl-0 ml-md-3 ml-lg-0 col-md-5 col-lg-11 profile-header mt-3 mt-lg-0 order-1 order-md-2 order-lg-1">
+						<div class="col-11 mr-lg-3 mr-xl-0 ml-md-3 ml-lg-0 col-md-5 col-lg-11 profile-header mt-3 mt-lg-0 order-1 order-md-2 order-lg-1 px-0 es_profile_menu">
 							<div class="user_name mt-3 d-flex align-items-center">
 								<i class="fa fa-user user_circle"></i>
 								<div class="profile_name ml-3">
@@ -123,7 +123,7 @@
 							<div class="progress-bar bg-green-dark p-2">
 								<div class="d-flex">
 									<p class="d-block text-white font-weight-bold">
-										<span>Get started</span>
+										<span>Guia de Inicio</span>
 									</p>
 									<span class="font-weight-bold mx-2">1/3</span>
 									<div class="content-bar-progress-profile">
@@ -132,18 +132,18 @@
 								</div>
 							</div>
 							<div class="body-step p-3">
-								<div class="d-flex container w-75 p-0 justify-content-around">
+								<div class="d-flex container p-0 justify-content-around guia_inicio_pasos">
 									<div class="grid-flex w-100 text-left">
 										<div class="d-flex">
 											<div>
 												<div class="checkList"></div>
 												<div disabled class="border-number bg-white position-absolute rounded-circle text-center">
 													1</div>
-												<img src="img/photos/11.png" alt="Create account" class="border-img-status rounded-circle mb-2 ml-3">
+												<img src="http://mesuthazen.com/wp-content/themes/privado/img/avatar.png" alt="Create account" class="border-img-status rounded-circle mb-2 ml-3">
 											</div>
 											<div class="line-green"></div>
 										</div>
-										<button type="button" class="btn btn-light btn-get-started font-weight-bold btn-disabled" disabled>Create account</button>
+										<button type="button" class="btn btn-light btn-get-started font-weight-bold btn-disabled" disabled>Crear Cuenta</button>
 									</div>
 									<div class="grid-flex w-100 text-center">
 										<div class="d-flex">
@@ -151,11 +151,11 @@
 											<div class="">
 												<div class="number-position bg-white position-absolute rounded-circle text-center text-black">
 													2</div>
-												<img src="img/photos/11.png" alt="Create quiz" class="border-img-status rounded-circle mb-2">
+												<img src="https://i.pinimg.com/236x/f9/b5/6d/f9b56d9facaca35f60216cf8c1ac1a23.jpg" alt="Create quiz" class="border-img-status rounded-circle mb-2">
 											</div>
 											<div class="line-green"></div>
 										</div>
-										<button type="button" class="btn btn-light btn-get-started font-weight-bold">Create quiz</button>
+										<button type="button" class="btn btn-light btn-get-started font-weight-bold">Create una clase</button>
 									</div>
 									<div class="grid-flex w-100 text-right">
 										<div class="d-flex">
@@ -163,10 +163,10 @@
 											<div class="">
 												<div class="number-position bg-white position-absolute rounded-circle text-center text-black">
 													3</div>
-												<img src="img/photos/11.png" alt="Host game" class="border-img-status rounded-circle mb-2">
+												<img src="https://freerangestock.com/sample/118832/clipboard-and-checklist-vector-icon.jpg" alt="Host game" class="border-img-status rounded-circle mb-2">
 											</div>
 										</div>
-										<button type="button" class="btn btn-light btn-get-started font-weight-bold">Host game</button>
+										<button type="button" class="btn btn-light btn-get-started font-weight-bold">Examen</button>
 									</div>
 								</div>
 							</div>
@@ -182,7 +182,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row mt-lg-4 mt-0 pt-3">
+					<div class="row mt-0 pt-3">
 						<div class="col-lg-12">
 							<div class="container bg-white_shadows">
 								<strong>
@@ -228,7 +228,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row pt-3 mt-lg-4 mt-0 pb-4">
+					<div class="row pt-3 mt-0 pb-4">
 						<div class="col-lg-12">
 							<div class="container bg-white_shadows">
 								<div class="row">
@@ -315,40 +315,40 @@
 						</strong>
 						<div class="row border-top mb-2">
 						</div>
-						<div class=" border d-flex justify-content-between">
+						<div class=" border d-flex justify-content-between ultimas_clases_shadow rounded">
 							<div class="ml-2 d-flex align-items-center">
 								<div class="lastest_test_done">
-									<p class="">1</p>
+									<p class="numero_pruebas_presentadas">1</p>
 								</div>
 
 								<p class="small py-3 font-weight-bold ml-3">lorem impsum</p>
 							</div>
 							<p class="small text-blue-light mr-4 font-weight-bold py-3">Calificacion</p>
 						</div>
-						<div class=" border mt-2 d-flex justify-content-between">
+						<div class=" border mt-2 d-flex justify-content-between ultimas_clases_shadow rounded">
 							<div class="ml-2 d-flex align-items-center">
 								<div class="lastest_test_done">
-									<p class="">2</p>
+									<p class="numero_pruebas_presentadas">2</p>
 								</div>
 
 								<p class="small py-3 font-weight-bold ml-3">lorem impsum</p>
 							</div>
 							<p class="small text-blue-light mr-4 font-weight-bold py-3">Calificacion</p>
 						</div>
-						<div class=" border mt-2 d-flex justify-content-between">
+						<div class=" border mt-2 d-flex justify-content-between ultimas_clases_shadow rounded">
 							<div class="ml-2 d-flex align-items-center">
 								<div class="lastest_test_done">
-									<p class="">3</p>
+									<p class="numero_pruebas_presentadas">3</p>
 								</div>
 
 								<p class="small py-3 font-weight-bold ml-3">lorem impsum</p>
 							</div>
 							<p class="small text-blue-light mr-4 font-weight-bold py-3">Calificacion</p>
 						</div>
-						<div class=" border mt-2 d-flex justify-content-between">
+						<div class=" border mt-2 d-flex justify-content-between ultimas_clases_shadow rounded">
 							<div class="ml-2 d-flex align-items-center">
 								<div class="lastest_test_done">
-									<p class="">4</p>
+									<p class="numero_pruebas_presentadas">4</p>
 								</div>
 								<p class="small py-3 font-weight-bold ml-3">lorem impsum</p>
 							</div>
@@ -416,8 +416,8 @@
 			EscritorioSlider();
 			VerifyPopup();
 
-			@if (isset($_GET["email-cambiado"]))
-				swal("¡Listo!" ,"Email cambiado existosamente", "success");
+			@if (isset($_GET["confirmacion-email"]))
+				swal("¡Listo!" ,"Confirmacion de email exitosa", "success");
 			@endif
 		});
 	</script>

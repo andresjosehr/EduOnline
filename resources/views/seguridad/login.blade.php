@@ -23,6 +23,7 @@
                         </div>
                     @endif
                     <form id="login_form" method="POST" class="pt-2" data-parsley-validate="">
+                        @csrf
                         <div class="form-group">
                             <input type="text" class="form-control" id="user" placeholder="&#xf007; Nombre de usuario o Email" required="">
                         </div>
