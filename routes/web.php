@@ -61,8 +61,9 @@ Route::group(['middleware' => ['ValidarSesion']], function () {
 	Route::prefix('crear')->group(function () {
 
 		Route::post('clase', "Constructores\LeccionesController@CrearClase" );
+
 		Route::prefix('lecciones')->group(function () {
-		    	Route::get('/{id_leccion}', function () { return view("constructores.lecciones.crear"); });
+		    	Route::get('/{id_leccion}', "Constructores\LeccionesController@CrearConsultarClase");
 		    	Route::post('subir-foto-leccion', "Constructores\LeccionesController@SubirFotoLeccion");
 		    	Route::post('subir-foto-clase', "Constructores\LeccionesController@SubirFotoClase");
 		    	Route::post('crear-leccion', "Constructores\LeccionesController@CrearLeccion");
@@ -89,3 +90,7 @@ Route::group(['middleware' => ['ValidarSesion']], function () {
 });
 
 Route::resource('Prueba', 'PruebaController');
+
+Route::get('refresh-csrf', function(){
+    return csrf_token();
+});

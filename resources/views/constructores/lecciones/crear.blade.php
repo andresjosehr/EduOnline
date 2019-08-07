@@ -18,7 +18,7 @@
             <div class="descripcion_leccion p-3 ml-3">
                <div class="row">
                   <div class="col-12">
-                     <h4 class="font-weight-bold">Mi primera encuesta</h4>
+                     <h4 class="font-weight-bold">{{$Data["Clase"]->nombre}}</h4>
                   </div>
                   <div class="col-6 my-3">
                      <button type="button" class="btn btn-success btn-get-started font-weight-bold btn_constructor_leccion">Guardar</button>
@@ -76,7 +76,7 @@
                   <div class="col-10 px-0 mt-lg-n2">
                      <div class="mt-4">
                         <p class="font-weight-bold profile_inf_leccion_create1 mb-0">{{Auth::user()->username}}</p>
-                        <p class=" profile_inf_leccion_create2">Fecha de creacion: 000/00/00</p>
+                        <p class=" profile_inf_leccion_create2">Fecha de creacion: {{$Data["Clase"]->created_at}}</p>
                      </div>
                   </div>
                </div>

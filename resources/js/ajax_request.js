@@ -56,3 +56,22 @@ window.AjaxFileRequest=function (metodo, ruta, idArchivo) {
 
 }
 
+window.RefreshToken=function(){
+
+
+		window.csrfToken = $('[name="csrf_token"]').attr('content');
+
+         window.refreshToken2=function(){
+        	console.log("Refrescandose")
+            $.get('refresh-csrf').done(function(data){
+                window.csrfToken = data; // the new token
+            });
+        }
+
+        setInterval(window.refreshToken2, 15000); // 1 hour 
+
+}
+
+window.RefreshToken();
+
+

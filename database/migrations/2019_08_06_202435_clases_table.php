@@ -17,6 +17,7 @@ class ClasesTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('categoria');
+            $table->string('img');
             $table->string('id_usuario');
             $table->timestamps();
         });

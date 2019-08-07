@@ -13,7 +13,7 @@ class LeccionesController extends Controller
 
     public function CrearClase(Request $Request)
     {
-        $Request->merge(["id_usario" => Auth::user()->id]);
+        $Request->merge(["id_usuario" => Auth::user()->id]);
         Clases::create($Request->all());
 
         $Clase=Clases::orderBy("id", "DESC")->first();
@@ -21,6 +21,13 @@ class LeccionesController extends Controller
         return "ClaseCreadaExistosamente('".$Clase->id."')";
 
 
+    }
+
+    public function CrearConsultarClase($id)
+    {   
+        $Data["Clase"]=Clases::where("id", $id)->first();
+
+        return view("constructores.lecciones.crear", ["Data" => $Data]);
     }
 
     public function SubirFotoLeccion(Request $request)
@@ -64,6 +71,9 @@ class LeccionesController extends Controller
 
     public function SubirFotoClase(Request $request)
     {
+
+        return url()->previous();
+        
         if (($request->hasFile('file'))) {
 
 
