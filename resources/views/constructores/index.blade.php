@@ -31,7 +31,7 @@
 							    <h2 class="card-title text-black">Examen</h2>
 							    <p class="card-text">Ideal para evaluar.</p>
 							    <div class="mt-3">
-							    	<img width="100" src="http://chittagongit.com/images/list-icon-png/list-icon-png-17.jpg" alt="">
+							    	<img width="100" src="https://icon-library.net/images/icon-test/icon-test-11.jpg" alt="">
 							    </div>
 							    <div class="mt-4">
 							    	<button type="button" class="btn btn-success btn-get-started font-weight-bold">Crear</button>

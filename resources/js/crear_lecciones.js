@@ -58,7 +58,6 @@ window.LeccionCreadaExitosamente=function(lesson){
 	$(".descripcion_leccion").animate({ scrollTop: $(document).height() }, 350);
 	$("#listado_lecciones .new_lesson").removeClass("new_lesson");
 
-	window.ContenidoDeClases={}
 	window.ContenidoDeClases[lesson.id]={"time":lesson.id,"blocks":[],"version":lesson.id};
 
 
@@ -70,11 +69,15 @@ window.LeccionCreadaExitosamente=function(lesson){
 window.ChangeContent=function(id){
 
 	$(".codex-editor__redactor").hide(600, function(){
-		window.SalvarDatosEditor();
-		window.LeccionSeleccionada=id;
-		window.editor.render(window.ContenidoDeClases[id]);
+		window.SalvarDatosEditor(id);
+
 		$(".codex-editor__redactor").show(600)
 	})
+
+	$("#listado_lecciones .col-12.my-2").map(function(){
+		$(this).removeClass("lesson_active");
+	});
+	$("#"+id).addClass("lesson_active");
 }
 
 window.ExitoUploadImgSubClase=function(img){
@@ -114,6 +117,9 @@ window.DuplicarLeccion=function(id){
 
   var Data={};
   Data["nombre"]=$("#"+id+" .titulo_lesson").text();
+
+  Data["contenido"]= JSON.stringify(window.ContenidoDeClases[id]);
+
   Data["estado_leccion"]=$("#"+id).attr("data-estado_leccion");
   var str = $("#"+id+" .numero_lesson_card").css("background-image");
   var res = str.split('/');
@@ -129,7 +135,6 @@ window.DuplicarLeccion=function(id){
 		i++;
 	});
 
-	console.log(Data)
 
 
   AjaxRequest("POST", window.url+"/crear/lecciones/duplicar-leccion", Data);
@@ -289,8 +294,10 @@ window.UpdateLesson=function(){
 
 		swal.close()
 		swal("Listo", "Leccion Actualizada exitosamente", "success")
-		//Envio de datos al servidor
-		// AjaxRequest('POST', window.url+'/crear/lecciones/update-leccion', Data);
+
+
+		AjaxRequest('POST', window.url+'/crear/lecciones/update-leccion', Data);
+		$(".loader").hide();
 }
 
 
@@ -420,6 +427,8 @@ window.DefaultCreateLesson=function(){
 			moves: function (el, container, handle) {
 			    return handle.classList.contains('move_lesson');
 			}
+		}).on('drop', function (el) {
+			window.OrdenarLecciones()
 		});
 
 		$("html, body, main, .container, .container_child, .descripcion_leccion, .col_editor").css("height", "100%")
@@ -428,4 +437,73 @@ window.DefaultCreateLesson=function(){
 
 		$(".descripcion_leccion").css("max-height", altura+"px")
 
+}
+
+window.EliminarClase=function(){
+	swal({
+	  title: "¡Espera!",
+	  text: "¿Estas seguro de eliminar esta clase? Toda la informacion asociada a ella sera eliminada y no podra recuperarse",
+	  icon: "warning",
+	  buttons: true,
+	  dangerMode: true,
+	})
+	.then((willDelete) => {
+	  if (willDelete) {	
+	  	window.AjaxRequest("POST", window.url+"/eliminar-clase", '0');
+	  } else {
+	    swal.close()
+	  }
+	});
+}
+
+window.LeccionEliminadaExitosamente=function(){
+
+	swal("Listo", "Clase Eliminada Exitosamente", "success");
+	window.location.href = window.url+`/escritorio`
+
+
+}
+
+window.OrdenarLecciones=function(){
+	var Data={};
+	Data["Posiciones"] = {}; var i=1;
+	$("#listado_lecciones .col-12.my-2").map(function(){
+		Data["Posiciones"][$(this).attr("id")]=i;
+		$(this).find("small").text("Leccion "+i)
+		i++;
+	});
+
+
+	window.AjaxRequest("POST", window.url+"/crear/lecciones/ordenar-lecciones", Data);
+	$(".loader").hide();
+
+}
+
+
+window.EliminarClaseRecursos=function(id){
+
+	swal({
+	  title: "¡Espera!",
+	  text: "¿Estas seguro de eliminar esta clase? Toda la informacion asociada a ella sera eliminada y no podra recuperarse",
+	  icon: "warning",
+	  buttons: true,
+	  dangerMode: true,
+	})
+	.then((willDelete) => {
+	  if (willDelete) {	
+
+	  	var Data={}
+	  	Data["id"]=id;
+	  	window.AjaxRequest("POST", window.url+"/eliminar-clase-recursos", Data);
+	  	$(".loader").hide();
+	  	$("#clase_"+id).hide(300, function(){
+		$("#clase_"+id).remove();
+		swal("Listo", "Clase eliminada satisfactoriamente", 'success')
+
+
+	})
+	  } else {
+	    swal.close()
+	  }
+	});
 }

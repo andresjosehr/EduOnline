@@ -91,23 +91,23 @@
 
                <div class="col-12 mb-4"> 
                   <span class="font-weight-bold recursos_number">Recursos: (3)</span>
-                  <a href="#" class="ml-4 text-success">Crear nuevo</a>
+                  <a href="{{Request::root()}}/crear" class="ml-4 text-success">Crear nuevo</a>
                </div>
-
-               <div class="col-12 mb-4"> 
+                @foreach ($Data["Clases"] as $Clase)
+                  <div class="col-12 mb-4" id="clase_{{$Clase->id}}"> 
                   <div class="card w-100 recursos_card">
                     <div class="card-body p-0">
                       <div class="row mx-0">
                          <div class="col-3 feature_img_recurso px-0">
-                           <div class="feature_img_recurso_2" style="background-image: url({{ asset('img/Edu.png') }});">
-                              <p class="recurso_info_img_featura py-1 px-3 font-weight-bold d-none d-md-block" align="right">2 Preguntas</p>
+                           <div class="feature_img_recurso_2" style="background-image: url({{ asset('img/lecciones_img') }}/{{$Clase->img}});">
+                              <p class="recurso_info_img_featura py-1 px-3 font-weight-bold d-none d-md-block" align="right">{{count($Clase->Lecciones)}} Lecciones</p>
                            </div>
                          </div>
                          <div class="col-9 px-0">
                             <div class="row pt-3 h-100 recurso_row_info_card">
                                <div class="pl-4 col-9">
-                                  <h5 class="font-weight-bold ">Titulo del recurso</h5>
-                                  <p class="font-weight-bold mt-n1 recurso_user">andresjosehr</p>
+                                  <h5 class="font-weight-bold ">{{$Clase->nombre}}</h5>
+                                  <p class="font-weight-bold mt-n1 recurso_user">{{Auth::user()->username}}</p>
                                </div>
                                <div class="col-3 pr-4" align="right">
                                   <i onclick="AddFavoriteLesson(this)" class="fa fa-star-o mx-2 text-secondary icon_create cursor-pointer d-none d-md-inline-block"></i>
@@ -122,12 +122,7 @@
                                            Compartir</a>
                                         </div>
                                         <div class="col-12">
-                                           <a class="dropdown-item dropdown-item_sub_config text-secondary font-weight-bold px-3 py-3 a_menu_leccion" href="#">
-                                           <i class="fa fa-copy pr-3 menu_leccion_icon"></i>
-                                           Duplicar</a>
-                                        </div>
-                                        <div class="col-12">
-                                           <a class="dropdown-item dropdown-item_sub_config text-secondary font-weight-bold px-3 py-3 a_menu_leccion" href="#">
+                                           <a onclick="EliminarClaseRecursos({{$Clase->id}})" class="dropdown-item dropdown-item_sub_config text-secondary font-weight-bold px-3 py-3 a_menu_leccion" href="#">
                                            <i class="fa fa-trash-o pr-3 menu_leccion_icon"></i>
                                            Eliminar</a>
                                         </div>
@@ -140,7 +135,7 @@
                                         <p class="font-weight-bold">Acceso: <span>Publico</span></p>
                                      </div>
                                      <div class="col-md-6 col-12 mt-2 recursos_div_btn_visualizar" align="right">
-                                        <button type="button" class="btn btn-success btn-get-started font-weight-bold">Visualizar</button>
+                                        <a href="{{URL::to('/crear/lecciones')}}/{{$Clase->id}}" class="btn btn-success btn-get-started font-weight-bold">Visualizar</a>
                                      </div>
                                   </div>
                                </div>
@@ -150,6 +145,13 @@
                     </div>
                   </div>
                </div>
+                @endforeach
+                @if (count($Data["Clases"])<1)
+                <div class="col-12 mt-5" align="center">
+                  <h2 class="font-weight-bold mt-3">Aun no tienes recursos creados</h2>
+                  <a href="{{URL::to('/crear')}}" class="btn btn-success btn-get-started font-weight-bold mt-2">Crear un recurso nuevo</a>
+                </div>
+                @endif
             </div>
          </div>
       </div>
@@ -291,6 +293,10 @@
 
       .recursos_sidebar_list:hover{
          color: black;
+      }
+      .btn-get-started:hover{
+        color: white !important;
+
       }
 </style>
 @include("footer")

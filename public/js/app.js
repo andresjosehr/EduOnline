@@ -27552,21 +27552,6 @@ window.AjaxFileRequest = function (metodo, ruta, idArchivo) {
   });
 };
 
-window.RefreshToken = function () {
-  window.csrfToken = $('[name="csrf_token"]').attr('content');
-
-  window.refreshToken2 = function () {
-    console.log("Refrescandose");
-    $.get('refresh-csrf').done(function (data) {
-      window.csrfToken = data; // the new token
-    });
-  };
-
-  setInterval(window.refreshToken2, 15000); // 1 hour 
-};
-
-window.RefreshToken();
-
 /***/ }),
 
 /***/ "./resources/js/app.js":
@@ -27698,7 +27683,6 @@ window.LeccionCreadaExitosamente = function (lesson) {
     scrollTop: $(document).height()
   }, 350);
   $("#listado_lecciones .new_lesson").removeClass("new_lesson");
-  window.ContenidoDeClases = {};
   window.ContenidoDeClases[lesson.id] = {
     "time": lesson.id,
     "blocks": [],
@@ -27710,11 +27694,13 @@ window.LeccionCreadaExitosamente = function (lesson) {
 
 window.ChangeContent = function (id) {
   $(".codex-editor__redactor").hide(600, function () {
-    window.SalvarDatosEditor();
-    window.LeccionSeleccionada = id;
-    window.editor.render(window.ContenidoDeClases[id]);
+    window.SalvarDatosEditor(id);
     $(".codex-editor__redactor").show(600);
   });
+  $("#listado_lecciones .col-12.my-2").map(function () {
+    $(this).removeClass("lesson_active");
+  });
+  $("#" + id).addClass("lesson_active");
 };
 
 window.ExitoUploadImgSubClase = function (img) {
@@ -27742,6 +27728,7 @@ window.DuplicarLeccion = function (id) {
   });
   var Data = {};
   Data["nombre"] = $("#" + id + " .titulo_lesson").text();
+  Data["contenido"] = JSON.stringify(window.ContenidoDeClases[id]);
   Data["estado_leccion"] = $("#" + id).attr("data-estado_leccion");
   var str = $("#" + id + " .numero_lesson_card").css("background-image");
   var res = str.split('/');
@@ -27756,7 +27743,6 @@ window.DuplicarLeccion = function (id) {
     $(this).find("small").text("Leccion " + i);
     i++;
   });
-  console.log(Data);
   AjaxRequest("POST", window.url + "/crear/lecciones/duplicar-leccion", Data);
   $(".loader").hide();
 };
@@ -27883,8 +27869,9 @@ window.UpdateLesson = function () {
   }
 
   swal.close();
-  swal("Listo", "Leccion Actualizada exitosamente", "success"); //Envio de datos al servidor
-  // AjaxRequest('POST', window.url+'/crear/lecciones/update-leccion', Data);
+  swal("Listo", "Leccion Actualizada exitosamente", "success");
+  AjaxRequest('POST', window.url + '/crear/lecciones/update-leccion', Data);
+  $(".loader").hide();
 };
 
 window.CreateLesson = function () {
@@ -27989,10 +27976,69 @@ window.DefaultCreateLesson = function () {
     moves: function moves(el, container, handle) {
       return handle.classList.contains('move_lesson');
     }
+  }).on('drop', function (el) {
+    window.OrdenarLecciones();
   });
   $("html, body, main, .container, .container_child, .descripcion_leccion, .col_editor").css("height", "100%");
   var altura = Number($("body").height()) - (Number($("header").height()) + Number($(".feature_leccion_img").height()));
   $(".descripcion_leccion").css("max-height", altura + "px");
+};
+
+window.EliminarClase = function () {
+  swal({
+    title: "¡Espera!",
+    text: "¿Estas seguro de eliminar esta clase? Toda la informacion asociada a ella sera eliminada y no podra recuperarse",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true
+  }).then(function (willDelete) {
+    if (willDelete) {
+      window.AjaxRequest("POST", window.url + "/eliminar-clase", '0');
+    } else {
+      swal.close();
+    }
+  });
+};
+
+window.LeccionEliminadaExitosamente = function () {
+  swal("Listo", "Clase Eliminada Exitosamente", "success");
+  window.location.href = window.url + "/escritorio";
+};
+
+window.OrdenarLecciones = function () {
+  var Data = {};
+  Data["Posiciones"] = {};
+  var i = 1;
+  $("#listado_lecciones .col-12.my-2").map(function () {
+    Data["Posiciones"][$(this).attr("id")] = i;
+    $(this).find("small").text("Leccion " + i);
+    i++;
+  });
+  window.AjaxRequest("POST", window.url + "/crear/lecciones/ordenar-lecciones", Data);
+  $(".loader").hide();
+};
+
+window.EliminarClaseRecursos = function (id) {
+  swal({
+    title: "¡Espera!",
+    text: "¿Estas seguro de eliminar esta clase? Toda la informacion asociada a ella sera eliminada y no podra recuperarse",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true
+  }).then(function (willDelete) {
+    if (willDelete) {
+      var Data = {};
+      Data["id"] = id;
+      window.AjaxRequest("POST", window.url + "/eliminar-clase-recursos", Data);
+      $(".loader").hide();
+      $("#clase_" + id).hide(300, function () {
+        $("#clase_" + id).remove();
+        swal("Listo", "Clase eliminada satisfactoriamente", 'success');
+      });
+    } else {
+      swal.close();
+    }
+  });
 };
 
 /***/ }),
@@ -28130,62 +28176,10 @@ var AttachesTool = __webpack_require__(/*! @editorjs/attaches/dist/bundle */ "./
 $(document).ready(function () {
   var _ref;
 
-  window.headers = {
-    'authorization': 'Bearer eyJhbGciJ9...TJVA95OrM7h7HgQ'
-  };
-  window.ToolsEditorJS = {
-    header: Header,
-    embed: Embed,
-    // image: SimpleImage,
-    raw: RawTool,
-    delimiter: Delimiter,
-    Marker: {
-      "class": Marker,
-      shortcut: 'CMD+SHIFT+M'
-    },
-    attaches: {
-      "class": AttachesTool,
-      config: {
-        endpoint: 'http://localhost/Temporal/Workana/EduOnline/public/editor-js/upload-file'
-      }
-    },
-    table: {
-      "class": Table
-    },
-    linkTool: {
-      "class": LinkTool,
-      config: {
-        endpoint: 'http://localhost/Temporal/Workana/EduOnline/public/editor-js/embebed-link' // Your backend endpoint for url data fetching
-
-      }
-    },
-    image: {
-      "class": ImageTool,
-      additionalRequestHeaders: {
-        "epale": "Holaa"
-      },
-      config: {
-        endpoints: {
-          byFile: 'http://localhost/Temporal/Workana/EduOnline/public/editor-js/upload-img',
-          // Your backend file uploader endpoint
-          byUrl: 'http://localhost:8008/fetchUrl' // Your endpoint that provides uploading by Url
-
-        }
-      }
-    },
-    list: {
-      "class": List,
-      inlineToolbar: true
-    },
-    checklist: {
-      "class": Checklist,
-      inlineToolbar: true
-    }
-  };
-  window.editor = new _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0___default.a((_ref = {
-    autofocus: true,
-    tools: ToolsEditorJS,
-    data: {
+  if ($("#listado_lecciones .col-12.my-2")[0]) {
+    var ContenidoEditor = JSON.parse($("#listado_lecciones .col-12.my-2").attr("data-contenido"));
+  } else {
+    var ContenidoEditor = {
       "time": 1564167510778,
       "blocks": [{
         "type": "header",
@@ -28257,17 +28251,75 @@ $(document).ready(function () {
         }
       }],
       "version": "2.15.0"
+    };
+  }
+
+  window.headers = {
+    'authorization': 'Bearer eyJhbGciJ9...TJVA95OrM7h7HgQ'
+  };
+  window.ToolsEditorJS = {
+    header: Header,
+    embed: Embed,
+    // image: SimpleImage,
+    raw: RawTool,
+    delimiter: Delimiter,
+    Marker: {
+      "class": Marker,
+      shortcut: 'CMD+SHIFT+M'
+    },
+    attaches: {
+      "class": AttachesTool,
+      config: {
+        endpoint: 'http://localhost/Temporal/Workana/EduOnline/public/editor-js/upload-file'
+      }
+    },
+    table: {
+      "class": Table
+    },
+    linkTool: {
+      "class": LinkTool,
+      config: {
+        endpoint: 'http://localhost/Temporal/Workana/EduOnline/public/editor-js/embebed-link' // Your backend endpoint for url data fetching
+
+      }
+    },
+    image: {
+      "class": ImageTool,
+      additionalRequestHeaders: {
+        "epale": "Holaa"
+      },
+      config: {
+        endpoints: {
+          byFile: 'http://localhost/Temporal/Workana/EduOnline/public/editor-js/upload-img',
+          // Your backend file uploader endpoint
+          byUrl: 'http://localhost:8008/fetchUrl' // Your endpoint that provides uploading by Url
+
+        }
+      }
+    },
+    list: {
+      "class": List,
+      inlineToolbar: true
+    },
+    checklist: {
+      "class": Checklist,
+      inlineToolbar: true
     }
-  }, _defineProperty(_ref, "autofocus", true), _defineProperty(_ref, "placeholder", '¡Aca puedes insertar el contenido que deseas para la clase!'), _defineProperty(_ref, "onChange", function onChange() {
-    window.SalvarDatosEditor();
-  }), _ref));
+  };
+  window.editor = new _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0___default.a((_ref = {
+    autofocus: true,
+    tools: ToolsEditorJS,
+    data: ContenidoEditor
+  }, _defineProperty(_ref, "autofocus", true), _defineProperty(_ref, "placeholder", '¡Aca puedes insertar el contenido que deseas para la clase!'), _ref));
 });
 
-window.SalvarDatosEditor = function () {
+window.SalvarDatosEditor = function (id) {
   window.editor.save().then(function (outputData) {
+    console.log(outputData);
     window.ContenidoDeClases[window.LeccionSeleccionada] = outputData;
     window.updateConteindoLeccion(window.LeccionSeleccionada, window.ContenidoDeClases);
-    console.log(window.ContenidoDeClases);
+    window.LeccionSeleccionada = id;
+    window.editor.render(window.ContenidoDeClases[id]);
   })["catch"](function (error) {
     console.log('Saving failed: ', error);
   });

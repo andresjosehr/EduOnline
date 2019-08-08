@@ -117,7 +117,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-6 order-1 order-lg-2">
+				<div class="col-lg-6 order-1 order-lg-2" align="center">
 					<div class="get_started_main">
 						<div class="get_started mt-3 mt-lg-0">
 							<div class="progress-bar bg-green-dark p-2">

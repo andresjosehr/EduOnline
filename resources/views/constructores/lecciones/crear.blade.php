@@ -5,7 +5,7 @@
       <div class="row p-0 container_child mx-0 mx-lg-n2">
          <div class="col-lg-4 p-0">
          	<label class="w-100" for="img_clase">
-	            <div class="feature_leccion_img" style="background-image: url(https://freedesignfile.com/upload/2014/09/Teaching-elements-vector-template-material.jpg)">
+	            <div class="feature_leccion_img" style="background-image: url({{ asset('img/lecciones_img/') }}/{{$Data['Clase']->img}})">
 	            	<div class="feeature_img_lesson_overlay pt-5">
 				        <p class="font-weight-bold text-white mt-5 mb-3">Cambiar Imagen destacada de la clase</p>
 				        <label for="img_clase" class="feeature_img_lesson_custom-button cursor-pointer">
@@ -21,7 +21,7 @@
                      <h4 class="font-weight-bold">{{$Data["Clase"]->nombre}}</h4>
                   </div>
                   <div class="col-6 my-3">
-                     <button type="button" class="btn btn-success btn-get-started font-weight-bold btn_constructor_leccion">Guardar</button>
+                     <button onclick="window.SalvarDatosEditor(window.LeccionSeleccionada); swal('¡Listo!', 'Clase guardada exisitosamente', 'success')" type="button" class="btn btn-success btn-get-started font-weight-bold btn_constructor_leccion">Guardar</button>
                   </div>
                   <div class="col-6 my-3" align="right">
                      <i onclick="AddFavoriteLesson(this)" class="fa fa-star-o mx-2 text-secondary icon_create cursor-pointer"></i>
@@ -35,17 +35,7 @@
                               <i class="fa fa-eye pr-3 menu_leccion_icon"></i> Visualizar</a>
                            </div>
                            <div class="col-12">
-                              <a class="dropdown-item dropdown-item_sub_config text-secondary font-weight-bold px-3 py-3 a_menu_leccion" href="#">
-                              <i class="fa fa-share-alt pr-3 menu_leccion_icon"></i>
-                              Compartir</a>
-                           </div>
-                           <div class="col-12">
-                              <a class="dropdown-item dropdown-item_sub_config text-secondary font-weight-bold px-3 py-3 a_menu_leccion" href="#">
-                              <i class="fa fa-copy pr-3 menu_leccion_icon"></i>
-                              Duplicar</a>
-                           </div>
-                           <div class="col-12">
-                              <a class="dropdown-item dropdown-item_sub_config text-secondary font-weight-bold px-3 py-3 a_menu_leccion" href="#">
+                              <a onclick="EliminarClase()" class="dropdown-item dropdown-item_sub_config text-secondary font-weight-bold px-3 py-3 a_menu_leccion" href="#">
                               <i class="fa fa-trash-o pr-3 menu_leccion_icon"></i>
                               Eliminar</a>
                            </div>
@@ -87,6 +77,49 @@
                   </div>
                </div>
                <div class="row" id="listado_lecciones">
+                  @php $ClaseActive='lesson_active' @endphp
+                  @foreach ($Data["Clase"]->Lecciones as $Leccion)
+                     <div class="col-12 my-2 {{$ClaseActive}}" id='{{$Leccion->id}}' data-estado_leccion='{{$Leccion->estado}}' data-apertura_programada='{{$Leccion->fecha_apertura}}' data-contenido='{{$Leccion->contenido}}'>
+                        @php $ClaseActive='' @endphp
+                        @if ($Leccion->estado!=1)
+                           <i class="fa fa-lock icon_lesson_disabled" aria-hidden="true"></i>
+                        @endif
+                     <div class="ml-4 lesson_card @if ($Leccion->estado!=1) disabled_lesson @endif">
+                        <div class="row ">
+                           <div class="col-4 p-0 numero_lesson_card" style="background-image: url({{ asset('img/lecciones_img') }}/{{$Leccion->img}})"></div>
+                           <div class="col-7 p-2">
+                              <small>Leccion {{$Leccion->orden}}</small>
+                              <h4 onclick="ChangeContent('{{$Leccion->id}}')" class="font-weight-bold titulo_lesson cursor-pointer">{{$Leccion->nombre}}</h4>
+                           </div>
+                           <div class='col-1 pt-2 pl-0' align="center">
+                              <a href="#" id="5asd4f5sdf" data-toggle="dropdown">
+                              <i class="fa fa-ellipsis-v text-secondary icon_create"></i>
+                              </a>
+                              <div class="dropdown-menu dropdown-menu-right mt-3 w-auto p-0 menu_leccion_create" aria-labelledby="5asd4f5sdf" style="width: 200px !important">
+                                 <div class="row">
+                                    <div class="col-12">
+                                       <a onclick="EditarLeccion('{{$Leccion->id}}')" class="btn_editar_lesson dropdown-item dropdown-item_sub_config text-secondary font-weight-bold px-3 py-3 a_menu_leccion" href="#">
+                                       <i class="fa fa-pencil pr-3 menu_leccion_icon"></i> Editar</a>
+                                    </div>
+                                    <div class="col-12">
+                                       <a onclick="DuplicarLeccion('{{$Leccion->id}}')" class="dropdown-item dropdown-item_sub_config text-secondary font-weight-bold px-3 py-3 a_menu_leccion btn_duplicar_lesson" href="#">
+                                       <i class="fa fa-copy pr-3 menu_leccion_icon"></i>
+                                       Duplicar</a>
+                                    </div>
+                                    <div class="col-12">
+                                       <a onclick="EliminarLeccion('{{$Leccion->id}}')" class="dropdown-item dropdown-item_sub_config text-secondary font-weight-bold px-3 py-3 a_menu_leccion btn_eliminar_lesson" href="#">
+                                       <i class="fa fa-trash-o pr-3 menu_leccion_icon"></i>
+                                       Eliminar</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <br>
+                              <i class="fa fa-arrows move_lesson" aria-hidden="true"></i>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  @endforeach
                </div>
                <div class="row">
                   <div class="col-12 my-2">
@@ -204,7 +237,28 @@
       </div>
    </div>
 </div>
+
+
+
+<style>
+   .lesson_active{
+         filter: drop-shadow(2px 4px 6px black);
+   }
+</style>
 <script>
-   $(document).ready(function(){ window.DefaultCreateLesson(); });
+   $(document).ready(function(){ 
+      window.DefaultCreateLesson();
+      window.ContenidoDeClases={}
+      @foreach ($Data["Clase"]->Lecciones as $Leccion)
+         window.ContenidoDeClases['{{$Leccion->id}}']=JSON.parse($("#{{$Leccion->id}}").attr("data-contenido"));
+      @endforeach
+      @if (isset($Data["Clase"]->Lecciones[0]->id))
+         window.LeccionSeleccionada='{{$Data["Clase"]->Lecciones[0]->id}}'
+      @endif
+
+      
+   });
 </script>
+
+
 @include("footer")

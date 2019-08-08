@@ -57,6 +57,8 @@ Route::group(['middleware' => ['ValidarSesion']], function () {
 
 	Route::get('crear/', function(){return view("constructores.index");} );
 
+	Route::post('eliminar-clase', "Constructores\LeccionesController@EliminarClase");
+	Route::post('eliminar-clase-recursos', "Constructores\LeccionesController@EliminarClaseRecursos");
 
 	Route::prefix('crear')->group(function () {
 
@@ -68,13 +70,15 @@ Route::group(['middleware' => ['ValidarSesion']], function () {
 		    	Route::post('subir-foto-clase', "Constructores\LeccionesController@SubirFotoClase");
 		    	Route::post('crear-leccion', "Constructores\LeccionesController@CrearLeccion");
 		    	Route::post('eliminar-leccion', "Constructores\LeccionesController@EliminarLeccion");
+		    	Route::post('update-leccion', "Constructores\LeccionesController@UpdateLeccion");
 		    	Route::post('duplicar-leccion', "Constructores\LeccionesController@DuplicarLeccion");
 		    	Route::post('update-contenido-lecciones', "Constructores\LeccionesController@UpdateContenidoLecciones");
+		    	Route::post('ordenar-lecciones', "Constructores\LeccionesController@OrdenarLecciones");
 		});
 	});
 
 
-	Route::get('recursos', function(){return view("consulta_recursos.index");} )->name("recursos");;
+	Route::get('recursos', "RecursosController@Index")->name("recursos");;
 
 	Route::prefix('editor-js')->group(function () {
     	Route::get('embebed-link', "EditorController@EmbebedLink");

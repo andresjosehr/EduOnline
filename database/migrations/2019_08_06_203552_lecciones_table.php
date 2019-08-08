@@ -13,7 +13,17 @@ class LeccionesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('lecciones', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nombre');
+            $table->string('estado');
+            $table->string('fecha_apertura')->nullable();
+            $table->json('contenido')->nullable();
+            $table->string('img')->nullable()->default("Edu.png");
+            $table->string('orden');
+            $table->string('id_clase');
+            $table->timestamps();
+        });
     }
 
     /**

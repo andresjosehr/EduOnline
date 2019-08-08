@@ -60,7 +60,6 @@
                     </li>
                     <li class="col nav-item d-flex justify-content-center pt-3 pt-lg-0">
                         <a href="#"><i class="ml-lg-4 fa fa-bell text-white"></i></a>
-                        <a href="cerrar_sesion"><i class="ml-lg-4 fa fa-cog text-white"></i></a>
                         <div class="dropdown">
                             <a href="#" id="dropdownMenuButton" data-toggle="dropdown"><i class="ml-lg-4 fa fa-cog text-white"></i></a>
                             <div class="dropdown-menu dropdown-menu-right mt-3 w-auto" aria-labelledby="dropdownMenuButton" style="width: 400px !important">
