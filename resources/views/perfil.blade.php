@@ -67,7 +67,7 @@
                                 <p class="update-pr py-4">Actualiza tu foto de perfil</p>
                             </a>
                         </label>
-                        <input onchange="AjaxFileRequest('POST', '{{Request::root()}}/perfil/{{Auth::user()->id}}', 'avatar')" type="file" id="avatar" class="d-none">
+                        <input onchange="AjaxFileRequest('PUT', '{{Request::root()}}/perfil/{{Auth::user()->id}}', 'avatar')" type="file" id="avatar" class="d-none">
                     </div>
                 </div>
             </div>
