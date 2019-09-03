@@ -24,7 +24,8 @@ window.AjaxRequest=function (metodo, ruta, datos) {
 }
 
 
-window.AjaxFileRequest=function (metodo, ruta, idArchivo) {
+
+window.AjaxFileRequest=function (metodo, ruta, idArchivo, id_sub = null) {
 
 	$(".loader").show();
 
@@ -32,6 +33,7 @@ window.AjaxFileRequest=function (metodo, ruta, idArchivo) {
     var form_data = new FormData();     
     form_data.append('_method', metodo);             
     form_data.append('file', file_data);
+    form_data.append('id', id_sub);
 
     $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });                   
 

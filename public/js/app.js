@@ -27425,6 +27425,1962 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/tippy.js/esm/index.all.js":
+/*!************************************************!*\
+  !*** ./node_modules/tippy.js/esm/index.all.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
+/**!
+* tippy.js v4.3.5
+* (c) 2017-2019 atomiks
+* MIT License
+*/
+
+
+var css = ".tippy-iOS{cursor:pointer!important;-webkit-tap-highlight-color:transparent}.tippy-popper{transition-timing-function:cubic-bezier(.165,.84,.44,1);max-width:calc(100% - 8px);pointer-events:none;outline:0}.tippy-popper[x-placement^=top] .tippy-backdrop{border-radius:40% 40% 0 0}.tippy-popper[x-placement^=top] .tippy-roundarrow{bottom:-7px;bottom:-6.5px;-webkit-transform-origin:50% 0;transform-origin:50% 0;margin:0 3px}.tippy-popper[x-placement^=top] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(180deg);transform:rotate(180deg)}.tippy-popper[x-placement^=top] .tippy-arrow{border-top:8px solid #333;border-right:8px solid transparent;border-left:8px solid transparent;bottom:-7px;margin:0 3px;-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=top] .tippy-backdrop{-webkit-transform-origin:0 25%;transform-origin:0 25%}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-55%);transform:scale(1) translate(-50%,-55%)}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-50%,-45%);transform:scale(.2) translate(-50%,-45%);opacity:0}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(-20px);transform:translateY(-20px)}.tippy-popper[x-placement^=top] [data-animation=perspective]{-webkit-transform-origin:bottom;transform-origin:bottom}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateY(-10px);transform:perspective(700px) translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateX(60deg);transform:perspective(700px) rotateX(60deg)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=top] [data-animation=scale]{-webkit-transform-origin:bottom;transform-origin:bottom}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px) scale(.5);transform:translateY(-10px) scale(.5)}.tippy-popper[x-placement^=bottom] .tippy-backdrop{border-radius:0 0 30% 30%}.tippy-popper[x-placement^=bottom] .tippy-roundarrow{top:-7px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%;margin:0 3px}.tippy-popper[x-placement^=bottom] .tippy-roundarrow svg{position:absolute;left:0}.tippy-popper[x-placement^=bottom] .tippy-arrow{border-bottom:8px solid #333;border-right:8px solid transparent;border-left:8px solid transparent;top:-7px;margin:0 3px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%}.tippy-popper[x-placement^=bottom] .tippy-backdrop{-webkit-transform-origin:0 -50%;transform-origin:0 -50%}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-45%);transform:scale(1) translate(-50%,-45%)}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-50%);transform:scale(.2) translate(-50%);opacity:0}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(20px);transform:translateY(20px)}.tippy-popper[x-placement^=bottom] [data-animation=perspective]{-webkit-transform-origin:top;transform-origin:top}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateY(10px);transform:perspective(700px) translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateX(-60deg);transform:perspective(700px) rotateX(-60deg)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=bottom] [data-animation=scale]{-webkit-transform-origin:top;transform-origin:top}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px) scale(.5);transform:translateY(10px) scale(.5)}.tippy-popper[x-placement^=left] .tippy-backdrop{border-radius:50% 0 0 50%}.tippy-popper[x-placement^=left] .tippy-roundarrow{right:-12px;-webkit-transform-origin:33.33333333% 50%;transform-origin:33.33333333% 50%;margin:3px 0}.tippy-popper[x-placement^=left] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(90deg);transform:rotate(90deg)}.tippy-popper[x-placement^=left] .tippy-arrow{border-left:8px solid #333;border-top:8px solid transparent;border-bottom:8px solid transparent;right:-7px;margin:3px 0;-webkit-transform-origin:0 50%;transform-origin:0 50%}.tippy-popper[x-placement^=left] .tippy-backdrop{-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-50%);transform:scale(1) translate(-50%,-50%)}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-75%,-50%);transform:scale(.2) translate(-75%,-50%);opacity:0}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(-20px);transform:translateX(-20px)}.tippy-popper[x-placement^=left] [data-animation=perspective]{-webkit-transform-origin:right;transform-origin:right}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateX(-10px);transform:perspective(700px) translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateY(-60deg);transform:perspective(700px) rotateY(-60deg)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=left] [data-animation=scale]{-webkit-transform-origin:right;transform-origin:right}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px) scale(.5);transform:translateX(-10px) scale(.5)}.tippy-popper[x-placement^=right] .tippy-backdrop{border-radius:0 50% 50% 0}.tippy-popper[x-placement^=right] .tippy-roundarrow{left:-12px;-webkit-transform-origin:66.66666666% 50%;transform-origin:66.66666666% 50%;margin:3px 0}.tippy-popper[x-placement^=right] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.tippy-popper[x-placement^=right] .tippy-arrow{border-right:8px solid #333;border-top:8px solid transparent;border-bottom:8px solid transparent;left:-7px;margin:3px 0;-webkit-transform-origin:100% 50%;transform-origin:100% 50%}.tippy-popper[x-placement^=right] .tippy-backdrop{-webkit-transform-origin:-50% 0;transform-origin:-50% 0}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-50%);transform:scale(1) translate(-50%,-50%)}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-25%,-50%);transform:scale(.2) translate(-25%,-50%);opacity:0}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px)}.tippy-popper[x-placement^=right] [data-animation=perspective]{-webkit-transform-origin:left;transform-origin:left}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateX(10px);transform:perspective(700px) translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateY(60deg);transform:perspective(700px) rotateY(60deg)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=right] [data-animation=scale]{-webkit-transform-origin:left;transform-origin:left}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px) scale(.5);transform:translateX(10px) scale(.5)}.tippy-tooltip{position:relative;color:#fff;border-radius:.25rem;font-size:.875rem;padding:.3125rem .5625rem;line-height:1.4;text-align:center;background-color:#333}.tippy-tooltip[data-size=small]{padding:.1875rem .375rem;font-size:.75rem}.tippy-tooltip[data-size=large]{padding:.375rem .75rem;font-size:1rem}.tippy-tooltip[data-animatefill]{overflow:hidden;background-color:initial}.tippy-tooltip[data-interactive],.tippy-tooltip[data-interactive] .tippy-roundarrow path{pointer-events:auto}.tippy-tooltip[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.54,1.5,.38,1.11)}.tippy-tooltip[data-inertia][data-state=hidden]{transition-timing-function:ease}.tippy-arrow,.tippy-roundarrow{position:absolute;width:0;height:0}.tippy-roundarrow{width:18px;height:7px;fill:#333;pointer-events:none}.tippy-backdrop{position:absolute;background-color:#333;border-radius:50%;width:calc(110% + 2rem);left:50%;top:50%;z-index:-1;transition:all cubic-bezier(.46,.1,.52,.98);-webkit-backface-visibility:hidden;backface-visibility:hidden}.tippy-backdrop:after{content:\"\";float:left;padding-top:100%}.tippy-backdrop+.tippy-content{transition-property:opacity;will-change:opacity}.tippy-backdrop+.tippy-content[data-state=hidden]{opacity:0}";
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+var version = "4.3.5";
+
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
+var ua = isBrowser ? navigator.userAgent : '';
+var isIE = /MSIE |Trident\//.test(ua);
+var isUCBrowser = /UCBrowser\//.test(ua);
+var isIOS = isBrowser && /iPhone|iPad|iPod/.test(navigator.platform) && !window.MSStream;
+
+var defaultProps = {
+  a11y: true,
+  allowHTML: true,
+  animateFill: true,
+  animation: 'shift-away',
+  appendTo: function appendTo() {
+    return document.body;
+  },
+  aria: 'describedby',
+  arrow: false,
+  arrowType: 'sharp',
+  boundary: 'scrollParent',
+  content: '',
+  delay: 0,
+  distance: 10,
+  duration: [325, 275],
+  flip: true,
+  flipBehavior: 'flip',
+  flipOnUpdate: false,
+  followCursor: false,
+  hideOnClick: true,
+  ignoreAttributes: false,
+  inertia: false,
+  interactive: false,
+  interactiveBorder: 2,
+  interactiveDebounce: 0,
+  lazy: true,
+  maxWidth: 350,
+  multiple: false,
+  offset: 0,
+  onHidden: function onHidden() {},
+  onHide: function onHide() {},
+  onMount: function onMount() {},
+  onShow: function onShow() {},
+  onShown: function onShown() {},
+  onTrigger: function onTrigger() {},
+  placement: 'top',
+  popperOptions: {},
+  role: 'tooltip',
+  showOnInit: false,
+  size: 'regular',
+  sticky: false,
+  target: '',
+  theme: 'dark',
+  touch: true,
+  touchHold: false,
+  trigger: 'mouseenter focus',
+  triggerTarget: null,
+  updateDuration: 0,
+  wait: null,
+  zIndex: 9999
+  /**
+   * If the set() method encounters one of these, the popperInstance must be
+   * recreated
+   */
+
+};
+var POPPER_INSTANCE_DEPENDENCIES = ['arrow', 'arrowType', 'boundary', 'distance', 'flip', 'flipBehavior', 'flipOnUpdate', 'offset', 'placement', 'popperOptions'];
+
+var elementProto = isBrowser ? Element.prototype : {};
+var matches = elementProto.matches || elementProto.matchesSelector || elementProto.webkitMatchesSelector || elementProto.mozMatchesSelector || elementProto.msMatchesSelector;
+/**
+ * Ponyfill for Array.from - converts iterable values to an array
+ */
+
+function arrayFrom(value) {
+  return [].slice.call(value);
+}
+/**
+ * Ponyfill for Element.prototype.closest
+ */
+
+function closest(element, selector) {
+  return closestCallback(element, function (el) {
+    return matches.call(el, selector);
+  });
+}
+/**
+ * Works like Element.prototype.closest, but uses a callback instead
+ */
+
+function closestCallback(element, callback) {
+  while (element) {
+    if (callback(element)) {
+      return element;
+    }
+
+    element = element.parentElement;
+  }
+
+  return null;
+}
+
+// Passive event listener config
+var PASSIVE = {
+  passive: true // Popper `preventOverflow` padding
+
+};
+var PADDING = 4; // Popper attributes
+// In Popper v2 these will be `data-*` instead of `x-*` to adhere to HTML5 spec
+
+var PLACEMENT_ATTRIBUTE = 'x-placement';
+var OUT_OF_BOUNDARIES_ATTRIBUTE = 'x-out-of-boundaries'; // Classes
+
+var IOS_CLASS = "tippy-iOS";
+var ACTIVE_CLASS = "tippy-active";
+var POPPER_CLASS = "tippy-popper";
+var TOOLTIP_CLASS = "tippy-tooltip";
+var CONTENT_CLASS = "tippy-content";
+var BACKDROP_CLASS = "tippy-backdrop";
+var ARROW_CLASS = "tippy-arrow";
+var ROUND_ARROW_CLASS = "tippy-roundarrow"; // Selectors
+
+var POPPER_SELECTOR = ".".concat(POPPER_CLASS);
+var TOOLTIP_SELECTOR = ".".concat(TOOLTIP_CLASS);
+var CONTENT_SELECTOR = ".".concat(CONTENT_CLASS);
+var BACKDROP_SELECTOR = ".".concat(BACKDROP_CLASS);
+var ARROW_SELECTOR = ".".concat(ARROW_CLASS);
+var ROUND_ARROW_SELECTOR = ".".concat(ROUND_ARROW_CLASS);
+
+var isUsingTouch = false;
+function onDocumentTouch() {
+  if (isUsingTouch) {
+    return;
+  }
+
+  isUsingTouch = true;
+
+  if (isIOS) {
+    document.body.classList.add(IOS_CLASS);
+  }
+
+  if (window.performance) {
+    document.addEventListener('mousemove', onDocumentMouseMove);
+  }
+}
+var lastMouseMoveTime = 0;
+function onDocumentMouseMove() {
+  var now = performance.now(); // Chrome 60+ is 1 mousemove per animation frame, use 20ms time difference
+
+  if (now - lastMouseMoveTime < 20) {
+    isUsingTouch = false;
+    document.removeEventListener('mousemove', onDocumentMouseMove);
+
+    if (!isIOS) {
+      document.body.classList.remove(IOS_CLASS);
+    }
+  }
+
+  lastMouseMoveTime = now;
+}
+function onWindowBlur() {
+  var _document = document,
+      activeElement = _document.activeElement;
+
+  if (activeElement && activeElement.blur && activeElement._tippy) {
+    activeElement.blur();
+  }
+}
+/**
+ * Adds the needed global event listeners
+ */
+
+function bindGlobalEventListeners() {
+  document.addEventListener('touchstart', onDocumentTouch, PASSIVE);
+  window.addEventListener('blur', onWindowBlur);
+}
+
+var keys = Object.keys(defaultProps);
+/**
+ * Returns an object of optional props from data-tippy-* attributes
+ */
+
+function getDataAttributeOptions(reference) {
+  return keys.reduce(function (acc, key) {
+    var valueAsString = (reference.getAttribute("data-tippy-".concat(key)) || '').trim();
+
+    if (!valueAsString) {
+      return acc;
+    }
+
+    if (key === 'content') {
+      acc[key] = valueAsString;
+    } else {
+      try {
+        acc[key] = JSON.parse(valueAsString);
+      } catch (e) {
+        acc[key] = valueAsString;
+      }
+    }
+
+    return acc;
+  }, {});
+}
+/**
+ * Polyfills the virtual reference (plain object) with Element.prototype props
+ * Mutating because DOM elements are mutated, adds `_tippy` property
+ */
+
+function polyfillElementPrototypeProperties(virtualReference) {
+  var polyfills = {
+    isVirtual: true,
+    attributes: virtualReference.attributes || {},
+    contains: function contains() {},
+    setAttribute: function setAttribute(key, value) {
+      virtualReference.attributes[key] = value;
+    },
+    getAttribute: function getAttribute(key) {
+      return virtualReference.attributes[key];
+    },
+    removeAttribute: function removeAttribute(key) {
+      delete virtualReference.attributes[key];
+    },
+    hasAttribute: function hasAttribute(key) {
+      return key in virtualReference.attributes;
+    },
+    addEventListener: function addEventListener() {},
+    removeEventListener: function removeEventListener() {},
+    classList: {
+      classNames: {},
+      add: function add(key) {
+        virtualReference.classList.classNames[key] = true;
+      },
+      remove: function remove(key) {
+        delete virtualReference.classList.classNames[key];
+      },
+      contains: function contains(key) {
+        return key in virtualReference.classList.classNames;
+      }
+    }
+  };
+
+  for (var key in polyfills) {
+    virtualReference[key] = polyfills[key];
+  }
+}
+
+/**
+ * Determines if a value is a "bare" virtual element (before mutations done
+ * by `polyfillElementPrototypeProperties()`). JSDOM elements show up as
+ * [object Object], we can check if the value is "element-like" if it has
+ * `addEventListener`
+ */
+
+function isBareVirtualElement(value) {
+  return {}.toString.call(value) === '[object Object]' && !value.addEventListener;
+}
+/**
+ * Determines if the value is a reference element
+ */
+
+function isReferenceElement(value) {
+  return !!value._tippy && !matches.call(value, POPPER_SELECTOR);
+}
+/**
+ * Safe .hasOwnProperty check, for prototype-less objects
+ */
+
+function hasOwnProperty(obj, key) {
+  return {}.hasOwnProperty.call(obj, key);
+}
+/**
+ * Returns an array of elements based on the value
+ */
+
+function getArrayOfElements(value) {
+  if (isSingular(value)) {
+    // TODO: VirtualReference is not compatible to type Element
+    return [value];
+  }
+
+  if (value instanceof NodeList) {
+    return arrayFrom(value);
+  }
+
+  if (Array.isArray(value)) {
+    return value;
+  }
+
+  try {
+    return arrayFrom(document.querySelectorAll(value));
+  } catch (e) {
+    return [];
+  }
+}
+/**
+ * Returns a value at a given index depending on if it's an array or number
+ */
+
+function getValue(value, index, defaultValue) {
+  if (Array.isArray(value)) {
+    var v = value[index];
+    return v == null ? defaultValue : v;
+  }
+
+  return value;
+}
+/**
+ * Debounce utility. To avoid bloating bundle size, we're only passing 1
+ * argument here, a more generic function would pass all arguments. Only
+ * `onMouseMove` uses this which takes the event object for now.
+ */
+
+function debounce(fn, ms) {
+  // Avoid wrapping in `setTimeout` if ms is 0 anyway
+  if (ms === 0) {
+    return fn;
+  }
+
+  var timeout;
+  return function (arg) {
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      fn(arg);
+    }, ms);
+  };
+}
+/**
+ * Prevents errors from being thrown while accessing nested modifier objects
+ * in `popperOptions`
+ */
+
+function getModifier(obj, key) {
+  return obj && obj.modifiers && obj.modifiers[key];
+}
+/**
+ * Determines if an array or string includes a value
+ */
+
+function includes(a, b) {
+  return a.indexOf(b) > -1;
+}
+/**
+ * Determines if the value is a real element
+ */
+
+function isRealElement(value) {
+  return value instanceof Element;
+}
+/**
+ * Determines if the value is singular-like
+ */
+
+function isSingular(value) {
+  return !!(value && hasOwnProperty(value, 'isVirtual')) || isRealElement(value);
+}
+/**
+ * Firefox extensions don't allow setting .innerHTML directly, this will trick it
+ */
+
+function innerHTML() {
+  return 'innerHTML';
+}
+/**
+ * Evaluates a function if one, or returns the value
+ */
+
+function invokeWithArgsOrReturn(value, args) {
+  return typeof value === 'function' ? value.apply(null, args) : value;
+}
+/**
+ * Sets a popperInstance `flip` modifier's enabled state
+ */
+
+function setFlipModifierEnabled(modifiers, value) {
+  modifiers.filter(function (m) {
+    return m.name === 'flip';
+  })[0].enabled = value;
+}
+/**
+ * Determines if an element can receive focus
+ * Always returns true for virtual objects
+ */
+
+function canReceiveFocus(element) {
+  return isRealElement(element) ? matches.call(element, 'a[href],area[href],button,details,input,textarea,select,iframe,[tabindex]') && !element.hasAttribute('disabled') : true;
+}
+/**
+ * Returns a new `div` element
+ */
+
+function div() {
+  return document.createElement('div');
+}
+/**
+ * Applies a transition duration to a list of elements
+ */
+
+function setTransitionDuration(els, value) {
+  els.forEach(function (el) {
+    if (el) {
+      el.style.transitionDuration = "".concat(value, "ms");
+    }
+  });
+}
+/**
+ * Sets the visibility state to elements so they can begin to transition
+ */
+
+function setVisibilityState(els, state) {
+  els.forEach(function (el) {
+    if (el) {
+      el.setAttribute('data-state', state);
+    }
+  });
+}
+/**
+ * Evaluates the props object by merging data attributes and
+ * disabling conflicting options where necessary
+ */
+
+function evaluateProps(reference, props) {
+  var out = _extends({}, props, {
+    content: invokeWithArgsOrReturn(props.content, [reference])
+  }, props.ignoreAttributes ? {} : getDataAttributeOptions(reference));
+
+  if (out.arrow || isUCBrowser) {
+    out.animateFill = false;
+  }
+
+  return out;
+}
+/**
+ * Validates an object of options with the valid default props object
+ */
+
+function validateOptions(options, defaultProps) {
+  Object.keys(options).forEach(function (option) {
+    if (!hasOwnProperty(defaultProps, option)) {
+      throw new Error("[tippy]: `".concat(option, "` is not a valid option"));
+    }
+  });
+}
+
+/**
+ * Sets the innerHTML of an element
+ */
+
+function setInnerHTML(element, html) {
+  element[innerHTML()] = isRealElement(html) ? html[innerHTML()] : html;
+}
+/**
+ * Sets the content of a tooltip
+ */
+
+function setContent(contentEl, props) {
+  if (isRealElement(props.content)) {
+    setInnerHTML(contentEl, '');
+    contentEl.appendChild(props.content);
+  } else if (typeof props.content !== 'function') {
+    var key = props.allowHTML ? 'innerHTML' : 'textContent';
+    contentEl[key] = props.content;
+  }
+}
+/**
+ * Returns the child elements of a popper element
+ */
+
+function getChildren(popper) {
+  return {
+    tooltip: popper.querySelector(TOOLTIP_SELECTOR),
+    backdrop: popper.querySelector(BACKDROP_SELECTOR),
+    content: popper.querySelector(CONTENT_SELECTOR),
+    arrow: popper.querySelector(ARROW_SELECTOR) || popper.querySelector(ROUND_ARROW_SELECTOR)
+  };
+}
+/**
+ * Adds `data-inertia` attribute
+ */
+
+function addInertia(tooltip) {
+  tooltip.setAttribute('data-inertia', '');
+}
+/**
+ * Removes `data-inertia` attribute
+ */
+
+function removeInertia(tooltip) {
+  tooltip.removeAttribute('data-inertia');
+}
+/**
+ * Creates an arrow element and returns it
+ */
+
+function createArrowElement(arrowType) {
+  var arrow = div();
+
+  if (arrowType === 'round') {
+    arrow.className = ROUND_ARROW_CLASS;
+    setInnerHTML(arrow, '<svg viewBox="0 0 18 7" xmlns="http://www.w3.org/2000/svg"><path d="M0 7s2.021-.015 5.253-4.218C6.584 1.051 7.797.007 9 0c1.203-.007 2.416 1.035 3.761 2.782C16.012 7.005 18 7 18 7H0z"/></svg>');
+  } else {
+    arrow.className = ARROW_CLASS;
+  }
+
+  return arrow;
+}
+/**
+ * Creates a backdrop element and returns it
+ */
+
+function createBackdropElement() {
+  var backdrop = div();
+  backdrop.className = BACKDROP_CLASS;
+  backdrop.setAttribute('data-state', 'hidden');
+  return backdrop;
+}
+/**
+ * Adds interactive-related attributes
+ */
+
+function addInteractive(popper, tooltip) {
+  popper.setAttribute('tabindex', '-1');
+  tooltip.setAttribute('data-interactive', '');
+}
+/**
+ * Removes interactive-related attributes
+ */
+
+function removeInteractive(popper, tooltip) {
+  popper.removeAttribute('tabindex');
+  tooltip.removeAttribute('data-interactive');
+}
+/**
+ * Add/remove transitionend listener from tooltip
+ */
+
+function updateTransitionEndListener(tooltip, action, listener) {
+  // UC Browser hasn't adopted the `transitionend` event despite supporting
+  // unprefixed transitions...
+  var eventName = isUCBrowser && document.body.style.webkitTransition !== undefined ? 'webkitTransitionEnd' : 'transitionend';
+  tooltip[action + 'EventListener'](eventName, listener);
+}
+/**
+ * Returns the popper's placement, ignoring shifting (top-start, etc)
+ */
+
+function getBasicPlacement(popper) {
+  var fullPlacement = popper.getAttribute(PLACEMENT_ATTRIBUTE);
+  return fullPlacement ? fullPlacement.split('-')[0] : '';
+}
+/**
+ * Triggers reflow
+ */
+
+function reflow(popper) {
+  void popper.offsetHeight;
+}
+/**
+ * Adds/removes theme from tooltip's classList
+ */
+
+function updateTheme(tooltip, action, theme) {
+  theme.split(' ').forEach(function (themeName) {
+    tooltip.classList[action](themeName + '-theme');
+  });
+}
+/**
+ * Constructs the popper element and returns it
+ */
+
+function createPopperElement(id, props) {
+  var popper = div();
+  popper.className = POPPER_CLASS;
+  popper.id = "tippy-".concat(id);
+  popper.style.zIndex = '' + props.zIndex;
+  popper.style.position = 'absolute';
+  popper.style.top = '0';
+  popper.style.left = '0';
+
+  if (props.role) {
+    popper.setAttribute('role', props.role);
+  }
+
+  var tooltip = div();
+  tooltip.className = TOOLTIP_CLASS;
+  tooltip.style.maxWidth = props.maxWidth + (typeof props.maxWidth === 'number' ? 'px' : '');
+  tooltip.setAttribute('data-size', props.size);
+  tooltip.setAttribute('data-animation', props.animation);
+  tooltip.setAttribute('data-state', 'hidden');
+  updateTheme(tooltip, 'add', props.theme);
+  var content = div();
+  content.className = CONTENT_CLASS;
+  content.setAttribute('data-state', 'hidden');
+
+  if (props.interactive) {
+    addInteractive(popper, tooltip);
+  }
+
+  if (props.arrow) {
+    tooltip.appendChild(createArrowElement(props.arrowType));
+  }
+
+  if (props.animateFill) {
+    tooltip.appendChild(createBackdropElement());
+    tooltip.setAttribute('data-animatefill', '');
+  }
+
+  if (props.inertia) {
+    addInertia(tooltip);
+  }
+
+  setContent(content, props);
+  tooltip.appendChild(content);
+  popper.appendChild(tooltip);
+  return popper;
+}
+/**
+ * Updates the popper element based on the new props
+ */
+
+function updatePopperElement(popper, prevProps, nextProps) {
+  var _getChildren = getChildren(popper),
+      tooltip = _getChildren.tooltip,
+      content = _getChildren.content,
+      backdrop = _getChildren.backdrop,
+      arrow = _getChildren.arrow;
+
+  popper.style.zIndex = '' + nextProps.zIndex;
+  tooltip.setAttribute('data-size', nextProps.size);
+  tooltip.setAttribute('data-animation', nextProps.animation);
+  tooltip.style.maxWidth = nextProps.maxWidth + (typeof nextProps.maxWidth === 'number' ? 'px' : '');
+
+  if (nextProps.role) {
+    popper.setAttribute('role', nextProps.role);
+  } else {
+    popper.removeAttribute('role');
+  }
+
+  if (prevProps.content !== nextProps.content) {
+    setContent(content, nextProps);
+  } // animateFill
+
+
+  if (!prevProps.animateFill && nextProps.animateFill) {
+    tooltip.appendChild(createBackdropElement());
+    tooltip.setAttribute('data-animatefill', '');
+  } else if (prevProps.animateFill && !nextProps.animateFill) {
+    tooltip.removeChild(backdrop);
+    tooltip.removeAttribute('data-animatefill');
+  } // arrow
+
+
+  if (!prevProps.arrow && nextProps.arrow) {
+    tooltip.appendChild(createArrowElement(nextProps.arrowType));
+  } else if (prevProps.arrow && !nextProps.arrow) {
+    tooltip.removeChild(arrow);
+  } // arrowType
+
+
+  if (prevProps.arrow && nextProps.arrow && prevProps.arrowType !== nextProps.arrowType) {
+    tooltip.replaceChild(createArrowElement(nextProps.arrowType), arrow);
+  } // interactive
+
+
+  if (!prevProps.interactive && nextProps.interactive) {
+    addInteractive(popper, tooltip);
+  } else if (prevProps.interactive && !nextProps.interactive) {
+    removeInteractive(popper, tooltip);
+  } // inertia
+
+
+  if (!prevProps.inertia && nextProps.inertia) {
+    addInertia(tooltip);
+  } else if (prevProps.inertia && !nextProps.inertia) {
+    removeInertia(tooltip);
+  } // theme
+
+
+  if (prevProps.theme !== nextProps.theme) {
+    updateTheme(tooltip, 'remove', prevProps.theme);
+    updateTheme(tooltip, 'add', nextProps.theme);
+  }
+}
+/**
+ * Hides all visible poppers on the document
+ */
+
+function hideAll() {
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      excludedReferenceOrInstance = _ref.exclude,
+      duration = _ref.duration;
+
+  arrayFrom(document.querySelectorAll(POPPER_SELECTOR)).forEach(function (popper) {
+    var instance = popper._tippy;
+
+    if (instance) {
+      var isExcluded = false;
+
+      if (excludedReferenceOrInstance) {
+        isExcluded = isReferenceElement(excludedReferenceOrInstance) ? instance.reference === excludedReferenceOrInstance : popper === excludedReferenceOrInstance.popper;
+      }
+
+      if (!isExcluded) {
+        instance.hide(duration);
+      }
+    }
+  });
+}
+/**
+ * Determines if the mouse cursor is outside of the popper's interactive border
+ * region
+ */
+
+function isCursorOutsideInteractiveBorder(popperPlacement, popperRect, event, props) {
+  if (!popperPlacement) {
+    return true;
+  }
+
+  var x = event.clientX,
+      y = event.clientY;
+  var interactiveBorder = props.interactiveBorder,
+      distance = props.distance;
+  var exceedsTop = popperRect.top - y > (popperPlacement === 'top' ? interactiveBorder + distance : interactiveBorder);
+  var exceedsBottom = y - popperRect.bottom > (popperPlacement === 'bottom' ? interactiveBorder + distance : interactiveBorder);
+  var exceedsLeft = popperRect.left - x > (popperPlacement === 'left' ? interactiveBorder + distance : interactiveBorder);
+  var exceedsRight = x - popperRect.right > (popperPlacement === 'right' ? interactiveBorder + distance : interactiveBorder);
+  return exceedsTop || exceedsBottom || exceedsLeft || exceedsRight;
+}
+/**
+ * Returns the distance offset, taking into account the default offset due to
+ * the transform: translate() rule (10px) in CSS
+ */
+
+function getOffsetDistanceInPx(distance) {
+  return -(distance - 10) + 'px';
+}
+
+var idCounter = 1; // Workaround for IE11's lack of new MouseEvent constructor
+
+var mouseMoveListeners = [];
+/**
+ * Creates and returns a Tippy object. We're using a closure pattern instead of
+ * a class so that the exposed object API is clean without private members
+ * prefixed with `_`.
+ */
+
+function createTippy(reference, collectionProps) {
+  var props = evaluateProps(reference, collectionProps); // If the reference shouldn't have multiple tippys, return null early
+
+  if (!props.multiple && reference._tippy) {
+    return null;
+  }
+  /* ======================= 🔒 Private members 🔒 ======================= */
+
+
+  var lastTriggerEventType;
+  var lastMouseMoveEvent;
+  var showTimeoutId;
+  var hideTimeoutId;
+  var scheduleHideAnimationFrameId;
+  var isScheduledToShow = false;
+  var isBeingDestroyed = false;
+  var previousPlacement;
+  var wasVisibleDuringPreviousUpdate = false;
+  var hasMountCallbackRun = false;
+  var currentMountCallback;
+  var currentTransitionEndListener;
+  var listeners = [];
+  var currentComputedPadding;
+  var debouncedOnMouseMove = debounce(onMouseMove, props.interactiveDebounce);
+  /* ======================= 🔑 Public members 🔑 ======================= */
+
+  var id = idCounter++;
+  var popper = createPopperElement(id, props);
+  var popperChildren = getChildren(popper);
+  var popperInstance = null;
+  var state = {
+    // Is the instance currently enabled?
+    isEnabled: true,
+    // Is the tippy currently showing and not transitioning out?
+    isVisible: false,
+    // Has the instance been destroyed?
+    isDestroyed: false,
+    // Is the tippy currently mounted to the DOM?
+    isMounted: false,
+    // Has the tippy finished transitioning in?
+    isShown: false
+  };
+  var instance = {
+    // properties
+    id: id,
+    reference: reference,
+    popper: popper,
+    popperChildren: popperChildren,
+    popperInstance: popperInstance,
+    props: props,
+    state: state,
+    // methods
+    clearDelayTimeouts: clearDelayTimeouts,
+    set: set,
+    setContent: setContent,
+    show: show,
+    hide: hide,
+    enable: enable,
+    disable: disable,
+    destroy: destroy
+    /* ==================== Initial instance mutations =================== */
+
+  };
+  reference._tippy = instance;
+  popper._tippy = instance;
+  addTriggersToReference();
+
+  if (!props.lazy) {
+    createPopperInstance();
+  }
+
+  if (props.showOnInit) {
+    scheduleShow();
+  } // Ensure the event listeners target can receive focus
+
+
+  if (props.a11y && !props.target && !canReceiveFocus(getEventListenersTarget())) {
+    getEventListenersTarget().setAttribute('tabindex', '0');
+  } // Prevent a tippy with a delay from hiding if the cursor left then returned
+  // before it started hiding
+
+
+  popper.addEventListener('mouseenter', function (event) {
+    if (instance.props.interactive && instance.state.isVisible && lastTriggerEventType === 'mouseenter') {
+      // We don't want props.onTrigger() to be called here, since the `event`
+      // object is not related to the reference element
+      scheduleShow(event, true);
+    }
+  });
+  popper.addEventListener('mouseleave', function () {
+    if (instance.props.interactive && lastTriggerEventType === 'mouseenter') {
+      document.addEventListener('mousemove', debouncedOnMouseMove);
+    }
+  });
+  return instance;
+  /* ======================= 🔒 Private methods 🔒 ======================= */
+
+  /**
+   * Removes the follow cursor listener
+   */
+
+  function removeFollowCursorListener() {
+    document.removeEventListener('mousemove', positionVirtualReferenceNearCursor);
+  }
+  /**
+   * Cleans up interactive mouse listeners
+   */
+
+
+  function cleanupInteractiveMouseListeners() {
+    document.body.removeEventListener('mouseleave', scheduleHide);
+    document.removeEventListener('mousemove', debouncedOnMouseMove);
+    mouseMoveListeners = mouseMoveListeners.filter(function (listener) {
+      return listener !== debouncedOnMouseMove;
+    });
+  }
+  /**
+   * Returns correct target used for event listeners
+   */
+
+
+  function getEventListenersTarget() {
+    return instance.props.triggerTarget || reference;
+  }
+  /**
+   * Adds the document click event listener for the instance
+   */
+
+
+  function addDocumentClickListener() {
+    document.addEventListener('click', onDocumentClick, true);
+  }
+  /**
+   * Removes the document click event listener for the instance
+   */
+
+
+  function removeDocumentClickListener() {
+    document.removeEventListener('click', onDocumentClick, true);
+  }
+  /**
+   * Returns transitionable inner elements used in show/hide methods
+   */
+
+
+  function getTransitionableElements() {
+    return [instance.popperChildren.tooltip, instance.popperChildren.backdrop, instance.popperChildren.content];
+  }
+  /**
+   * Determines if the instance is in `followCursor` mode.
+   * NOTE: in v5, touch devices will use `initial` behavior no matter the value.
+   */
+
+
+  function getIsInLooseFollowCursorMode() {
+    var followCursor = instance.props.followCursor;
+    return followCursor && lastTriggerEventType !== 'focus' || isUsingTouch && followCursor === 'initial';
+  }
+  /**
+   * Updates the tooltip's position on each animation frame
+   */
+
+
+  function makeSticky() {
+    setTransitionDuration([popper], isIE ? 0 : instance.props.updateDuration);
+    var prevRefRect = reference.getBoundingClientRect();
+
+    function updatePosition() {
+      var currentRefRect = reference.getBoundingClientRect(); // Only schedule an update if the reference rect has changed
+
+      if (prevRefRect.top !== currentRefRect.top || prevRefRect.right !== currentRefRect.right || prevRefRect.bottom !== currentRefRect.bottom || prevRefRect.left !== currentRefRect.left) {
+        instance.popperInstance.scheduleUpdate();
+      }
+
+      prevRefRect = currentRefRect;
+
+      if (instance.state.isMounted) {
+        requestAnimationFrame(updatePosition);
+      }
+    }
+
+    updatePosition();
+  }
+  /**
+   * Invokes a callback once the tooltip has fully transitioned out
+   */
+
+
+  function onTransitionedOut(duration, callback) {
+    onTransitionEnd(duration, function () {
+      if (!instance.state.isVisible && popper.parentNode && popper.parentNode.contains(popper)) {
+        callback();
+      }
+    });
+  }
+  /**
+   * Invokes a callback once the tooltip has fully transitioned in
+   */
+
+
+  function onTransitionedIn(duration, callback) {
+    onTransitionEnd(duration, callback);
+  }
+  /**
+   * Invokes a callback once the tooltip's CSS transition ends
+   */
+
+
+  function onTransitionEnd(duration, callback) {
+    var tooltip = instance.popperChildren.tooltip;
+    /**
+     * Listener added as the `transitionend` handler
+     */
+
+    function listener(event) {
+      if (event.target === tooltip) {
+        updateTransitionEndListener(tooltip, 'remove', listener);
+        callback();
+      }
+    } // Make callback synchronous if duration is 0
+    // `transitionend` won't fire otherwise
+
+
+    if (duration === 0) {
+      return callback();
+    }
+
+    updateTransitionEndListener(tooltip, 'remove', currentTransitionEndListener);
+    updateTransitionEndListener(tooltip, 'add', listener);
+    currentTransitionEndListener = listener;
+  }
+  /**
+   * Adds an event listener to the reference and stores it in `listeners`
+   */
+
+
+  function on(eventType, handler) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+    getEventListenersTarget().addEventListener(eventType, handler, options);
+    listeners.push({
+      eventType: eventType,
+      handler: handler,
+      options: options
+    });
+  }
+  /**
+   * Adds event listeners to the reference based on the `trigger` prop
+   */
+
+
+  function addTriggersToReference() {
+    if (instance.props.touchHold && !instance.props.target) {
+      on('touchstart', onTrigger, PASSIVE);
+      on('touchend', onMouseLeave, PASSIVE);
+    }
+
+    instance.props.trigger.trim().split(' ').forEach(function (eventType) {
+      if (eventType === 'manual') {
+        return;
+      } // Non-delegates
+
+
+      if (!instance.props.target) {
+        on(eventType, onTrigger);
+
+        switch (eventType) {
+          case 'mouseenter':
+            on('mouseleave', onMouseLeave);
+            break;
+
+          case 'focus':
+            on(isIE ? 'focusout' : 'blur', onBlur);
+            break;
+        }
+      } else {
+        // Delegates
+        switch (eventType) {
+          case 'mouseenter':
+            on('mouseover', onDelegateShow);
+            on('mouseout', onDelegateHide);
+            break;
+
+          case 'focus':
+            on('focusin', onDelegateShow);
+            on('focusout', onDelegateHide);
+            break;
+
+          case 'click':
+            on(eventType, onDelegateShow);
+            break;
+        }
+      }
+    });
+  }
+  /**
+   * Removes event listeners from the reference
+   */
+
+
+  function removeTriggersFromReference() {
+    listeners.forEach(function (_ref) {
+      var eventType = _ref.eventType,
+          handler = _ref.handler,
+          options = _ref.options;
+      getEventListenersTarget().removeEventListener(eventType, handler, options);
+    });
+    listeners = [];
+  }
+  /**
+   * Positions the virtual reference near the cursor
+   */
+
+
+  function positionVirtualReferenceNearCursor(event) {
+    var _lastMouseMoveEvent = lastMouseMoveEvent = event,
+        x = _lastMouseMoveEvent.clientX,
+        y = _lastMouseMoveEvent.clientY; // Gets set once popperInstance `onCreate` has been called
+
+
+    if (!currentComputedPadding) {
+      return;
+    } // If the instance is interactive, avoid updating the position unless it's
+    // over the reference element
+
+
+    var isCursorOverReference = closestCallback(event.target, function (el) {
+      return el === reference;
+    });
+    var rect = reference.getBoundingClientRect();
+    var followCursor = instance.props.followCursor;
+    var isHorizontal = followCursor === 'horizontal';
+    var isVertical = followCursor === 'vertical'; // The virtual reference needs some size to prevent itself from overflowing
+
+    var isVerticalPlacement = includes(['top', 'bottom'], getBasicPlacement(popper));
+    var fullPlacement = popper.getAttribute(PLACEMENT_ATTRIBUTE);
+    var isVariation = fullPlacement ? !!fullPlacement.split('-')[1] : false;
+    var size = isVerticalPlacement ? popper.offsetWidth : popper.offsetHeight;
+    var halfSize = size / 2;
+    var verticalIncrease = isVerticalPlacement ? 0 : isVariation ? size : halfSize;
+    var horizontalIncrease = isVerticalPlacement ? isVariation ? size : halfSize : 0;
+
+    if (isCursorOverReference || !instance.props.interactive) {
+      instance.popperInstance.reference = _extends({}, instance.popperInstance.reference, {
+        // This will exist in next Popper.js feature release to fix #532
+        // @ts-ignore
+        referenceNode: reference,
+        // These `client` values don't get used by Popper.js if they are 0
+        clientWidth: 0,
+        clientHeight: 0,
+        getBoundingClientRect: function getBoundingClientRect() {
+          return {
+            width: isVerticalPlacement ? size : 0,
+            height: isVerticalPlacement ? 0 : size,
+            top: (isHorizontal ? rect.top : y) - verticalIncrease,
+            bottom: (isHorizontal ? rect.bottom : y) + verticalIncrease,
+            left: (isVertical ? rect.left : x) - horizontalIncrease,
+            right: (isVertical ? rect.right : x) + horizontalIncrease
+          };
+        }
+      });
+      instance.popperInstance.update();
+    }
+
+    if (followCursor === 'initial' && instance.state.isVisible) {
+      removeFollowCursorListener();
+    }
+  }
+  /**
+   * Creates the tippy instance for a delegate when it's been triggered
+   */
+
+
+  function createDelegateChildTippy(event) {
+    if (event) {
+      var targetEl = closest(event.target, instance.props.target);
+
+      if (targetEl && !targetEl._tippy) {
+        createTippy(targetEl, _extends({}, instance.props, {
+          content: invokeWithArgsOrReturn(collectionProps.content, [targetEl]),
+          appendTo: collectionProps.appendTo,
+          target: '',
+          showOnInit: true
+        }));
+      }
+    }
+  }
+  /**
+   * Event listener invoked upon trigger
+   */
+
+
+  function onTrigger(event) {
+    if (!instance.state.isEnabled || isEventListenerStopped(event)) {
+      return;
+    }
+
+    if (!instance.state.isVisible) {
+      lastTriggerEventType = event.type;
+
+      if (event instanceof MouseEvent) {
+        lastMouseMoveEvent = event; // If scrolling, `mouseenter` events can be fired if the cursor lands
+        // over a new target, but `mousemove` events don't get fired. This
+        // causes interactive tooltips to get stuck open until the cursor is
+        // moved
+
+        mouseMoveListeners.forEach(function (listener) {
+          return listener(event);
+        });
+      }
+    } // Toggle show/hide when clicking click-triggered tooltips
+
+
+    if (event.type === 'click' && instance.props.hideOnClick !== false && instance.state.isVisible) {
+      scheduleHide();
+    } else {
+      scheduleShow(event);
+    }
+  }
+  /**
+   * Event listener used for interactive tooltips to detect when they should
+   * hide
+   */
+
+
+  function onMouseMove(event) {
+    var isCursorOverPopper = closest(event.target, POPPER_SELECTOR) === popper;
+    var isCursorOverReference = closestCallback(event.target, function (el) {
+      return el === reference;
+    });
+
+    if (isCursorOverPopper || isCursorOverReference) {
+      return;
+    }
+
+    if (isCursorOutsideInteractiveBorder(getBasicPlacement(popper), popper.getBoundingClientRect(), event, instance.props)) {
+      cleanupInteractiveMouseListeners();
+      scheduleHide();
+    }
+  }
+  /**
+   * Event listener invoked upon mouseleave
+   */
+
+
+  function onMouseLeave(event) {
+    if (isEventListenerStopped(event)) {
+      return;
+    }
+
+    if (instance.props.interactive) {
+      document.body.addEventListener('mouseleave', scheduleHide);
+      document.addEventListener('mousemove', debouncedOnMouseMove);
+      mouseMoveListeners.push(debouncedOnMouseMove);
+      return;
+    }
+
+    scheduleHide();
+  }
+  /**
+   * Event listener invoked upon blur
+   */
+
+
+  function onBlur(event) {
+    if (event.target !== getEventListenersTarget()) {
+      return;
+    }
+
+    if (instance.props.interactive && event.relatedTarget && popper.contains(event.relatedTarget)) {
+      return;
+    }
+
+    scheduleHide();
+  }
+  /**
+   * Event listener invoked when a child target is triggered
+   */
+
+
+  function onDelegateShow(event) {
+    if (closest(event.target, instance.props.target)) {
+      scheduleShow(event);
+    }
+  }
+  /**
+   * Event listener invoked when a child target should hide
+   */
+
+
+  function onDelegateHide(event) {
+    if (closest(event.target, instance.props.target)) {
+      scheduleHide();
+    }
+  }
+  /**
+   * Determines if an event listener should stop further execution due to the
+   * `touchHold` option
+   */
+
+
+  function isEventListenerStopped(event) {
+    var supportsTouch = 'ontouchstart' in window;
+    var isTouchEvent = includes(event.type, 'touch');
+    var touchHold = instance.props.touchHold;
+    return supportsTouch && isUsingTouch && touchHold && !isTouchEvent || isUsingTouch && !touchHold && isTouchEvent;
+  }
+  /**
+   * Runs the mount callback
+   */
+
+
+  function runMountCallback() {
+    if (!hasMountCallbackRun && currentMountCallback) {
+      hasMountCallbackRun = true;
+      reflow(popper);
+      currentMountCallback();
+    }
+  }
+  /**
+   * Creates the popper instance for the instance
+   */
+
+
+  function createPopperInstance() {
+    var popperOptions = instance.props.popperOptions;
+    var _instance$popperChild = instance.popperChildren,
+        tooltip = _instance$popperChild.tooltip,
+        arrow = _instance$popperChild.arrow;
+    var preventOverflowModifier = getModifier(popperOptions, 'preventOverflow');
+
+    function applyMutations(data) {
+      if (instance.props.flip && !instance.props.flipOnUpdate) {
+        if (data.flipped) {
+          instance.popperInstance.options.placement = data.placement;
+        }
+
+        setFlipModifierEnabled(instance.popperInstance.modifiers, false);
+      } // Apply all of the popper's attributes to the tootip node as well.
+      // Allows users to avoid using the .tippy-popper selector for themes.
+
+
+      tooltip.setAttribute(PLACEMENT_ATTRIBUTE, data.placement);
+
+      if (data.attributes[OUT_OF_BOUNDARIES_ATTRIBUTE] !== false) {
+        tooltip.setAttribute(OUT_OF_BOUNDARIES_ATTRIBUTE, '');
+      } else {
+        tooltip.removeAttribute(OUT_OF_BOUNDARIES_ATTRIBUTE);
+      } // Prevents a transition when changing placements (while tippy is visible)
+      // for scroll/resize updates
+
+
+      if (previousPlacement && previousPlacement !== data.placement && wasVisibleDuringPreviousUpdate) {
+        tooltip.style.transition = 'none';
+        requestAnimationFrame(function () {
+          tooltip.style.transition = '';
+        });
+      }
+
+      previousPlacement = data.placement;
+      wasVisibleDuringPreviousUpdate = instance.state.isVisible;
+      var basicPlacement = getBasicPlacement(popper);
+      var styles = tooltip.style; // Account for the `distance` offset
+
+      styles.top = styles.bottom = styles.left = styles.right = '';
+      styles[basicPlacement] = getOffsetDistanceInPx(instance.props.distance);
+      var padding = preventOverflowModifier && preventOverflowModifier.padding !== undefined ? preventOverflowModifier.padding : PADDING;
+      var isPaddingNumber = typeof padding === 'number';
+
+      var computedPadding = _extends({
+        top: isPaddingNumber ? padding : padding.top,
+        bottom: isPaddingNumber ? padding : padding.bottom,
+        left: isPaddingNumber ? padding : padding.left,
+        right: isPaddingNumber ? padding : padding.right
+      }, !isPaddingNumber && padding);
+
+      computedPadding[basicPlacement] = isPaddingNumber ? padding + instance.props.distance : (padding[basicPlacement] || 0) + instance.props.distance;
+      instance.popperInstance.modifiers.filter(function (m) {
+        return m.name === 'preventOverflow';
+      })[0].padding = computedPadding;
+      currentComputedPadding = computedPadding;
+    }
+
+    var config = _extends({
+      eventsEnabled: false,
+      placement: instance.props.placement
+    }, popperOptions, {
+      modifiers: _extends({}, popperOptions ? popperOptions.modifiers : {}, {
+        preventOverflow: _extends({
+          boundariesElement: instance.props.boundary,
+          padding: PADDING
+        }, preventOverflowModifier),
+        arrow: _extends({
+          element: arrow,
+          enabled: !!arrow
+        }, getModifier(popperOptions, 'arrow')),
+        flip: _extends({
+          enabled: instance.props.flip,
+          // The tooltip is offset by 10px from the popper in CSS,
+          // we need to account for its distance
+          padding: instance.props.distance + PADDING,
+          behavior: instance.props.flipBehavior
+        }, getModifier(popperOptions, 'flip')),
+        offset: _extends({
+          offset: instance.props.offset
+        }, getModifier(popperOptions, 'offset'))
+      }),
+      onCreate: function onCreate(data) {
+        applyMutations(data);
+        runMountCallback();
+
+        if (popperOptions && popperOptions.onCreate) {
+          popperOptions.onCreate(data);
+        }
+      },
+      onUpdate: function onUpdate(data) {
+        applyMutations(data);
+        runMountCallback();
+
+        if (popperOptions && popperOptions.onUpdate) {
+          popperOptions.onUpdate(data);
+        }
+      }
+    });
+
+    instance.popperInstance = new popper_js__WEBPACK_IMPORTED_MODULE_0__["default"](reference, popper, config);
+  }
+  /**
+   * Mounts the tooltip to the DOM
+   */
+
+
+  function mount() {
+    hasMountCallbackRun = false;
+    var isInLooseFollowCursorMode = getIsInLooseFollowCursorMode();
+
+    if (instance.popperInstance) {
+      setFlipModifierEnabled(instance.popperInstance.modifiers, instance.props.flip);
+
+      if (!isInLooseFollowCursorMode) {
+        instance.popperInstance.reference = reference;
+        instance.popperInstance.enableEventListeners();
+      }
+
+      instance.popperInstance.scheduleUpdate();
+    } else {
+      createPopperInstance();
+
+      if (!isInLooseFollowCursorMode) {
+        instance.popperInstance.enableEventListeners();
+      }
+    }
+
+    var appendTo = instance.props.appendTo;
+    var parentNode = appendTo === 'parent' ? reference.parentNode : invokeWithArgsOrReturn(appendTo, [reference]);
+
+    if (!parentNode.contains(popper)) {
+      parentNode.appendChild(popper);
+      instance.props.onMount(instance);
+      instance.state.isMounted = true;
+    }
+  }
+  /**
+   * Setup before show() is invoked (delays, etc.)
+   */
+
+
+  function scheduleShow(event, shouldAvoidCallingOnTrigger) {
+    clearDelayTimeouts();
+
+    if (instance.state.isVisible) {
+      return;
+    } // Is a delegate, create an instance for the child target
+
+
+    if (instance.props.target) {
+      return createDelegateChildTippy(event);
+    }
+
+    isScheduledToShow = true;
+
+    if (event && !shouldAvoidCallingOnTrigger) {
+      instance.props.onTrigger(instance, event);
+    }
+
+    if (instance.props.wait) {
+      return instance.props.wait(instance, event);
+    } // If the tooltip has a delay, we need to be listening to the mousemove as
+    // soon as the trigger event is fired, so that it's in the correct position
+    // upon mount.
+    // Edge case: if the tooltip is still mounted, but then scheduleShow() is
+    // called, it causes a jump.
+
+
+    if (getIsInLooseFollowCursorMode() && !instance.state.isMounted) {
+      if (!instance.popperInstance) {
+        createPopperInstance();
+      }
+
+      document.addEventListener('mousemove', positionVirtualReferenceNearCursor);
+    }
+
+    addDocumentClickListener();
+    var delay = getValue(instance.props.delay, 0, defaultProps.delay);
+
+    if (delay) {
+      showTimeoutId = setTimeout(function () {
+        show();
+      }, delay);
+    } else {
+      show();
+    }
+  }
+  /**
+   * Setup before hide() is invoked (delays, etc.)
+   */
+
+
+  function scheduleHide() {
+    clearDelayTimeouts();
+
+    if (!instance.state.isVisible) {
+      removeFollowCursorListener();
+      removeDocumentClickListener();
+      return;
+    }
+
+    isScheduledToShow = false;
+    var delay = getValue(instance.props.delay, 1, defaultProps.delay);
+
+    if (delay) {
+      hideTimeoutId = setTimeout(function () {
+        if (instance.state.isVisible) {
+          hide();
+        }
+      }, delay);
+    } else {
+      // Fixes a `transitionend` problem when it fires 1 frame too
+      // late sometimes, we don't want hide() to be called.
+      scheduleHideAnimationFrameId = requestAnimationFrame(function () {
+        hide();
+      });
+    }
+  }
+  /**
+   * Listener to handle clicks on the document to determine if the
+   * instance should hide
+   */
+
+
+  function onDocumentClick(event) {
+    // Clicked on interactive popper
+    if (instance.props.interactive && popper.contains(event.target)) {
+      return;
+    } // Clicked on the event listeners target
+
+
+    if (getEventListenersTarget().contains(event.target)) {
+      if (isUsingTouch) {
+        return;
+      }
+
+      if (instance.state.isVisible && includes(instance.props.trigger, 'click')) {
+        return;
+      }
+    }
+
+    if (instance.props.hideOnClick === true) {
+      clearDelayTimeouts();
+      hide();
+    }
+  }
+  /* ======================= 🔑 Public methods 🔑 ======================= */
+
+  /**
+   * Enables the instance to allow it to show or hide
+   */
+
+
+  function enable() {
+    instance.state.isEnabled = true;
+  }
+  /**
+   * Disables the instance to disallow it to show or hide
+   */
+
+
+  function disable() {
+    instance.state.isEnabled = false;
+  }
+  /**
+   * Clears pending timeouts related to the `delay` prop if any
+   */
+
+
+  function clearDelayTimeouts() {
+    clearTimeout(showTimeoutId);
+    clearTimeout(hideTimeoutId);
+    cancelAnimationFrame(scheduleHideAnimationFrameId);
+  }
+  /**
+   * Sets new props for the instance and redraws the tooltip
+   */
+
+
+  function set(options) {
+    // Backwards-compatible after TypeScript change
+    options = options || {};
+    validateOptions(options, defaultProps);
+    removeTriggersFromReference();
+    var prevProps = instance.props;
+    var nextProps = evaluateProps(reference, _extends({}, instance.props, {}, options, {
+      ignoreAttributes: true
+    }));
+    nextProps.ignoreAttributes = hasOwnProperty(options, 'ignoreAttributes') ? options.ignoreAttributes || false : prevProps.ignoreAttributes;
+    instance.props = nextProps;
+    addTriggersToReference();
+    cleanupInteractiveMouseListeners();
+    debouncedOnMouseMove = debounce(onMouseMove, nextProps.interactiveDebounce);
+    updatePopperElement(popper, prevProps, nextProps);
+    instance.popperChildren = getChildren(popper);
+
+    if (instance.popperInstance) {
+      if (POPPER_INSTANCE_DEPENDENCIES.some(function (prop) {
+        return hasOwnProperty(options, prop) && options[prop] !== prevProps[prop];
+      })) {
+        instance.popperInstance.destroy();
+        createPopperInstance();
+
+        if (instance.state.isVisible) {
+          instance.popperInstance.enableEventListeners();
+        }
+
+        if (instance.props.followCursor && lastMouseMoveEvent) {
+          positionVirtualReferenceNearCursor(lastMouseMoveEvent);
+        }
+      } else {
+        instance.popperInstance.update();
+      }
+    }
+  }
+  /**
+   * Shortcut for .set({ content: newContent })
+   */
+
+
+  function setContent(content) {
+    set({
+      content: content
+    });
+  }
+  /**
+   * Shows the tooltip
+   */
+
+
+  function show() {
+    var duration = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : getValue(instance.props.duration, 0, defaultProps.duration[1]);
+
+    if (instance.state.isDestroyed || !instance.state.isEnabled || isUsingTouch && !instance.props.touch) {
+      return;
+    } // Standardize `disabled` behavior across browsers.
+    // Firefox allows events on disabled elements, but Chrome doesn't.
+    // Using a wrapper element (i.e. <span>) is recommended.
+
+
+    if (getEventListenersTarget().hasAttribute('disabled')) {
+      return;
+    }
+
+    if (instance.props.onShow(instance) === false) {
+      return;
+    }
+
+    addDocumentClickListener();
+    popper.style.visibility = 'visible';
+    instance.state.isVisible = true;
+
+    if (instance.props.interactive) {
+      getEventListenersTarget().classList.add(ACTIVE_CLASS);
+    } // Prevent a transition if the popper is at the opposite placement
+
+
+    var transitionableElements = getTransitionableElements();
+    setTransitionDuration(transitionableElements.concat(popper), 0);
+
+    currentMountCallback = function currentMountCallback() {
+      if (!instance.state.isVisible) {
+        return;
+      }
+
+      var isInLooseFollowCursorMode = getIsInLooseFollowCursorMode();
+
+      if (isInLooseFollowCursorMode && lastMouseMoveEvent) {
+        positionVirtualReferenceNearCursor(lastMouseMoveEvent);
+      } else if (!isInLooseFollowCursorMode) {
+        // Double update will apply correct mutations
+        instance.popperInstance.update();
+      }
+
+      if (instance.popperChildren.backdrop) {
+        instance.popperChildren.content.style.transitionDelay = Math.round(duration / 12) + 'ms';
+      }
+
+      if (instance.props.sticky) {
+        makeSticky();
+      }
+
+      setTransitionDuration([popper], instance.props.updateDuration);
+      setTransitionDuration(transitionableElements, duration);
+      setVisibilityState(transitionableElements, 'visible');
+      onTransitionedIn(duration, function () {
+        if (instance.props.aria) {
+          getEventListenersTarget().setAttribute("aria-".concat(instance.props.aria), popper.id);
+        }
+
+        instance.props.onShown(instance);
+        instance.state.isShown = true;
+      });
+    };
+
+    mount();
+  }
+  /**
+   * Hides the tooltip
+   */
+
+
+  function hide() {
+    var duration = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : getValue(instance.props.duration, 1, defaultProps.duration[1]);
+
+    if (instance.state.isDestroyed || !instance.state.isEnabled && !isBeingDestroyed) {
+      return;
+    }
+
+    if (instance.props.onHide(instance) === false && !isBeingDestroyed) {
+      return;
+    }
+
+    removeDocumentClickListener();
+    popper.style.visibility = 'hidden';
+    instance.state.isVisible = false;
+    instance.state.isShown = false;
+    wasVisibleDuringPreviousUpdate = false;
+
+    if (instance.props.interactive) {
+      getEventListenersTarget().classList.remove(ACTIVE_CLASS);
+    }
+
+    var transitionableElements = getTransitionableElements();
+    setTransitionDuration(transitionableElements, duration);
+    setVisibilityState(transitionableElements, 'hidden');
+    onTransitionedOut(duration, function () {
+      if (!isScheduledToShow) {
+        removeFollowCursorListener();
+      }
+
+      if (instance.props.aria) {
+        getEventListenersTarget().removeAttribute("aria-".concat(instance.props.aria));
+      }
+
+      instance.popperInstance.disableEventListeners();
+      instance.popperInstance.options.placement = instance.props.placement;
+      popper.parentNode.removeChild(popper);
+      instance.props.onHidden(instance);
+      instance.state.isMounted = false;
+    });
+  }
+  /**
+   * Destroys the tooltip
+   */
+
+
+  function destroy(destroyTargetInstances) {
+    if (instance.state.isDestroyed) {
+      return;
+    }
+
+    isBeingDestroyed = true; // If the popper is currently mounted to the DOM, we want to ensure it gets
+    // hidden and unmounted instantly upon destruction
+
+    if (instance.state.isMounted) {
+      hide(0);
+    }
+
+    removeTriggersFromReference();
+    delete reference._tippy;
+    var target = instance.props.target;
+
+    if (target && destroyTargetInstances && isRealElement(reference)) {
+      arrayFrom(reference.querySelectorAll(target)).forEach(function (child) {
+        if (child._tippy) {
+          child._tippy.destroy();
+        }
+      });
+    }
+
+    if (instance.popperInstance) {
+      instance.popperInstance.destroy();
+    }
+
+    isBeingDestroyed = false;
+    instance.state.isDestroyed = true;
+  }
+}
+
+/**
+ * Groups an array of instances by taking control of their props during
+ * certain lifecycles.
+ */
+function group(instances) {
+  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+      _ref$delay = _ref.delay,
+      delay = _ref$delay === void 0 ? instances[0].props.delay : _ref$delay,
+      _ref$duration = _ref.duration,
+      duration = _ref$duration === void 0 ? 0 : _ref$duration;
+
+  var isAnyTippyOpen = false;
+  instances.forEach(function (instance) {
+    if (instance._originalProps) {
+      instance.set(instance._originalProps);
+    } else {
+      instance._originalProps = _extends({}, instance.props);
+    }
+  });
+
+  function setIsAnyTippyOpen(value) {
+    isAnyTippyOpen = value;
+    updateInstances();
+  }
+
+  function onShow(instance) {
+    instance._originalProps.onShow(instance);
+
+    instances.forEach(function (instance) {
+      instance.set({
+        duration: duration
+      });
+
+      if (instance.state.isVisible) {
+        instance.hide();
+      }
+    });
+    setIsAnyTippyOpen(true);
+  }
+
+  function onHide(instance) {
+    instance._originalProps.onHide(instance);
+
+    setIsAnyTippyOpen(false);
+  }
+
+  function onShown(instance) {
+    instance._originalProps.onShown(instance);
+
+    instance.set({
+      duration: instance._originalProps.duration
+    });
+  }
+
+  function updateInstances() {
+    instances.forEach(function (instance) {
+      instance.set({
+        onShow: onShow,
+        onShown: onShown,
+        onHide: onHide,
+        delay: isAnyTippyOpen ? [0, Array.isArray(delay) ? delay[1] : delay] : delay,
+        duration: isAnyTippyOpen ? duration : instance._originalProps.duration
+      });
+    });
+  }
+
+  updateInstances();
+}
+
+var globalEventListenersBound = false;
+/**
+ * Exported module
+ */
+
+function tippy(targets, options) {
+  validateOptions(options || {}, defaultProps);
+
+  if (!globalEventListenersBound) {
+    bindGlobalEventListeners();
+    globalEventListenersBound = true;
+  }
+
+  var props = _extends({}, defaultProps, {}, options); // If they are specifying a virtual positioning reference, we need to polyfill
+  // some native DOM props
+
+
+  if (isBareVirtualElement(targets)) {
+    polyfillElementPrototypeProperties(targets);
+  }
+
+  var instances = getArrayOfElements(targets).reduce(function (acc, reference) {
+    var instance = reference && createTippy(reference, props);
+
+    if (instance) {
+      acc.push(instance);
+    }
+
+    return acc;
+  }, []);
+  return isSingular(targets) ? instances[0] : instances;
+}
+/**
+ * Static props
+ */
+
+
+tippy.version = version;
+tippy.defaults = defaultProps;
+/**
+ * Static methods
+ */
+
+tippy.setDefaults = function (partialDefaults) {
+  Object.keys(partialDefaults).forEach(function (key) {
+    // @ts-ignore
+    defaultProps[key] = partialDefaults[key];
+  });
+};
+
+tippy.hideAll = hideAll;
+tippy.group = group;
+/**
+ * Auto-init tooltips for elements with a `data-tippy="..."` attribute
+ */
+
+function autoInit() {
+  arrayFrom(document.querySelectorAll('[data-tippy]')).forEach(function (el) {
+    var content = el.getAttribute('data-tippy');
+
+    if (content) {
+      tippy(el, {
+        content: content
+      });
+    }
+  });
+}
+
+if (isBrowser) {
+  setTimeout(autoInit);
+}
+
+/**
+ * Injects a string of CSS styles to a style node in <head>
+ */
+
+function injectCSS(css) {
+  if (isBrowser) {
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    style.textContent = css;
+    style.setAttribute('data-tippy-stylesheet', '');
+    var head = document.head;
+    var firstStyleOrLinkTag = head.querySelector('style,link');
+
+    if (firstStyleOrLinkTag) {
+      head.insertBefore(style, firstStyleOrLinkTag);
+    } else {
+      head.appendChild(style);
+    }
+  }
+}
+
+injectCSS(css);
+
+/* harmony default export */ __webpack_exports__["default"] = (tippy);
+//# sourceMappingURL=index.all.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -27520,11 +29476,13 @@ window.AjaxRequest = function (metodo, ruta, datos) {
 };
 
 window.AjaxFileRequest = function (metodo, ruta, idArchivo) {
+  var id_sub = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
   $(".loader").show();
   var file_data = $('#' + idArchivo).prop('files')[0];
   var form_data = new FormData();
   form_data.append('_method', metodo);
   form_data.append('file', file_data);
+  form_data.append('id', id_sub);
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -27558,10 +29516,13 @@ window.AjaxFileRequest = function (metodo, ruta, idArchivo) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {/**
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony import */ var tippy_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tippy.js */ "./node_modules/tippy.js/esm/index.all.js");
+/**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
@@ -27588,7 +29549,68 @@ __webpack_require__(/*! ./../../node_modules/daemonite-material/js/material */ "
 
 __webpack_require__(/*! ./../../node_modules/jquery-ui/ */ "./node_modules/jquery-ui/ui/widget.js");
 
+
 $(document).ready(function () {
+  window.AlertQuestionQuizTooltip = document.querySelector('.preguntas_miniaturas');
+  Object(tippy_js__WEBPACK_IMPORTED_MODULE_0__["default"])(window.AlertQuestionQuizTooltip, {
+    content: "Debes completar la pregunta",
+    target: ".alert_question",
+    placement: 'right',
+    // or 'left', 'right', ...
+    arrow: true,
+    theme: 'eduonlinealert'
+  });
+  window.AndirQuestionQuizTooltip = document.querySelector('#anadir_pregunta_quiz');
+  Object(tippy_js__WEBPACK_IMPORTED_MODULE_0__["default"])(window.AndirQuestionQuizTooltip, {
+    theme: 'light-border',
+    content: $("#quiz_anadir_tooltip")[0],
+    placement: 'right',
+    // or 'left', 'right', ...
+    arrow: true,
+    arrowType: 'round',
+    // or 'sharp' (default)
+    trigger: 'click',
+    // or 'focus'
+    interactive: true
+  });
+  window.QuestionQuizTooltip = document.querySelector('.create_quiz_question_input');
+  Object(tippy_js__WEBPACK_IMPORTED_MODULE_0__["default"])(window.QuestionQuizTooltip, {
+    theme: 'eduonline',
+    arrow: true,
+    trigger: 'click',
+    // or 'focus'
+    arrowType: 'round',
+    // or 'sharp' (default)
+    animation: 'fade',
+    placement: 'bottom',
+    content: "Debes añadir una pregunta"
+  });
+  window.Resp = {};
+  window.Resp["1"] = document.querySelector('#input_resp_1');
+  Object(tippy_js__WEBPACK_IMPORTED_MODULE_0__["default"])(window.Resp["1"], {
+    theme: 'eduonline',
+    arrow: true,
+    trigger: 'click',
+    // or 'focus'
+    arrowType: 'round',
+    // or 'sharp' (default)
+    animation: 'fade',
+    placement: 'bottom',
+    content: "Debes rellenar esta respuesta",
+    interactive: true
+  });
+  window.Resp["2"] = document.querySelector('#input_resp_2');
+  Object(tippy_js__WEBPACK_IMPORTED_MODULE_0__["default"])(window.Resp["2"], {
+    theme: 'eduonline',
+    arrow: true,
+    trigger: 'click',
+    // or 'focus'
+    arrowType: 'round',
+    // or 'sharp' (default)
+    animation: 'fade',
+    placement: 'bottom',
+    content: "Debes rellenar esta respuesta"
+  });
   window.moment = __webpack_require__(/*! ./../vendor/moment */ "./resources/vendor/moment/moment.js");
 
   __webpack_require__(/*! ./../../node_modules/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker */ "./node_modules/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js");
@@ -27615,6 +29637,8 @@ __webpack_require__(/*! ./reset_password */ "./resources/js/reset_password.js");
 __webpack_require__(/*! ./registro */ "./resources/js/registro.js");
 
 __webpack_require__(/*! ./create */ "./resources/js/create.js");
+
+__webpack_require__(/*! ./crear_quiz */ "./resources/js/crear_quiz.js");
 
 __webpack_require__(/*! ./ajax_request */ "./resources/js/ajax_request.js");
 
@@ -28043,6 +30067,526 @@ window.EliminarClaseRecursos = function (id) {
 
 /***/ }),
 
+/***/ "./resources/js/crear_quiz.js":
+/*!************************************!*\
+  !*** ./resources/js/crear_quiz.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+window.ChangeCorrectResp = function (e, id_miniatura, num) {
+  if ($(e).hasClass("resp_check_quiz")) {
+    window.Preguntas[window.PreguntaActiva]["correcta_" + num] = false;
+    $(e).removeClass("resp_check_quiz");
+    $("div[data-id_pregunta='" + window.PreguntaActiva + "'] #" + id_miniatura).hide(150);
+  } else {
+    window.Preguntas[window.PreguntaActiva]["correcta_" + num] = true;
+    $(e).addClass("resp_check_quiz");
+    $("div[data-id_pregunta='" + window.PreguntaActiva + "'] #" + id_miniatura).show(150);
+  }
+
+  window.ValidateCompleteForSuccess();
+};
+
+window.QuizQuestionTitle = function (e, id) {
+  ValidateQuestion();
+  window.ValidateCompleteForSuccess();
+  window.Preguntas[window.PreguntaActiva]["pregunta"] = e.value;
+  if (e.value != "") $("div[data-id_pregunta='" + id + "'] .prev_ques_quiz_tit").text(e.value);
+  if (e.value == "") $("div[data-id_pregunta='" + id + "'] .prev_ques_quiz_tit").text("Pregunta");
+};
+
+window.ChangeRespContent = function (e, clase, num) {
+  window.ValidateCompleteForSuccess();
+  ValidateResp(num);
+  window.Preguntas[window.PreguntaActiva]["respuesta_" + num] = e.value;
+  e.placeholder = '';
+
+  if (e.value != '') {
+    $(e).addClass(clase);
+    $(e).removeClass("original_input_resp_quiz");
+  }
+
+  if (e.value == '') {
+    e.placeholder = 'Respuesta ' + num;
+    $(e).removeClass(clase);
+    $(e).addClass("original_input_resp_quiz");
+  }
+};
+
+window.ChangeCorrectRespVF = function (e, num, contra, contra_num, respuesta_vf) {
+  if (num == 1) {
+    var posicion = "first";
+    var contraposicion = 'last';
+  }
+
+  if (num == 2) {
+    var posicion = "last";
+    var contraposicion = 'first';
+  }
+
+  if ($(e).hasClass("resp_check_quiz")) {} else {
+    $(e).addClass("resp_check_quiz");
+    $("." + contra).removeClass("resp_check_quiz");
+  }
+
+  window.Preguntas[window.PreguntaActiva]["respuesta_vf"] = respuesta_vf;
+  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .check_resp_quiz_prev:" + posicion).show(300);
+  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .check_resp_quiz_prev:" + contraposicion).hide(300, function () {
+    window.ValidateCompleteForSuccess();
+  });
+};
+
+window.ExitoCrearQuiz = function (id) {
+  $(".alert_modulo_creado").removeClass("d-none");
+  window.location = window.url + "/crear/quiz/" + id;
+};
+
+window.RemoveMediaQuizPreg = function (id) {
+  $("#img_quiz_preg_" + id).remove();
+  $("#img_min_quiz_preg_" + id).remove();
+  $("#multimedia_prev_" + id).removeClass("d-none");
+  $(".recurso_pregunta").removeClass("d-none");
+};
+
+window.ExitoUploadImgQuiz = function (data) {
+  data = JSON.parse(data);
+  window.Preguntas[window.PreguntaActiva]["img"] = data.img;
+  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .quiz_media_div_prev_miniatura").hide();
+  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .media_miniatura img").attr("src", window.url + "/img/quiz_img/" + data.img);
+  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .media_miniatura").show();
+  $(".quiz_img_recurso").css("background-image", "url(" + window.url + "/img/quiz_img/" + data.img + ")");
+  $(".quiz_img_recurso").show();
+  $(".quiz_media_prin").hide();
+};
+
+window.CambiarAlturaMediaQuiz = function () {
+  var AlturaMedia = $("html").height() - 480;
+  $(".quiz_media_prin").css("height", AlturaMedia + "px");
+
+  if ($("html").height() > 720) {
+    $(".quiz_img_recurso").css("height", AlturaMedia + "px");
+    $(".quiz_video_recurso").css("height", AlturaMedia + "px");
+  } else {
+    $(".quiz_img_recurso").css("height", "250px");
+    $(".quiz_video_recurso").css("height", "250px");
+  }
+};
+
+window.CambiarSegundosQuiz = function (e) {
+  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .seg_prev").text($(e).find(".sec_text").text());
+  $(".quiz_sec").text($(e).find(".sec_text").text());
+  window.Preguntas[window.PreguntaActiva]["segundos"] = $(e).find(".sec_text").text();
+  $("#toogle").prop("checked", false);
+};
+
+window.ModifyYouTubeQuiz = function () {
+  $("#link_video_quiz").val(window.Preguntas[window.PreguntaActiva]["link_video_yt"]);
+  $(".quiz_video_recurso_div").html(window.Preguntas[window.PreguntaActiva]["iframe_video_yt"]);
+  $("#quiz_video_begin").val(window.Preguntas[window.PreguntaActiva]["empieza_video_yt"]);
+  $("#quiz_video_end").val(window.Preguntas[window.PreguntaActiva]["termina_video_yt"]);
+  $(".quiz_media_div_yt").hide(0, function () {
+    $(".video_quiz_prev_modal").show(0);
+  });
+  $('#QuizYouTube').modal('show');
+};
+
+window.ModifyCreditsQuiz = function () {
+  if (($("#QuizSettings").data('bs.modal') || {})._isShown) {
+    $(".textarea_credits").val("");
+    $(".textarea_credits").text("");
+    $(".textarea_credits").val(window.QuizConfig["credit_img"]);
+    $(".textarea_credits").text(window.QuizConfig["credit_img"]);
+  } else {
+    $(".textarea_credits").val(window.Preguntas[window.PreguntaActiva]["credito_media"]);
+    $(".textarea_credits").text(window.Preguntas[window.PreguntaActiva]["credito_media"]);
+  }
+
+  $('#QuizMediaCredits').modal('show');
+};
+
+window.RemoverYouTubeQuiz = function () {
+  $(".quiz_media_div_yt").hide(0, function () {
+    $(".video_quiz_prev_modal").show(0);
+  });
+  $(".quiz_video_recurso").hide(0, function () {
+    $(".quiz_media_prin").show(0);
+  });
+  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .quiz_media_div_prev_miniatura").show();
+  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .media_miniatura").hide();
+  window.Preguntas[window.PreguntaActiva]["credito_media"] = "";
+  window.Preguntas[window.PreguntaActiva]["link_video_yt"] = "";
+  window.Preguntas[window.PreguntaActiva]["iframe_video_yt"] = "";
+  window.Preguntas[window.PreguntaActiva]["empieza_video_yt"] = "";
+  window.Preguntas[window.PreguntaActiva]["termina_video_yt"] = "";
+};
+
+window.RemoverImageQuiz = function () {
+  $(".quiz_media_div_yt").hide(0, function () {
+    $(".video_quiz_prev_modal").show(0);
+  });
+  $(".quiz_img_recurso").hide(0, function () {
+    $(".quiz_media_prin").show(0);
+  });
+  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .quiz_media_div_prev_miniatura").show();
+  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .media_miniatura").hide();
+  window.Preguntas[window.PreguntaActiva]["img"] = "";
+};
+
+window.IncrustarCreditQuiz = function () {
+  var tipo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'media_pregunta';
+
+  if (($("#QuizSettings").data('bs.modal') || {})._isShown) {
+    window.QuizConfig["credit_img"] = $(".textarea_credits").val();
+  } else {
+    window.Preguntas[window.PreguntaActiva]["credito_media"] = $(".textarea_credits").val();
+  }
+
+  $(".dismiss_credit").click();
+};
+
+window.VerifyCredit = function (e) {
+  if (e.value != "") $(".success_credit").removeAttr("disabled");
+  if (e.value == "") $(".success_credit").attr("disabled", "disabled");
+
+  if (($("#QuizSettings").data('bs.modal') || {})._isShown) {
+    window.QuizConfig["credit_img"] = $(".textarea_credits").val();
+  } else {
+    window.Preguntas[window.PreguntaActiva]["credito_media"] = $(".textarea_credits").val();
+  }
+}; // window.CrearPregunta=function(){
+// }
+
+
+window.makeidfunction = function (length) {
+  var result = '';
+  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  var charactersLength = characters.length;
+
+  for (var i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+
+  return result;
+};
+
+window.cleanPregunta = function () {
+  $(".create_quiz_question_input").val("");
+  $(".quiz_img_recurso").hide();
+  $(".quiz_video_recurso").hide();
+  $(".quiz_media_div.quiz_media_prin.p-4.py-5").show();
+  if ($("#resp1").prop("checked")) $("label[for=resp1] i").click();
+  if ($("#resp2").prop("checked")) $("label[for=resp2] i").click();
+  if ($("#resp3").prop("checked")) $("label[for=resp3] i").click();
+  if ($("#resp4").prop("checked")) $("label[for=resp4] i").click();
+  $("#input_resp_1").prop("value", "");
+  $("#input_resp_2").prop("value", "");
+  $("#input_resp_3").prop("value", "");
+  $("#input_resp_4").prop("value", "");
+  $("#input_resp_1").prop("placeholder", "Respuesta 1");
+  $("#input_resp_2").prop("placeholder", "Respuesta 2");
+  $("#input_resp_3").prop("placeholder", "Respuesta 3 (Opcional)");
+  $("#input_resp_4").prop("placeholder", "Respuesta 4 (Opcional)");
+  $(".input_resp_1").addClass("original_input_resp_quiz");
+  $(".input_resp_2").addClass("original_input_resp_quiz");
+  $(".input_resp_3").addClass("original_input_resp_quiz");
+  $(".input_resp_4").addClass("original_input_resp_quiz");
+  $(".input_resp_1").removeClass("triangle_change_back");
+  $(".input_resp_2").removeClass("exagon_change_back");
+  $(".input_resp_3").removeClass("circle_change_back");
+  $(".input_resp_4").removeClass("cua_change_back");
+  $("input#falso").prop("checked", false);
+  $("input#verdadero").prop("checked", false);
+  $(".check_res_quiz").removeClass("resp_check_quiz");
+};
+
+window.animateCSS = function (element, animationName, callback) {
+  var node = document.querySelector(element);
+  node.classList.add('animated', animationName);
+
+  function handleAnimationEnd() {
+    node.classList.remove('animated', animationName);
+    node.removeEventListener('animationend', handleAnimationEnd);
+    if (typeof callback === 'function') callback();
+  }
+
+  node.addEventListener('animationend', handleAnimationEnd);
+};
+
+window.ChangePregunta = function (e) {
+  window.Resp["1"]._tippy.hide();
+
+  window.Resp["2"]._tippy.hide();
+
+  window.Resp["1"]._tippy.disable();
+
+  window.Resp["2"]._tippy.disable();
+
+  ValidateCompleteForError();
+  ValidateCompleteForSuccess();
+  $(".cuadro_question").map(function () {
+    $(this).removeClass("cuadro_question_active");
+  });
+  $(e).addClass("cuadro_question_active");
+  window.PreguntaActiva = $(e).parent().attr("data-id_pregunta");
+  cleanPregunta();
+  window.Preguntas[window.PreguntaActiva];
+  $(".create_quiz_question_input").val(window.Preguntas[window.PreguntaActiva]["pregunta"]);
+  $("#input_resp_1").val(window.Preguntas[window.PreguntaActiva]["respuesta_1"]);
+  $("#input_resp_2").val(window.Preguntas[window.PreguntaActiva]["respuesta_2"]);
+  $("#input_resp_3").val(window.Preguntas[window.PreguntaActiva]["respuesta_3"]);
+  $("#input_resp_4").val(window.Preguntas[window.PreguntaActiva]["respuesta_4"]);
+  if (window.Preguntas[window.PreguntaActiva]["respuesta_1"] != "") $("#input_resp_1").addClass("triangle_change_back");
+  $("#input_resp_1").removeClass("original_input_resp_quiz");
+  if (window.Preguntas[window.PreguntaActiva]["respuesta_2"] != "") $("#input_resp_2").addClass("exagon_change_back");
+  $("#input_resp_2").removeClass("original_input_resp_quiz");
+  if (window.Preguntas[window.PreguntaActiva]["respuesta_3"] != "") $("#input_resp_3").addClass("circle_change_back");
+  $("#input_resp_3").removeClass("original_input_resp_quiz");
+  if (window.Preguntas[window.PreguntaActiva]["respuesta_4"] != "") $("#input_resp_4").addClass("cua_change_back");
+  $("#input_resp_4").removeClass("original_input_resp_quiz");
+  $("input.hidden-sub-trigger[value='" + window.Preguntas[window.PreguntaActiva]["segundos"] + "']").click();
+
+  if (window.Preguntas[window.PreguntaActiva]["link_video_yt"] == "" && window.Preguntas[window.PreguntaActiva]["img"] == "") {
+    $(".quiz_media_prin").show();
+    $(".quiz_img_recurso").hide();
+    $(".quiz_video_recurso").hide();
+  }
+
+  if (window.Preguntas[window.PreguntaActiva]["link_video_yt"] != "" && window.Preguntas[window.PreguntaActiva]["img"] == "") {
+    $(".quiz_video_recurso_div").html('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + window.Preguntas[window.PreguntaActiva]["iframe_video_yt"] + '?rel=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen=""></iframe>');
+    $(".quiz_media_prin").hide();
+    $(".quiz_img_recurso").hide();
+    $(".quiz_video_recurso").show();
+  }
+
+  if (window.Preguntas[window.PreguntaActiva]["link_video_yt"] == "" && window.Preguntas[window.PreguntaActiva]["img"] != "") {
+    $(".quiz_img_recurso").css("background-image", "url(" + window.url + "/img/quiz_img/" + window.Preguntas[window.PreguntaActiva]["img"] + ")");
+    $(".quiz_media_prin").hide();
+    $(".quiz_img_recurso").show();
+    $(".quiz_video_recurso").hide();
+  }
+
+  if (window.Preguntas[window.PreguntaActiva]["correcta_1"]) $("label[for=resp1] i").click();
+  if (window.Preguntas[window.PreguntaActiva]["correcta_2"]) $("label[for=resp2] i").click();
+  if (window.Preguntas[window.PreguntaActiva]["correcta_3"]) $("label[for=resp3] i").click();
+  if (window.Preguntas[window.PreguntaActiva]["correcta_4"]) $("label[for=resp4] i").click();
+  ValidateQuestion();
+
+  if (window.Preguntas[window.PreguntaActiva]["tipo_pregunta"] == 1) {
+    $(".opcion_multiple_div").show();
+    $(".verdadero_falso_div").hide();
+    ValidateResp(1);
+    ValidateResp(2);
+    ValidateCheck();
+  }
+
+  if (window.Preguntas[window.PreguntaActiva]["tipo_pregunta"] == 2) {
+    $(".opcion_multiple_div").hide();
+    $(".verdadero_falso_div").show();
+
+    if (window.Preguntas[window.PreguntaActiva]["respuesta_vf"] != undefined) {
+      if (window.Preguntas[window.PreguntaActiva]["respuesta_vf"]) {
+        $(".verdadero_check").click();
+      } else {
+        $(".falso_check").click();
+      }
+    }
+  }
+};
+
+window.ValidateQuestion = function () {
+  if ($(".create_quiz_question_input").val() != "") {
+    window.QuestionQuizTooltip._tippy.hide();
+
+    window.QuestionQuizTooltip._tippy.disable();
+  } else {
+    window.QuestionQuizTooltip._tippy.enable();
+
+    window.QuestionQuizTooltip._tippy.show();
+  }
+};
+
+window.ValidateResp = function (num) {
+  if (num == 1 || num == 2) {
+    if ($("#input_resp_" + num).val() != "") {
+      window.Resp[num]._tippy.hide();
+
+      window.Resp[num]._tippy.disable();
+    } else {
+      window.Resp[num]._tippy.enable();
+
+      window.Resp[num]._tippy.show();
+    }
+  }
+};
+
+window.ValidateCheck = function () {
+  if (!window.Preguntas[window.PreguntaActiva]["correcta_1"] && !window.Preguntas[window.PreguntaActiva]["correcta_2"] && !window.Preguntas[window.PreguntaActiva]["correcta_3"] && !window.Preguntas[window.PreguntaActiva]["correcta_4"]) {
+    animateCSS(".i_check_1", "wobble");
+    animateCSS(".i_check_2", "wobble");
+    animateCSS(".i_check_3", "wobble");
+    animateCSS(".i_check_4", "wobble");
+  }
+};
+
+window.ValidateCompleteForError = function () {
+  if (window.Preguntas[window.PreguntaActiva]["tipo_pregunta"] == 1) {
+    if (window.Preguntas[window.PreguntaActiva]["pregunta"] == "" || window.Preguntas[window.PreguntaActiva]["respuesta_1"] == "" || window.Preguntas[window.PreguntaActiva]["respuesta_2"] == "" || window.Preguntas[window.PreguntaActiva]["correcta_1"] == false && window.Preguntas[window.PreguntaActiva]["correcta_2"] == false && window.Preguntas[window.PreguntaActiva]["correcta_3"] == false && window.Preguntas[window.PreguntaActiva]["correcta_4"] == false) {
+      $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .alert_question_div").show();
+      animateCSS("div[data-id_pregunta='" + window.PreguntaActiva + "'] .alert_question_div", "bounce");
+    }
+  }
+
+  if (window.Preguntas[window.PreguntaActiva]["tipo_pregunta"] == 2) {
+    if (window.Preguntas[window.PreguntaActiva]["pregunta"] == "" || !$("input#verdadero").prop("checked") && !$("input#falso").prop("checked")) {
+      $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .alert_question_div").show();
+      animateCSS("div[data-id_pregunta='" + window.PreguntaActiva + "'] .alert_question_div", "bounce");
+    }
+  }
+};
+
+window.ValidateCompleteForSuccess = function () {
+  if (window.Preguntas[window.PreguntaActiva]["tipo_pregunta"] == 1) {
+    if (window.Preguntas[window.PreguntaActiva]["pregunta"] == "" || window.Preguntas[window.PreguntaActiva]["respuesta_1"] == "" || window.Preguntas[window.PreguntaActiva]["respuesta_2"] == "" || window.Preguntas[window.PreguntaActiva]["correcta_1"] == false && window.Preguntas[window.PreguntaActiva]["correcta_2"] == false && window.Preguntas[window.PreguntaActiva]["correcta_3"] == false && window.Preguntas[window.PreguntaActiva]["correcta_4"] == false) {} else {
+      $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .alert_question_div").hide();
+    }
+  }
+
+  if (window.Preguntas[window.PreguntaActiva]["tipo_pregunta"] == 2) {
+    if (window.Preguntas[window.PreguntaActiva]["pregunta"] == "" || !$("input#verdadero").prop("checked") && !$("input#falso").prop("checked")) {} else {
+      $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .alert_question_div").hide();
+    }
+  }
+};
+
+window.CrearPregunta = function (tipo) {
+  window.Resp["1"]._tippy.hide();
+
+  window.Resp["2"]._tippy.hide();
+
+  window.Resp["1"]._tippy.disable();
+
+  window.Resp["2"]._tippy.disable();
+
+  $(".preguntas_miniaturas").append($(".plantilla_pregunta").html());
+  $(".preguntas_miniaturas .caja_miniatura:last .prev_ques_quiz_tit").text("Pregunta");
+  $(".preguntas_miniaturas .caja_miniatura:last").show(280);
+  $(".preguntas_miniaturas .caja_miniatura:last .seg_prev").text(5);
+
+  window.AndirQuestionQuizTooltip._tippy.hide();
+
+  ValidateCompleteForError();
+  $(".cuadro_question").map(function () {
+    $(this).removeClass("cuadro_question_active");
+  });
+  $("#sub1").click();
+  $(".preguntas_miniaturas .caja_miniatura:last .cuadro_question").addClass("cuadro_question_active");
+  var id_temporal = makeidfunction(5);
+  $(".preguntas_miniaturas .caja_miniatura:last").attr("data-id_pregunta", id_temporal);
+  window.PreguntaActiva = id_temporal;
+  window.Preguntas[window.PreguntaActiva] = {};
+  window.Preguntas[window.PreguntaActiva]["pregunta"] = "";
+  window.Preguntas[window.PreguntaActiva]["respuesta_1"] = "";
+  window.Preguntas[window.PreguntaActiva]["respuesta_2"] = "";
+  window.Preguntas[window.PreguntaActiva]["respuesta_3"] = "";
+  window.Preguntas[window.PreguntaActiva]["respuesta_4"] = "";
+  window.Preguntas[window.PreguntaActiva]["correcta_1"] = false;
+  window.Preguntas[window.PreguntaActiva]["correcta_2"] = false;
+  window.Preguntas[window.PreguntaActiva]["correcta_3"] = false;
+  window.Preguntas[window.PreguntaActiva]["correcta_4"] = false;
+  window.Preguntas[window.PreguntaActiva]["segundos"] = 5;
+  window.Preguntas[window.PreguntaActiva]["link_video_yt"] = "";
+  window.Preguntas[window.PreguntaActiva]["img"] = "";
+  cleanPregunta();
+
+  if (tipo == 1) {
+    $(".opcion_multiple_div").show();
+    $(".verdadero_falso_div").hide();
+    window.Preguntas[window.PreguntaActiva]["tipo_pregunta"] = 1;
+  }
+
+  if (tipo == 2) {
+    $(".opcion_multiple_div").hide();
+    $(".verdadero_falso_div").show();
+    window.Preguntas[window.PreguntaActiva]["tipo_pregunta"] = 2;
+    $(".preguntas_miniaturas .caja_miniatura:last .pregunta_miniatura:first").remove();
+    $(".preguntas_miniaturas .caja_miniatura:last .pregunta_miniatura:first").after().remove();
+    $(".preguntas_miniaturas .caja_miniatura:last .pregunta_miniatura").css("margin-top", "16px");
+  }
+};
+
+window.MoverTooltipAlert = function (e) {
+  window.AlertQuestionQuizTooltip._tippy.set({
+    target: "div[data-id_pregunta='" + $(e).parent().parent().attr("data-id_pregunta") + "'] .alert_question"
+  });
+};
+
+window.IncrustarVideoQuiz = function () {
+  var video = $(".input_quiz_vide").val();
+  var video = video.split("=");
+  $(".quiz_video_recurso_div").html('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + video[1] + '?rel=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen=""></iframe>');
+  $(".cerrar_moda_youtube_quiz").click();
+  $(".quiz_media_prin").hide(0, function () {
+    $(".quiz_video_recurso").show(0);
+  });
+  window.Preguntas[window.PreguntaActiva]["link_video_yt"] = $("#link_video_quiz").val();
+  window.Preguntas[window.PreguntaActiva]["iframe_video_yt"] = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + video[1] + '?rel=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen=""></iframe>';
+  window.Preguntas[window.PreguntaActiva]["empieza_video_yt"] = $("#quiz_video_begin").val();
+  window.Preguntas[window.PreguntaActiva]["termina_video_yt"] = $("#quiz_video_end").val();
+  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .quiz_media_div_prev_miniatura").hide();
+  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .media_miniatura img").attr("src", "http://img.youtube.com/vi/" + video[1] + "/0.jpg");
+  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .media_miniatura").show();
+  $("#link_video_quiz").val("");
+  $("#quiz_video_begin").val("");
+  $("#quiz_video_end").val("");
+};
+
+window.InsetPrevVideoQuiz = function (e) {
+  var video = e.value.split("=");
+  $(".video_quiz_prev_modal").html('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + video[1] + '?rel=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen=""></iframe>');
+  $(".quiz_media_div_yt").hide(0, function () {
+    $(".video_quiz_prev_modal").show(0);
+  }); // <iframe class="question-media__YouTube-jctf0g-3 dFnNrJ" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="100%" height="100%" src="https://www.youtube.com/embed/xcSs0eZHm6o?autoplay=1&playsinline=1&start=60&end=90&enablejsapi=1&origin=https%3A%2F%2Fcreate.kahoot.it&widgetid=9" id="widget10"></iframe>
+};
+
+window.OpenCreditsQuizSettings = function () {
+  $("#QuizSettings").css("z-index", "1");
+  $(".textarea_credits").val("");
+  $(".textarea_credits").text("");
+  $(".textarea_credits").val(window.QuizConfig["credit_img"]);
+  $(".textarea_credits").text(window.QuizConfig["credit_img"]);
+  ModifyCreditsQuiz();
+};
+
+window.QuizFunctionDefault = function () {
+  $(window).resize(function () {
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+    window.CambiarAlturaMediaQuiz();
+  });
+  window.CambiarAlturaMediaQuiz();
+  $('#QuizMediaCredits').on('hidden.bs.modal', function () {
+    $("#QuizSettings").css("z-index", "9999");
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/js/create.js":
 /*!********************************!*\
   !*** ./resources/js/create.js ***!
@@ -28270,7 +30814,7 @@ $(document).ready(function () {
     attaches: {
       "class": AttachesTool,
       config: {
-        endpoint: 'http://localhost/Temporal/Workana/EduOnline/public/editor-js/upload-file'
+        endpoint: window.url + '/editor-js/upload-file'
       }
     },
     table: {
@@ -28279,7 +30823,7 @@ $(document).ready(function () {
     linkTool: {
       "class": LinkTool,
       config: {
-        endpoint: 'http://localhost/Temporal/Workana/EduOnline/public/editor-js/embebed-link' // Your backend endpoint for url data fetching
+        endpoint: window.url + '/editor-js/embebed-link' // Your backend endpoint for url data fetching
 
       }
     },
@@ -28290,7 +30834,7 @@ $(document).ready(function () {
       },
       config: {
         endpoints: {
-          byFile: 'http://localhost/Temporal/Workana/EduOnline/public/editor-js/upload-img',
+          byFile: window.url + '/editor-js/upload-img',
           // Your backend file uploader endpoint
           byUrl: 'http://localhost:8008/fetchUrl' // Your endpoint that provides uploading by Url
 

@@ -52,7 +52,7 @@ class EditorController extends Controller
 
             return array("success" => 1,
 						    "file" =>array(
-						        "url" => '../img/lecciones_img/'.$NombreArchivo
+						        "url" => '../../img/lecciones_img/'.$NombreArchivo
 						    ),
 						); 
         }
@@ -72,7 +72,7 @@ class EditorController extends Controller
 
             return array("success" => 1,
 						    "file" =>array(
-						        "url" => '../img/lecciones_file/'.$NombreArchivo,
+						        "url" => '../../img/lecciones_file/'.$NombreArchivo,
 						        "size" => $Peso,
 						        "name" => "Archivo",
 						        "extension" => $Extension,

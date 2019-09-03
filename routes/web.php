@@ -75,6 +75,23 @@ Route::group(['middleware' => ['ValidarSesion']], function () {
 		    	Route::post('update-contenido-lecciones', "Constructores\LeccionesController@UpdateContenidoLecciones");
 		    	Route::post('ordenar-lecciones', "Constructores\LeccionesController@OrdenarLecciones");
 		});
+
+		Route::post('quiz', "Constructores\QuizController@CrearQuiz" );
+
+		Route::prefix('quiz')->group(function () {
+			Route::get('/{id_quiz}', "Constructores\QuizController@CrearConsultarQuiz");
+			Route::post('subir-foto-quiz', "Constructores\QuizController@SubirFotoQuiz");
+			Route::post('crear-pregunta', "Constructores\QuizController@CrearPregunta");
+			Route::post('subir-foto-quizG', "Constructores\QuizController@SubirFotoQuizG");
+
+		    	Route::get('/{id_leccion}', "Constructores\LeccionesController@CrearConsultarClase");
+		    	Route::post('subir-foto-clase', "Constructores\LeccionesController@SubirFotoClase");
+		    	Route::post('eliminar-leccion', "Constructores\LeccionesController@EliminarLeccion");
+		    	Route::post('update-leccion', "Constructores\LeccionesController@UpdateLeccion");
+		    	Route::post('duplicar-leccion', "Constructores\LeccionesController@DuplicarLeccion");
+		    	Route::post('update-contenido-lecciones', "Constructores\LeccionesController@UpdateContenidoLecciones");
+		    	Route::post('ordenar-lecciones', "Constructores\LeccionesController@OrdenarLecciones");
+			});
 	});
 
 

@@ -12,7 +12,7 @@
 						<a href="#" onclick="CrearRecurso(1)" class="a_card">
 							<div class="card">
 							  <div class="card-body">
-							    <h2 class="card-title text-black">Lecciones</h2>
+							    <h2 class="card-title text-black">Clases</h2>
 							    <p class="card-text">Ideal para estudio.</p>
 							    <div class="mt-3">
 							    	<img width="100" src="https://png.pngtree.com/svg/20161205/studies_25354.png" alt="">
@@ -25,7 +25,7 @@
 						</a>
 					</div>
 					<div class="col-xl-4 col-md-4 col-sm-6 mt-4 mt-sm-0">
-						<a href="#" class="a_card">
+						<a onclick='AjaxRequest("POST", "{{Request::root()}}/crear/quiz", "")' class="a_card cursor-pointer">
 							<div class="card">
 							  <div class="card-body">
 							    <h2 class="card-title text-black">Examen</h2>

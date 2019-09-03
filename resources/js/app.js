@@ -17,8 +17,86 @@ require('./../../node_modules/material-icons/css/material-icons.scss');
 require('./../../node_modules/material-icons/iconfont/material-icons.scss');
 require('./../../node_modules/daemonite-material/js/material');
 require('./../../node_modules/jquery-ui/');
+import tippy from 'tippy.js'
+
 
 $(document).ready(function(){
+
+
+
+
+
+
+
+
+	window.AlertQuestionQuizTooltip = document.querySelector('.preguntas_miniaturas');
+
+	tippy(window.AlertQuestionQuizTooltip, {
+	  content: "Debes completar la pregunta",
+	  target: ".alert_question",
+	  placement: 'right', // or 'left', 'right', ...
+	  arrow: true,
+  	  theme: 'eduonlinealert',
+	})
+
+
+	window.AndirQuestionQuizTooltip = document.querySelector('#anadir_pregunta_quiz');
+
+	tippy(window.AndirQuestionQuizTooltip, {
+	  theme: 'light-border',
+	  content: $("#quiz_anadir_tooltip")[0],
+	  placement: 'right', // or 'left', 'right', ...
+	  arrow: true,
+  	  arrowType: 'round', // or 'sharp' (default)
+  	  trigger: 'click', // or 'focus'
+  	  interactive: true,
+	});
+
+
+
+	window.QuestionQuizTooltip = document.querySelector('.create_quiz_question_input');
+
+	tippy(window.QuestionQuizTooltip, {
+	  theme: 'eduonline',
+	  arrow: true,
+	  trigger: 'click', // or 'focus'
+	  arrowType: 'round', // or 'sharp' (default)
+	  animation: 'fade',
+	  placement: 'bottom',
+	  content: "Debes añadir una pregunta",
+	})
+
+
+
+	window.Resp={};
+	window.Resp["1"] = document.querySelector('#input_resp_1');
+
+	tippy(window.Resp["1"], {
+	  theme: 'eduonline',
+	  arrow: true,
+	  trigger: 'click', // or 'focus'
+	  arrowType: 'round', // or 'sharp' (default)
+	  animation: 'fade',
+	  placement: 'bottom',
+	  content: "Debes rellenar esta respuesta",
+	  interactive: true,
+	})
+
+
+
+	window.Resp["2"] = document.querySelector('#input_resp_2');
+
+	tippy(window.Resp["2"], {
+	  theme: 'eduonline',
+	  arrow: true,
+	  trigger: 'click', // or 'focus'
+	  arrowType: 'round', // or 'sharp' (default)
+	  animation: 'fade',
+	  placement: 'bottom',
+	  content: "Debes rellenar esta respuesta",
+	})
+
+
 		window.moment = require('./../vendor/moment');
 		require('./../../node_modules/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker');		
 })
@@ -37,6 +115,7 @@ require('./escritorio');
 require('./reset_password');
 require('./registro');
 require('./create');
+require('./crear_quiz');
 require('./ajax_request');
 
 window.dragula = require('./../../node_modules/dragula/dist/dragula.min.js');

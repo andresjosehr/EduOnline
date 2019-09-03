@@ -40,7 +40,7 @@ $(document).ready(function () {
 			    attaches: {
 			      class: AttachesTool,
 			      config: {
-			        endpoint: 'http://localhost/Temporal/Workana/EduOnline/public/editor-js/upload-file'
+			        endpoint: window.url+'/editor-js/upload-file'
 			      }
 			    },
 			    table: {
@@ -49,7 +49,7 @@ $(document).ready(function () {
 			    linkTool: {
 			      class: LinkTool,
 			      config: {
-			        endpoint: 'http://localhost/Temporal/Workana/EduOnline/public/editor-js/embebed-link', // Your backend endpoint for url data fetching
+			        endpoint: window.url+'/editor-js/embebed-link', // Your backend endpoint for url data fetching
 			      }
 			    },
 			    image: {
@@ -59,7 +59,7 @@ $(document).ready(function () {
 			      },
 			      config: {
 			        endpoints: {
-			          byFile: 'http://localhost/Temporal/Workana/EduOnline/public/editor-js/upload-img', // Your backend file uploader endpoint
+			          byFile: window.url+'/editor-js/upload-img', // Your backend file uploader endpoint
 			          byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
 			        }
 			      }

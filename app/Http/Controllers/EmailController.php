@@ -13,7 +13,7 @@ class EmailController extends Controller
     	$Data = array('Email' => $Email, "Codigo" => $CodigoPassword);
 
         Mail::send("emails.reset_pass", ["Data" => $Data], function($mensaje) use ($Data) {
-            $mensaje->from("joseandreshernandezross@gmail.com", "Curso Laravel");
+            $mensaje->from("joseandreshernandezross@gmail.com", "Reseteo de Password");
             $mensaje->to($Data["Email"], "Reseteo de Contraseña")->subject("Reseteo de Contraseña");
         });
 
@@ -28,7 +28,7 @@ class EmailController extends Controller
         $Data = array('Email' => $Email, "Codigo" => $CodigoEmail);
 
         Mail::send("emails.change_email", ["Data" => $Data], function($mensaje) use ($Data) {
-            $mensaje->from("joseandreshernandezross@gmail.com", "Curso Laravel");
+            $mensaje->from("joseandreshernandezross@gmail.com", "Cambio de Email");
             $mensaje->to($Data["Email"], "Cambio de Email")->subject("Cambio de Email");
         });
 
@@ -42,7 +42,7 @@ class EmailController extends Controller
         $Data = array('Email' => $Email, "Codigo" => $CodigoEmail);
 
         Mail::send("emails.confirm_email", ["Data" => $Data], function($mensaje) use ($Data) {
-            $mensaje->from("joseandreshernandezross@gmail.com", "Curso Laravel");
+            $mensaje->from("joseandreshernandezross@gmail.com", "Confirmacion de email");
             $mensaje->to($Data["Email"], "Confirmacion de email")->subject("Confirmacion de Email");
         });
 
