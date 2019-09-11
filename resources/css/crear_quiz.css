@@ -599,7 +599,7 @@
 .tippy-tooltip.eduonlinealert-theme {
   background-color: #46178f !important;
   color: white;
-  margin-left: 255px;
+  margin-left: 300px;
 }
 
 .tippy-tooltip.eduonlinealert-theme .tippy-arrow{
@@ -697,6 +697,7 @@
   }
 
   .alert_question{
+    margin-right: 6px;
     position: absolute !important;
     margin-top: -83px;
     right: 32px !important;
@@ -715,7 +716,7 @@
     position: absolute;
     margin-top: -8px;
     left: -8px;
-    width: 109%;
+    width: 107%;
     height: 128px;
     z-index: 2;
     background: linear-gradient(to top, rgba(242, 242, 242, 0.2) 0%, rgb(242, 242, 242) 75%);
@@ -765,6 +766,11 @@
     min-height: 450px;
 }
 .question_options{
+
+    padding: 7px !important;
+    margin-left: -8px !important;
+    margin-top: -14px !important;
+
     position: absolute;
     left: -56px;
     font-size: 18px !important;

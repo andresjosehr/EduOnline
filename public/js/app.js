@@ -354,7 +354,7 @@ var i=function(){function e(t){var n=t.data,r=t.config,o=t.api;!function(e,t){if
    var pluginName = "bootstrapMaterialDatePicker";
    var pluginDataName = "plugin_" + pluginName;
 
-   window.moment.locale('en');
+   moment.locale('en');
 
    function Plugin(element, options)
    {
@@ -375,7 +375,7 @@ var i=function(){function e(t){var n=t.data,r=t.config,o=t.api;!function(e,t){if
       this.name = "dtp_" + this.setName();
       this.$element.attr("data-dtp", this.name);
 
-      window.moment.locale(this.params.lang);
+      moment.locale(this.params.lang);
 
       this.init();
    }
@@ -1643,7 +1643,7 @@ var i=function(){function e(t){var n=t.data,r=t.config,o=t.api;!function(e,t){if
               }
 
            };
-})(jQuery, window.moment);
+})(jQuery, moment);
 
 
 /***/ }),
@@ -30353,7 +30353,7 @@ window.ChangePregunta = function (e) {
   }
 
   if (window.Preguntas[window.PreguntaActiva]["link_video_yt"] != "" && window.Preguntas[window.PreguntaActiva]["img"] == "") {
-    $(".quiz_video_recurso_div").html('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + window.Preguntas[window.PreguntaActiva]["iframe_video_yt"] + '?rel=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen=""></iframe>');
+    $(".quiz_video_recurso_div").html(window.Preguntas[window.PreguntaActiva]['iframe_video_yt']);
     $(".quiz_media_prin").hide();
     $(".quiz_img_recurso").hide();
     $(".quiz_video_recurso").show();
@@ -30479,7 +30479,6 @@ window.CrearPregunta = function (tipo) {
   $(".cuadro_question").map(function () {
     $(this).removeClass("cuadro_question_active");
   });
-  $("#sub1").click();
   $(".preguntas_miniaturas .caja_miniatura:last .cuadro_question").addClass("cuadro_question_active");
   var id_temporal = makeidfunction(5);
   $(".preguntas_miniaturas .caja_miniatura:last").attr("data-id_pregunta", id_temporal);
@@ -30498,6 +30497,7 @@ window.CrearPregunta = function (tipo) {
   window.Preguntas[window.PreguntaActiva]["link_video_yt"] = "";
   window.Preguntas[window.PreguntaActiva]["img"] = "";
   cleanPregunta();
+  $("#sub1").click();
 
   if (tipo == 1) {
     $(".opcion_multiple_div").show();
@@ -30530,7 +30530,7 @@ window.IncrustarVideoQuiz = function () {
     $(".quiz_video_recurso").show(0);
   });
   window.Preguntas[window.PreguntaActiva]["link_video_yt"] = $("#link_video_quiz").val();
-  window.Preguntas[window.PreguntaActiva]["iframe_video_yt"] = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + video[1] + '?rel=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen=""></iframe>';
+  window.Preguntas[window.PreguntaActiva]["iframe_video_yt"] = "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/" + video[1] + "?rel=0&amp;showinfo=0&amp;enablejsapi=1' frameborder='0' allowfullscreen=''></iframe>";
   window.Preguntas[window.PreguntaActiva]["empieza_video_yt"] = $("#quiz_video_begin").val();
   window.Preguntas[window.PreguntaActiva]["termina_video_yt"] = $("#quiz_video_end").val();
   $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .quiz_media_div_prev_miniatura").hide();
@@ -30543,7 +30543,7 @@ window.IncrustarVideoQuiz = function () {
 
 window.InsetPrevVideoQuiz = function (e) {
   var video = e.value.split("=");
-  $(".video_quiz_prev_modal").html('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + video[1] + '?rel=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen=""></iframe>');
+  $(".video_quiz_prev_modal").html("<iframe width='100%' height='100%' src='https://www.youtube.com/embed/" + video[1] + "?rel=0&amp;showinfo=0&amp;enablejsapi=1' frameborder='0' allowfullscreen=''></iframe>");
   $(".quiz_media_div_yt").hide(0, function () {
     $(".video_quiz_prev_modal").show(0);
   }); // <iframe class="question-media__YouTube-jctf0g-3 dFnNrJ" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="100%" height="100%" src="https://www.youtube.com/embed/xcSs0eZHm6o?autoplay=1&playsinline=1&start=60&end=90&enablejsapi=1&origin=https%3A%2F%2Fcreate.kahoot.it&widgetid=9" id="widget10"></iframe>
@@ -53543,8 +53543,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Temporal\Workana\EduOnline\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Temporal\Workana\EduOnline\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\EduOnline\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\EduOnline\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

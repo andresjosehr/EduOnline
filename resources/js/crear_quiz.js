@@ -367,7 +367,7 @@ window.ChangePregunta=function(e){
       if (window.Preguntas[window.PreguntaActiva]["link_video_yt"]!="" && window.Preguntas[window.PreguntaActiva]["img"]=="") {
 
 
-        $(".quiz_video_recurso_div").html('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/'+window.Preguntas[window.PreguntaActiva]["iframe_video_yt"]+'?rel=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen=""></iframe>');
+        $(".quiz_video_recurso_div").html(window.Preguntas[window.PreguntaActiva]['iframe_video_yt']);
 
 
         $(".quiz_media_prin").hide();
@@ -514,10 +514,10 @@ window.ChangePregunta=function(e){
    }
      window.CrearPregunta=function(tipo){
 
-       window.Resp["1"]._tippy.hide();
-      window.Resp["2"]._tippy.hide();
-      window.Resp["1"]._tippy.disable();
-      window.Resp["2"]._tippy.disable();
+        window.Resp["1"]._tippy.hide();
+        window.Resp["2"]._tippy.hide();
+        window.Resp["1"]._tippy.disable();
+        window.Resp["2"]._tippy.disable();
 
        $(".preguntas_miniaturas").append($(".plantilla_pregunta").html())
        $(".preguntas_miniaturas .caja_miniatura:last .prev_ques_quiz_tit").text("Pregunta");
@@ -531,7 +531,6 @@ window.ChangePregunta=function(e){
           $(this).removeClass("cuadro_question_active");
         });
 
-        $("#sub1").click();
 
 
         $(".preguntas_miniaturas .caja_miniatura:last .cuadro_question").addClass("cuadro_question_active");
@@ -561,6 +560,7 @@ window.ChangePregunta=function(e){
 
 
       cleanPregunta();
+      $("#sub1").click();
 
 
       if (tipo==1){
@@ -605,7 +605,7 @@ window.ChangePregunta=function(e){
 
 
     window.Preguntas[window.PreguntaActiva]["link_video_yt"]=$("#link_video_quiz").val()
-    window.Preguntas[window.PreguntaActiva]["iframe_video_yt"]='<iframe width="100%" height="100%" src="https://www.youtube.com/embed/'+video[1]+'?rel=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen=""></iframe>';
+    window.Preguntas[window.PreguntaActiva]["iframe_video_yt"]="<iframe width='100%' height='100%' src='https://www.youtube.com/embed/"+video[1]+"?rel=0&amp;showinfo=0&amp;enablejsapi=1' frameborder='0' allowfullscreen=''></iframe>";
     window.Preguntas[window.PreguntaActiva]["empieza_video_yt"]=$("#quiz_video_begin").val();
     window.Preguntas[window.PreguntaActiva]["termina_video_yt"]=$("#quiz_video_end").val();
 
@@ -622,7 +622,7 @@ window.ChangePregunta=function(e){
   window.InsetPrevVideoQuiz=function(e){
 
     var video = e.value.split("=");
-    $(".video_quiz_prev_modal").html('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/'+video[1]+'?rel=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen=""></iframe>');
+    $(".video_quiz_prev_modal").html("<iframe width='100%' height='100%' src='https://www.youtube.com/embed/"+video[1]+"?rel=0&amp;showinfo=0&amp;enablejsapi=1' frameborder='0' allowfullscreen=''></iframe>");
 
     $(".quiz_media_div_yt").hide(0, function(){
       $(".video_quiz_prev_modal").show(0)

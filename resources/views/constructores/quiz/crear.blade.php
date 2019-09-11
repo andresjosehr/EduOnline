@@ -5,6 +5,9 @@
 
 window.DuplicarPregunta=function(id){
 
+
+  
+
   $("body").trigger("click");
 
   // get the last DIV which ID starts with ^= "klon"
@@ -19,7 +22,15 @@ window.DuplicarPregunta=function(id){
     $("body").trigger("click");
   });
 
+  var NuevaID=makeidfunction(10);
 
+  $("div[data-id_pregunta='"+id+"']:last").attr('data-id_pregunta', NuevaID);
+
+  var DatosACopiar = window.Preguntas[window.PreguntaActiva];
+
+  window.PreguntaActiva = NuevaID;
+  window.Preguntas[window.PreguntaActiva]={}
+  window.Preguntas[window.PreguntaActiva] = DatosACopiar;
 
 }
 

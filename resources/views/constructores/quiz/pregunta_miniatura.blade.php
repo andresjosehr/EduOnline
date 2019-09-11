@@ -67,7 +67,7 @@
                </div>
             </div>
             <div class="position-relative alert_question_div" style="display: none;">
-              <i class="fa fa-info alert_question cursor-pointer" onmouseover="MoverTooltipAlert(this)" aria-hidden="true"></i>
+              <i class="fa fa-info alert_question cursor-pointer" onmouseover="MoverTooltipAlert(this)" aria-hidden="true" data-tippy-hideOnClick="false"></i>
             </div>
           </div>
 </div>
