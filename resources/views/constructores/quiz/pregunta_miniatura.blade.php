@@ -1,9 +1,9 @@
 <div class="plantilla_pregunta d-none">
   <div class="caja_miniatura" style="display: none;">
           <div class="position-relative cuadro_question_num_div">
-              <span class="cuadro_question_num text-secondary">1. </span>
+              <span class="cuadro_question_num text-secondary font-weight-bold">1. </span>
             </div>
-            <div class="cuadro_question cuadro_question_active p-2 mt-3 cursor-pointer" onclick="ChangePregunta(this)">
+            <div class="cuadro_question ml-4 ml-lg-0 p-2 mt-3 cursor-pointer cuadro_question_active" onclick="ChangePregunta(this)">
               <div class="position-relative">
                 <a href="#" id="dropdownMenuButton2" data-toggle="dropdown">
                   <span class="cuadro_question_num text-secondary"><i class="fa fa-ellipsis-v text-secondary question_options cursor-pointer"></i></span>

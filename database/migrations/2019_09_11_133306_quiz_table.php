@@ -18,7 +18,8 @@ class QuizTable extends Migration
             $table->string('nombre')->nullable();
             $table->string('descripcion')->nullable();
             $table->string('img')->nullable()->default("Edu.png");
-            $table->json('lobby_video')->nullable();
+            $table->string('img_creditos')->nullable();
+            $table->string('video_lobby')->nullable();
             $table->string('lenguaje')->nullable();
             $table->string('id_usuario');
             $table->timestamps();

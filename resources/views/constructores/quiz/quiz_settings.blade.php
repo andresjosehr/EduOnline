@@ -5,20 +5,20 @@
     <div class="modal-content">
       <div class="modal-body p-4">
         <h3 class="modal-title" id="exampleModalLabel">Confuguraciones</h3>
-        <div class="row mt-4">
+        <div class="row mt-4 div_quiz_configuraciones">
           <div class="col-7">
             <div class="form-group">
               <span class="font-weight-bold label_quiz_settings">Nombre</span> <span class="text-secondary optional_text ml-2">(Opcional)</span>
-                <input type="text" class="form-control mt-1" id="user" placeholder="Escribe el nombre" required="">
+                <input type="text" class="form-control mt-1" id="nombre" placeholder="Escribe el nombre" required="">
             </div>
             <div class="form-group">
               <span class="font-weight-bold label_quiz_settings">Descripcion</span> <span class="text-secondary optional_text ml-2">(Opcional)</span>
-                <textarea class="default-textarea mt-1 pb-0" name="" id="" cols="30" rows="10"></textarea>
+                <textarea class="default-textarea mt-1 pb-0" name="" id="descripcion" cols="30" rows="10"></textarea>
                 <small class="text-secondary">Da una buena descripcion para darle precencia a tu prueba</small>
             </div>
             <div class="form-group">
               <span class="font-weight-bold label_quiz_settings">Video del lobby</span>
-                <input type="text" class="form-control mt-1" id="lobby_video" placeholder="Escribe el nombre" required="">
+                <input type="text" class="form-control mt-1" id="video_lobby" placeholder="Escribe el nombre" required="">
             </div>
           </div>
           <div class="col-5">
@@ -38,7 +38,7 @@
               <div class="form-group lenguaje_config">
                 <span class="font-weight-bold label_quiz_settings">Lenguaje</span>
                 <div class="form-group">
-                  <select class="form-control" id="estado_leccion" required="">
+                  <select class="form-control" id="lenguaje" required="">
                     <option value="Albanian">Albanian</option>
                     <option value="American Sign Language">American Sign Language</option>
                     <option value="Bahasa Indonesia">Bahasa Indonesia</option>
@@ -104,8 +104,8 @@
         </div>
       </div>
       <div  align="center" class="mb-4">
-        <button type="button" class="btn btn-light font-weight-bold btn_config_quiz" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-success font-weight-bold btn_config_quiz">Hecho</button>
+        <button type="button" class="btn btn-light font-weight-bold btn_config_quiz btn_close_modal_config_quiz" data-dismiss="modal">Cerrar</button>
+        <button onclick="SaveQuizSettings()" type="button" class="btn btn-success font-weight-bold btn_config_quiz">Hecho</button>
       </div>
     </div>
   </div>
@@ -119,6 +119,39 @@
     $(".div_true_image_quizG").show();
     $(".img_quiz_div").hide();
     window.QuizConfig["img"]=img;
+
+  }
+
+
+  window.SaveQuizSettings=function(){
+
+
+
+    for (var key in window.QuizConfig) {
+        window.QuizConfig[key]=$(".div_quiz_configuraciones #"+key).val();
+    }
+
+
+
+    var Datos={}
+    $(".div_quiz_configuraciones input:not(input[type=file]), .div_quiz_configuraciones select, .div_quiz_configuraciones textarea").map(function(){
+      Datos[this.id]=this.value;
+    });
+
+    if ($(".div_true_image_quizG").css("background-image")!="none") {
+      Datos["img"]=$(".div_true_image_quizG").css("background-image").split('"')[1].split("/")[$(".div_true_image_quizG").css("background-image").split('"')[1].split("/").length-1];
+    }
+
+    Datos["img_creditos"]=window.QuizConfig.credit_img;
+
+
+
+
+    AjaxRequest("POST", window.url+"/crear/quiz/config-quiz", Datos);
+
+    $(".loader").hide();
+
+    $(".btn_close_modal_config_quiz").click();
 
   }
 </script>

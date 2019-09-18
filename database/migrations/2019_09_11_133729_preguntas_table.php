@@ -16,8 +16,10 @@ class PreguntasTable extends Migration
          Schema::create('preguntas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('pregunta')->nullable();
-            $table->string('img')->nullable()->default("Edu.png");
-            $table->string('yt_iframe')->nullable();
+            $table->string('img')->nullable();
+            $table->string('iframe_video_yt')->nullable();
+            $table->string('link_video_yt')->nullable();
+
             $table->json('empieza_video_yt')->nullable();
             $table->string('termina_video_yt')->nullable();
             $table->string('credito_media')->nullable();
@@ -38,9 +40,15 @@ class PreguntasTable extends Migration
             
             $table->string('respuesta_vf')->nullable();
 
+
+            $table->string('tipo')->nullable();
+
             $table->string('id_quiz');
 
             $table->string('id_usuario');
+
+            $table->string('orden')->nullable();
+
             $table->timestamps();
         });
     }

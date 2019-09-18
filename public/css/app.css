@@ -6201,6 +6201,7 @@ textarea.parsley-error {
 #anadir_pregunta_quiz {
   background-color: rgb(18, 96, 190);
   color: white;
+  margin-right: -20px;
 }
 
 .div_quiz_resp {
@@ -6256,10 +6257,15 @@ textarea.parsley-error {
 }
 
 .cuadro_question {
-  width: 70%;
+  width: 79%;
   height: 140px;
   background: rgba(242, 242, 242, 0.97);
   border-radius: 0.55rem;
+  margin-right: -16px;
+}
+
+.cuadro_question_active {
+  background: white !important;
 }
 
 .triangle_change_back, .exagon_change_back, .circle_change_back, .cua_change_back {
@@ -6557,7 +6563,7 @@ textarea.parsley-error {
 
 .cuadro_question_num {
   position: absolute;
-  left: 26px;
+  left: 23px;
   font-size: 12px;
   margin-top: 3px;
 }
@@ -6801,7 +6807,7 @@ textarea.parsley-error {
 .tippy-tooltip.eduonlinealert-theme {
   background-color: #46178f !important;
   color: white;
-  margin-left: 300px;
+  margin-left: 250px;
 }
 
 .tippy-tooltip.eduonlinealert-theme .tippy-arrow {
@@ -6905,7 +6911,7 @@ textarea.parsley-error {
 }
 
 .alert_question {
-  margin-right: 6px;
+  margin-right: -24px;
   position: absolute !important;
   margin-top: -83px;
   right: 32px !important;
@@ -6959,6 +6965,7 @@ textarea.parsley-error {
 
 .preguntas_miniaturas::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
   background-color: #F5F5F5;
   border-radius: 20px;
 }
@@ -7047,6 +7054,79 @@ textarea.parsley-error {
   background-repeat: no-repeat;
 }
 
+@media (min-width: 1600px) {
+  .create_quiz_sidebar {
+    -webkit-box-flex: 0;
+    flex: 0 0 12.8% !important;
+    max-width: 12.8% !important;
+  }
+}
+@media (min-width: 1400px) and (max-width: 1600px) {
+  .create_quiz_sidebar {
+    -webkit-box-flex: 0;
+    flex: 0 0 15.8% !important;
+    max-width: 15.8% !important;
+  }
+}
+@media (min-width: 1240px) and (max-width: 1400px) {
+  .create_quiz_sidebar {
+    -webkit-box-flex: 0;
+    flex: 0 0 18.8% !important;
+    max-width: 18.8% !important;
+  }
+
+  .col_quiz {
+    -webkit-box-flex: 0;
+    flex: 0 0 81.2% !important;
+    max-width: 81.2% !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1240px) {
+  .create_quiz_sidebar {
+    -webkit-box-flex: 0;
+    flex: 0 0 23% !important;
+    max-width: 23% !important;
+  }
+
+  .col_quiz {
+    -webkit-box-flex: 0;
+    flex: 0 0 77% !important;
+    max-width: 77% !important;
+  }
+}
+@media (min-width: 992px) {
+  .altura_ventana {
+    height: 94.2vh !important;
+  }
+}
+@media (max-width: 991.98px) {
+  .alert_question {
+    margin-right: -18px !important;
+  }
+
+  .preguntas_miniaturas {
+    display: -webkit-box !important;
+    overflow: auto;
+    width: 100%;
+  }
+
+  .seg_miniatura span {
+    left: 6px !important;
+  }
+
+  .cuadro_question_num {
+    left: 6px !important;
+    top: 17px !important;
+  }
+
+  .quiz_sidebar_footer.mt-3 {
+    text-align: center;
+  }
+
+  .tippy-tooltip.eduonlinealert-theme {
+    margin-left: 0px !important;
+  }
+}
 .recursos_card:hover, .recursos_card:focus {
   -webkit-animation: boing 300ms ease-in-out;
           animation: boing 300ms ease-in-out;

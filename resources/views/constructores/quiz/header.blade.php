@@ -38,7 +38,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto d-flex align-items-center">
                     <li class="nav-item">
-                        <div class="quiz_settings cursor-pointer" onclick="$('#QuizSettings').modal('show');">
+                        <div class="quiz_settings cursor-pointer" onclick="ShowQuizConfig()">
                           <div class="row h-100">
                             <div class="col-8 pl-4">
                               <p class="text-secondary font-weight-bold title_config_quiz ml-1">Ingresa el titulo...</p>
@@ -64,3 +64,16 @@
             </div>
         </nav>
     </header>
+
+    <script>
+        window.ShowQuizConfig=function(){
+
+            for (var key in window.QuizConfig) {
+
+                $(".div_quiz_configuraciones #"+key).val(window.QuizConfig[key]);
+
+                console.log(window.QuizConfig[key]);
+            }
+            $('#QuizSettings').modal('show');
+        }
+    </script>

@@ -30162,14 +30162,31 @@ window.ExitoUploadImgQuiz = function (data) {
 
 window.CambiarAlturaMediaQuiz = function () {
   var AlturaMedia = $("html").height() - 480;
-  $(".quiz_media_prin").css("height", AlturaMedia + "px");
 
-  if ($("html").height() > 720) {
+  if ($("html").height() > 720 && $("html").width() > 973) {
+    $(".quiz_media_prin").css("height", AlturaMedia + "px");
     $(".quiz_img_recurso").css("height", AlturaMedia + "px");
     $(".quiz_video_recurso").css("height", AlturaMedia + "px");
   } else {
-    $(".quiz_img_recurso").css("height", "250px");
-    $(".quiz_video_recurso").css("height", "250px");
+    $(".quiz_img_recurso").css("height", "300px");
+    $(".quiz_video_recurso").css("height", "300px");
+  }
+
+  if ($("html").width() <= 974) {
+    $(".quiz_media_prin").css("height", "300px");
+    $(".quiz_img_recurso").css("height", "300px");
+    $(".quiz_video_recurso").css("height", "300px");
+    $(".create_quiz_sidebar").attr("align", "left");
+
+    window.AndirQuestionQuizTooltip._tippy.set({
+      placement: 'bottom'
+    });
+  } else {
+    window.AndirQuestionQuizTooltip._tippy.set({
+      placement: 'right'
+    });
+
+    $(".create_quiz_sidebar").attr("align", "center");
   }
 };
 
@@ -30254,9 +30271,7 @@ window.VerifyCredit = function (e) {
   } else {
     window.Preguntas[window.PreguntaActiva]["credito_media"] = $(".textarea_credits").val();
   }
-}; // window.CrearPregunta=function(){
-// }
-
+};
 
 window.makeidfunction = function (length) {
   var result = '';
@@ -30314,6 +30329,7 @@ window.animateCSS = function (element, animationName, callback) {
 };
 
 window.ChangePregunta = function (e) {
+  // GuardarDatos();
   window.Resp["1"]._tippy.hide();
 
   window.Resp["2"]._tippy.hide();
@@ -30353,7 +30369,7 @@ window.ChangePregunta = function (e) {
   }
 
   if (window.Preguntas[window.PreguntaActiva]["link_video_yt"] != "" && window.Preguntas[window.PreguntaActiva]["img"] == "") {
-    $(".quiz_video_recurso_div").html(window.Preguntas[window.PreguntaActiva]['iframe_video_yt']);
+    $(".quiz_video_recurso_div").html("<iframe width='100%' height='100%' src='https://www.youtube.com/embed/" + window.Preguntas[window.PreguntaActiva]['link_video_yt'] + "?rel=0&amp;showinfo=0&amp;enablejsapi=1' frameborder='0' allowfullscreen=''></iframe>");
     $(".quiz_media_prin").hide();
     $(".quiz_img_recurso").hide();
     $(".quiz_video_recurso").show();
@@ -30460,6 +30476,7 @@ window.ValidateCompleteForSuccess = function () {
 };
 
 window.CrearPregunta = function (tipo) {
+  // GuardarDatos()
   window.Resp["1"]._tippy.hide();
 
   window.Resp["2"]._tippy.hide();
@@ -30513,6 +30530,12 @@ window.CrearPregunta = function (tipo) {
     $(".preguntas_miniaturas .caja_miniatura:last .pregunta_miniatura:first").after().remove();
     $(".preguntas_miniaturas .caja_miniatura:last .pregunta_miniatura").css("margin-top", "16px");
   }
+
+  OrdenPreguntas();
+  var DatosCrear = {};
+  DatosCrear["tipo"] = tipo;
+  AjaxRequest("POST", window.url + "/crear/quiz/crear-pregunta", DatosCrear);
+  $(".loader").hide();
 };
 
 window.MoverTooltipAlert = function (e) {
@@ -30524,17 +30547,18 @@ window.MoverTooltipAlert = function (e) {
 window.IncrustarVideoQuiz = function () {
   var video = $(".input_quiz_vide").val();
   var video = video.split("=");
-  $(".quiz_video_recurso_div").html('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + video[1] + '?rel=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen=""></iframe>');
+  var video = video[1].split("&")[0];
+  $(".quiz_video_recurso_div").html('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + video + '?rel=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen=""></iframe>');
   $(".cerrar_moda_youtube_quiz").click();
   $(".quiz_media_prin").hide(0, function () {
     $(".quiz_video_recurso").show(0);
   });
-  window.Preguntas[window.PreguntaActiva]["link_video_yt"] = $("#link_video_quiz").val();
-  window.Preguntas[window.PreguntaActiva]["iframe_video_yt"] = "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/" + video[1] + "?rel=0&amp;showinfo=0&amp;enablejsapi=1' frameborder='0' allowfullscreen=''></iframe>";
+  window.Preguntas[window.PreguntaActiva]["link_video_yt"] = video;
+  window.Preguntas[window.PreguntaActiva]["iframe_video_yt"] = "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/" + video + "?rel=0&amp;showinfo=0&amp;enablejsapi=1' frameborder='0' allowfullscreen=''></iframe>";
   window.Preguntas[window.PreguntaActiva]["empieza_video_yt"] = $("#quiz_video_begin").val();
   window.Preguntas[window.PreguntaActiva]["termina_video_yt"] = $("#quiz_video_end").val();
   $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .quiz_media_div_prev_miniatura").hide();
-  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .media_miniatura img").attr("src", "http://img.youtube.com/vi/" + video[1] + "/0.jpg");
+  $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .media_miniatura img").attr("src", "http://img.youtube.com/vi/" + video + "/0.jpg");
   $("div[data-id_pregunta='" + window.PreguntaActiva + "'] .media_miniatura").show();
   $("#link_video_quiz").val("");
   $("#quiz_video_begin").val("");
@@ -30543,7 +30567,7 @@ window.IncrustarVideoQuiz = function () {
 
 window.InsetPrevVideoQuiz = function (e) {
   var video = e.value.split("=");
-  $(".video_quiz_prev_modal").html("<iframe width='100%' height='100%' src='https://www.youtube.com/embed/" + video[1] + "?rel=0&amp;showinfo=0&amp;enablejsapi=1' frameborder='0' allowfullscreen=''></iframe>");
+  $(".video_quiz_prev_modal").html("<iframe width='100%' height='100%' src='https://www.youtube.com/embed/" + video[0] + "?rel=0&amp;showinfo=0&amp;enablejsapi=1' frameborder='0' allowfullscreen=''></iframe>");
   $(".quiz_media_div_yt").hide(0, function () {
     $(".video_quiz_prev_modal").show(0);
   }); // <iframe class="question-media__YouTube-jctf0g-3 dFnNrJ" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="100%" height="100%" src="https://www.youtube.com/embed/xcSs0eZHm6o?autoplay=1&playsinline=1&start=60&end=90&enablejsapi=1&origin=https%3A%2F%2Fcreate.kahoot.it&widgetid=9" id="widget10"></iframe>
@@ -30583,6 +30607,31 @@ window.QuizFunctionDefault = function () {
   $('#QuizMediaCredits').on('hidden.bs.modal', function () {
     $("#QuizSettings").css("z-index", "9999");
   });
+};
+
+window.OrdenPreguntas = function () {
+  var Orden = {};
+  var i = 0;
+  $(".preguntas_miniaturas .caja_miniatura").map(function () {
+    Orden[$(this).attr("data-id_pregunta")] = i;
+    i++;
+  });
+  window.Preguntas["orden"] = {};
+  window.Preguntas["orden"] = Orden;
+};
+
+window.GuardarDatos = function () {
+  OrdenPreguntas();
+  AjaxRequest("POST", window.url + "/crear/quiz/guardar-pregutnas", window.Preguntas);
+  $(".loader").hide();
+};
+
+window.ExitoCrearPregunta = function (id) {
+  $(".preguntas_miniaturas .caja_miniatura:last").attr("data-id_pregunta", id);
+  window.Preguntas[id] = {};
+  window.Preguntas[id] = window.Preguntas[window.PreguntaActiva];
+  delete window.Preguntas[window.PreguntaActiva];
+  window.PreguntaActiva = id;
 };
 
 /***/ }),

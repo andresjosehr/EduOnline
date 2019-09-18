@@ -83,10 +83,14 @@ Route::group(['middleware' => ['ValidarSesion']], function () {
 			Route::post('subir-foto-quiz', "Constructores\QuizController@SubirFotoQuiz");
 			Route::post('crear-pregunta', "Constructores\QuizController@CrearPregunta");
 			Route::post('subir-foto-quizG', "Constructores\QuizController@SubirFotoQuizG");
+			Route::post('config-quiz', "Constructores\QuizController@ConfigQuiz");
+
+			Route::post('crear-pregunta', "Constructores\QuizController@CrearPregunta");
+
+
+			Route::post('guardar-pregutnas', "Constructores\QuizController@GuardarPreguntas");
 
 		    	Route::get('/{id_leccion}', "Constructores\LeccionesController@CrearConsultarClase");
-		    	Route::post('subir-foto-clase', "Constructores\LeccionesController@SubirFotoClase");
-		    	Route::post('eliminar-leccion', "Constructores\LeccionesController@EliminarLeccion");
 		    	Route::post('update-leccion', "Constructores\LeccionesController@UpdateLeccion");
 		    	Route::post('duplicar-leccion', "Constructores\LeccionesController@DuplicarLeccion");
 		    	Route::post('update-contenido-lecciones', "Constructores\LeccionesController@UpdateContenidoLecciones");
