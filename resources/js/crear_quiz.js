@@ -1,16 +1,20 @@
 
-window.ChangeCorrectResp=function(e, id_miniatura, num){
+window.ChangeCorrectResp=function(e, num, forClean = false){
 
 
 
       if ($(e).hasClass("resp_check_quiz")) {
-        window.Preguntas[window.PreguntaActiva]["correcta_"+num]=false;
+        if (!forClean) {
+          window.Preguntas[window.PreguntaActiva]["correcta_"+num]="false";
+          $("div[data-id_pregunta='"+window.PreguntaActiva+"'] #prev_resp_check_"+num).hide(150)
+        }
          $(e).removeClass("resp_check_quiz");
-         $("div[data-id_pregunta='"+window.PreguntaActiva+"'] #"+id_miniatura).hide(150)
       }  else {
-         window.Preguntas[window.PreguntaActiva]["correcta_"+num]=true;
+        if (!forClean) {
+          window.Preguntas[window.PreguntaActiva]["correcta_"+num]="true";
+          $("div[data-id_pregunta='"+window.PreguntaActiva+"'] #prev_resp_check_"+num).show(150)
+        }
             $(e).addClass("resp_check_quiz");
-            $("div[data-id_pregunta='"+window.PreguntaActiva+"'] #"+id_miniatura).show(150)
          } 
 
          window.ValidateCompleteForSuccess();
@@ -31,7 +35,7 @@ window.ChangeCorrectResp=function(e, id_miniatura, num){
 
    window.ChangeRespContent=function(e, clase, num){
 
-     window.ValidateCompleteForSuccess();
+      window.ValidateCompleteForSuccess();
 
      ValidateResp(num)
 
@@ -281,10 +285,11 @@ window.ChangeCorrectResp=function(e, id_miniatura, num){
       $(".quiz_video_recurso").hide();
       $(".quiz_media_div.quiz_media_prin.p-4.py-5").show();
 
-      if($("#resp1").prop("checked")) $("label[for=resp1] i").click()
-      if($("#resp2").prop("checked")) $("label[for=resp2] i").click()
-      if($("#resp3").prop("checked")) $("label[for=resp3] i").click()
-      if($("#resp4").prop("checked")) $("label[for=resp4] i").click()
+
+      if($("#resp1").prop("checked")) ChangeCorrectResp($(".triangle_icon").parent().find("i")[0], 1, true)
+      if($("#resp2").prop("checked")) ChangeCorrectResp($(".exagon_icon").parent().find("i")[0], 2, true)
+      if($("#resp3").prop("checked")) ChangeCorrectResp($(".circle_icon").parent().find("i")[0], 3, true)
+      if($("#resp4").prop("checked")) ChangeCorrectResp($(".cua_icon").parent().find("i")[0], 4, true)
 
       $("#input_resp_1").prop("value", "")
       $("#input_resp_2").prop("value", "")
@@ -330,10 +335,13 @@ window.ChangeCorrectResp=function(e, id_miniatura, num){
 
 
 
-window.ChangePregunta=function(e){
+window.ChangePregunta=function(e, firstTime = false){
 
+   if (window.PreguntaActiva == $(e).parent().attr("data-id_pregunta") && !firstTime) return false;
 
-    // GuardarDatos();
+    ValidarBorrador()
+  
+    GuardarDatos();
 
     window.Resp["1"]._tippy.hide();
     window.Resp["2"]._tippy.hide();
@@ -404,11 +412,11 @@ window.ChangePregunta=function(e){
         
       }
 
+     if (window.Preguntas[window.PreguntaActiva]["correcta_1"]=="true") $("label[for=resp1] i").click();
+     if (window.Preguntas[window.PreguntaActiva]["correcta_2"]=="true") $("label[for=resp2] i").click();
+     if (window.Preguntas[window.PreguntaActiva]["correcta_3"]=="true") $("label[for=resp3] i").click();
+     if (window.Preguntas[window.PreguntaActiva]["correcta_4"]=="true") $("label[for=resp4] i").click();
 
-     if (window.Preguntas[window.PreguntaActiva]["correcta_1"]) $("label[for=resp1] i").click();
-     if (window.Preguntas[window.PreguntaActiva]["correcta_2"]) $("label[for=resp2] i").click();
-     if (window.Preguntas[window.PreguntaActiva]["correcta_3"]) $("label[for=resp3] i").click();
-     if (window.Preguntas[window.PreguntaActiva]["correcta_4"]) $("label[for=resp4] i").click();
 
 
 
@@ -492,7 +500,7 @@ window.ChangePregunta=function(e){
     window.ValidateCompleteForError=function(){
 
      if (window.Preguntas[window.PreguntaActiva]["tipo_pregunta"]==1) {
-         if (window.Preguntas[window.PreguntaActiva]["pregunta"]=="" || window.Preguntas[window.PreguntaActiva]["respuesta_1"]=="" || window.Preguntas[window.PreguntaActiva]["respuesta_2"]==""  || (window.Preguntas[window.PreguntaActiva]["correcta_1"]==false && window.Preguntas[window.PreguntaActiva]["correcta_2"]==false && window.Preguntas[window.PreguntaActiva]["correcta_3"]==false && window.Preguntas[window.PreguntaActiva]["correcta_4"]==false)) {
+         if (window.Preguntas[window.PreguntaActiva]["pregunta"]=="" || window.Preguntas[window.PreguntaActiva]["respuesta_1"]=="" || window.Preguntas[window.PreguntaActiva]["respuesta_2"]==""  || (window.Preguntas[window.PreguntaActiva]["correcta_1"]=="false" && window.Preguntas[window.PreguntaActiva]["correcta_2"]=="false" && window.Preguntas[window.PreguntaActiva]["correcta_3"]=="false" && window.Preguntas[window.PreguntaActiva]["correcta_4"]=="false")) {
              $("div[data-id_pregunta='"+window.PreguntaActiva+"'] .alert_question_div").show()
              animateCSS("div[data-id_pregunta='"+window.PreguntaActiva+"'] .alert_question_div", "bounce");
          }
@@ -512,7 +520,7 @@ window.ChangePregunta=function(e){
    window.ValidateCompleteForSuccess=function(){
 
      if (window.Preguntas[window.PreguntaActiva]["tipo_pregunta"]==1) {
-         if (window.Preguntas[window.PreguntaActiva]["pregunta"]=="" || window.Preguntas[window.PreguntaActiva]["respuesta_1"]=="" || window.Preguntas[window.PreguntaActiva]["respuesta_2"]==""  || (window.Preguntas[window.PreguntaActiva]["correcta_1"]==false && window.Preguntas[window.PreguntaActiva]["correcta_2"]==false && window.Preguntas[window.PreguntaActiva]["correcta_3"]==false && window.Preguntas[window.PreguntaActiva]["correcta_4"]==false)) {
+         if (window.Preguntas[window.PreguntaActiva]["pregunta"]=="" || window.Preguntas[window.PreguntaActiva]["respuesta_1"]=="" || window.Preguntas[window.PreguntaActiva]["respuesta_2"]==""  || (window.Preguntas[window.PreguntaActiva]["correcta_1"]=="false" && window.Preguntas[window.PreguntaActiva]["correcta_2"]=="false" && window.Preguntas[window.PreguntaActiva]["correcta_3"]=="false" && window.Preguntas[window.PreguntaActiva]["correcta_4"]=="false")) {
          }else{
            $("div[data-id_pregunta='"+window.PreguntaActiva+"'] .alert_question_div").hide()
          }
@@ -531,7 +539,7 @@ window.ChangePregunta=function(e){
      window.CrearPregunta=function(tipo){
 
 
-        // GuardarDatos()
+        GuardarDatos()
 
 
         window.Resp["1"]._tippy.hide();
@@ -722,11 +730,14 @@ window.ChangePregunta=function(e){
 
 
     window.OrdenPreguntas=function() {
+
       var Orden={}
-      var i=0;
+      var i=1;
       $(".preguntas_miniaturas .caja_miniatura").map(function(){
 
         Orden[$(this).attr("data-id_pregunta")]=i;
+
+        $(this).find(".cuadro_question_num.text-secondary.font-weight-bold").text(i)
 
         i++;
       });
@@ -756,5 +767,147 @@ window.ChangePregunta=function(e){
       window.Preguntas[id]=window.Preguntas[window.PreguntaActiva];
       delete window.Preguntas[window.PreguntaActiva];
       window.PreguntaActiva=id;
+
+    }
+
+
+    window.ValidarBorrador=function(){
+
+
+      window.setTimeout(function(){
+
+        window.Borrador={}
+        window.Borrador.borrador="0";
+        $(".position-relative.alert_question_div").map(function(){
+            if($(this).css("display")=="block"){
+              window.Borrador.borrador= "1";
+            }         
+        });
+
+        AjaxRequest("POST", window.url+"/crear/quiz/validar-borrador", window.Borrador);
+
+
+        $(".loader").hide();
+
+      },300);
+
+    }
+
+
+
+    window.ExitoDuplicar=function(idOld, idNew) {
+      
+    }
+
+
+    window.ExitoDuplicar=function(idOld, idNew) {
+      $("div[data-id_pregunta='"+idOld+"']").attr("data-id_pregunta", idNew);
+      window.Preguntas[idNew]={};
+      window.Preguntas[idNew]=window.Preguntas[window.PreguntaActiva];
+      delete window.Preguntas[window.PreguntaActiva];
+      window.PreguntaActiva=idNew;
+    }
+
+
+
+    window.DuplicarPregunta=function(id){
+
+      $("body").trigger("click");
+
+      // get the last DIV which ID starts with ^= "klon"
+      var $div = $("div[data-id_pregunta='"+id+"']");
+
+      // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
+      var $klon = $div.clone().prop('data-id_pregunta', 'nueva_copia' );
+      $klon.hide();
+
+      $("div[data-id_pregunta='"+id+"']").after( $klon );
+
+      $klon.show(300);
+
+
+      var NuevaID=makeidfunction(10);
+
+      $("div[data-id_pregunta='"+id+"']:last").attr('data-id_pregunta', NuevaID);
+
+
+      window.setTimeout(function(){
+
+        var DatosACopiar = jQuery.extend(true, {}, window.Preguntas[window.PreguntaActiva]);
+
+        window.PreguntaActiva = NuevaID;
+        window.Preguntas[window.PreguntaActiva]={}
+        window.Preguntas[window.PreguntaActiva] = DatosACopiar;
+
+
+        $(".cuadro_question_active:first").removeClass('cuadro_question_active');
+
+        OrdenPreguntas();
+
+        var Datos      ={}
+        Datos.pregunta =window.Preguntas[Object.keys(window.Preguntas)[Object.keys(window.Preguntas).length-1]];
+        Datos.key      =Object.keys(window.Preguntas)[Object.keys(window.Preguntas).length-1];
+        Datos.orden    =window.Preguntas["orden"];
+
+        AjaxRequest("POST", window.url+"/crear/quiz/duplicar-pregunta", Datos);
+        $(".loader").hide();
+
+      }, 200);
+
+    }
+
+
+    window.EliminarPregunta=function(idPregunta){
+
+
+      $("div[data-id_pregunta='"+idPregunta+"']").hide(300, function(){
+         $("div[data-id_pregunta='"+idPregunta+"']").remove();
+      });
+
+       var Dato={};
+
+       Dato.id=idPregunta;
+
+       AjaxRequest("POST", window.url+"/crear/quiz/eliminar-pregunta", Dato);
+
+       $(".loader").hide();
+
+    }
+
+
+    window.SalirQuiz=function() {
+      
+      $(".cuadro_question_active").click();
+
+      GuardarDatos();
+      ValidarBorrador();
+
+      window.location.href = window.url+"/recursos";
+
+    }
+
+
+    window.GuardarQuiz=function(){
+
+      ValidateQuestion();
+      window.ValidateCompleteForError();
+
+
+
+       GuardarDatos();
+
+        window.Borrador={}
+        window.Borrador.borrador="0";
+        $(".position-relative.alert_question_div").map(function(){
+            if($(this).css("display")=="block"){
+              window.Borrador.borrador= "1";
+            }         
+        });
+
+       if (window.Borrador.borrador==1) {
+         $('#QuizIncomplete').modal('show');
+       } else{
+         window.location.href=window.url+"/recursos";
+       }
 
     }

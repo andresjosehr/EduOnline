@@ -11,6 +11,6 @@ class Quiz extends Model
 
      public function Preguntas()
     {
-    	return $this->hasMany(Preguntas::class, "id_quiz", "id");
+    	return $this->hasMany(Preguntas::class, "id_quiz", "id")->orderBy('orden');
     }
 }

@@ -24,7 +24,7 @@ class PreguntasTable extends Migration
             $table->string('termina_video_yt')->nullable();
             $table->string('credito_media')->nullable();
 
-            $table->string('segundos')->nullable();
+            $table->string('segundos')->nullable()->default("5");
 
             $table->string('tipo_pregunta')->nullable();
 

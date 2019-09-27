@@ -1,47 +1,6 @@
 @include("constructores.quiz.header")
 
 
-<script>  
-
-window.DuplicarPregunta=function(id){
-
-
-  
-
-  $("body").trigger("click");
-
-  // get the last DIV which ID starts with ^= "klon"
-  var $div = $("div[data-id_pregunta='"+id+"']");
-
-  // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-  var $klon = $div.clone().prop('data-id_pregunta', 'nueva_copia' );
-  $klon.hide();
-
-  $("div[data-id_pregunta='"+id+"']").after( $klon );
-  $klon.show(300, function(){
-    $("body").trigger("click");
-  });
-
-  var NuevaID=makeidfunction(10);
-
-  $("div[data-id_pregunta='"+id+"']:last").attr('data-id_pregunta', NuevaID);
-
-  var DatosACopiar = window.Preguntas[window.PreguntaActiva];
-
-  window.PreguntaActiva = NuevaID;
-  window.Preguntas[window.PreguntaActiva]={}
-  window.Preguntas[window.PreguntaActiva] = DatosACopiar;
-
-
-  OrdenPreguntas();
-
-}
-
-</script>
-
-
-
-
 <main class="create_leccion altura_ventana">
    <div class="container p-0 m-0 mw-100 altura_ventana">
       <div class="row p-0 container_child mx-0 mx-lg-n2 altura_ventana">
@@ -66,7 +25,7 @@ window.DuplicarPregunta=function(id){
                                 <i class="fa fa-copy pr-3 menu_leccion_icon"></i> Duplicar</a>
                              </div>
                              <div class="col-12">
-                                <a onclick="EliminarPregunta()" class="font-14 dropdown-item dropdown-item_sub_config text-secondary font-weight-bold px-3 py-3 a_menu_leccion" href="#">
+                                <a onclick="EliminarPregunta($(this).parent().parent().parent().parent().parent().parent().attr('data-id_pregunta'))" class="font-14 dropdown-item dropdown-item_sub_config text-secondary font-weight-bold px-3 py-3 a_menu_leccion" href="#">
                                 <i class="fa fa-trash-o pr-3 menu_leccion_icon"></i>
                                 Eliminar</a>
                              </div>
@@ -112,28 +71,28 @@ window.DuplicarPregunta=function(id){
                     @if ($Pregunta->tipo==1)
                       <div class="col-6 pr-1 mb-1">
                          <div class="resp_quiz_prev w-100"></div>
-                         <i class="fa fa-circle check_resp_quiz_prev check_resp_quiz_prev1" id="prev_resp_check_1_{{$Datos["QuestionID"]}}" aria-hidden="true" @if ($Pregunta->correcta_1=="false") style="display: none;" @endif></i>
+                         <i class="fa fa-circle check_resp_quiz_prev check_resp_quiz_prev1" id="prev_resp_check_1" aria-hidden="true" @if ($Pregunta->correcta_1=="false") style="display: none;" @endif></i>
                       </div>
                       <div class="col-6 pl-1 mb-1">
                          <div class="resp_quiz_prev w-100"></div>
-                         <i class="fa fa-circle check_resp_quiz_prev check_resp_quiz_prev2" id="prev_resp_check_2_{{$Datos["QuestionID"]}}" aria-hidden="true" @if ($Pregunta->correcta_2=="false") style="display: none;" @endif></i>
+                         <i class="fa fa-circle check_resp_quiz_prev check_resp_quiz_prev2" id="prev_resp_check_2" aria-hidden="true" @if ($Pregunta->correcta_2=="false") style="display: none;" @endif></i>
                       </div>
                       <div class="col-6 pr-1">
                          <div class="resp_quiz_prev w-100"></div>
-                         <i class="fa fa-circle check_resp_quiz_prev check_resp_quiz_prev1" id="prev_resp_check_3_{{$Datos["QuestionID"]}}" aria-hidden="true" @if ($Pregunta->correcta_3=="false") style="display: none;" @endif></i>
+                         <i class="fa fa-circle check_resp_quiz_prev check_resp_quiz_prev1" id="prev_resp_check_3" aria-hidden="true" @if ($Pregunta->correcta_3=="false") style="display: none;" @endif></i>
                       </div>
                       <div class="col-6 pl-1">
                          <div class="resp_quiz_prev w-100"></div>
-                         <i class="fa fa-circle check_resp_quiz_prev check_resp_quiz_prev2" id="prev_resp_check_4_{{$Datos["QuestionID"]}}" aria-hidden="true" @if ($Pregunta->correcta_4=="false") style="display: none;" @endif></i>
+                         <i class="fa fa-circle check_resp_quiz_prev check_resp_quiz_prev2" id="prev_resp_check_4" aria-hidden="true" @if ($Pregunta->correcta_4=="false") style="display: none;" @endif></i>
                       </div>
                     @else
                     <div class="col-6 pr-1 mt-3">
                          <div class="resp_quiz_prev w-100"></div>
-                         <i class="fa fa-circle check_resp_quiz_prev check_resp_quiz_prev1" id="prev_resp_check_3_{{$Datos["QuestionID"]}}" aria-hidden="true" @if ($Pregunta->correcta_vf!="false") style="display: none;" @endif></i>
+                         <i class="fa fa-circle check_resp_quiz_prev check_resp_quiz_prev1" id="prev_resp_check_3" aria-hidden="true" @if ($Pregunta->correcta_vf!="false") style="display: none;" @endif></i>
                       </div>
                       <div class="col-6 pl-1 mt-3">
                          <div class="resp_quiz_prev w-100"></div>
-                         <i class="fa fa-circle check_resp_quiz_prev check_resp_quiz_prev2" id="prev_resp_check_4_{{$Datos["QuestionID"]}}" aria-hidden="true" @if ($Pregunta->correcta_vf=="false") style="display: none;" @endif></i>
+                         <i class="fa fa-circle check_resp_quiz_prev check_resp_quiz_prev2" id="prev_resp_check_4" aria-hidden="true" @if ($Pregunta->correcta_vf=="false") style="display: none;" @endif></i>
                       </div>
                     @endif
                  </div>
@@ -270,10 +229,10 @@ window.DuplicarPregunta=function(id){
     window.Preguntas[{{$Pregunta->id}}]["respuesta_3"]   ="{{$Pregunta->respuesta_3}}";
     window.Preguntas[{{$Pregunta->id}}]["respuesta_4"]   ="{{$Pregunta->respuesta_4}}";
     
-    window.Preguntas[{{$Pregunta->id}}]["correcta_1"]    ={{$Pregunta->correcta_1}};
-    window.Preguntas[{{$Pregunta->id}}]["correcta_2"]    ={{$Pregunta->correcta_2}};
-    window.Preguntas[{{$Pregunta->id}}]["correcta_3"]    ={{$Pregunta->correcta_3}};
-    window.Preguntas[{{$Pregunta->id}}]["correcta_4"]    ={{$Pregunta->correcta_4}};
+    window.Preguntas[{{$Pregunta->id}}]["correcta_1"]    ="{{$Pregunta->correcta_1}}";
+    window.Preguntas[{{$Pregunta->id}}]["correcta_2"]    ="{{$Pregunta->correcta_2}}";
+    window.Preguntas[{{$Pregunta->id}}]["correcta_3"]    ="{{$Pregunta->correcta_3}}";
+    window.Preguntas[{{$Pregunta->id}}]["correcta_4"]    ="{{$Pregunta->correcta_4}}";
 
     @if ($Pregunta->tipo==2) 
       window.Preguntas[{{$Pregunta->id}}]["respuesta_vf"]    ={{$Pregunta->respuesta_vf}};
@@ -283,7 +242,7 @@ window.DuplicarPregunta=function(id){
     window.Preguntas[{{$Pregunta->id}}]["segundos"]      ={{$Pregunta->segundos}};
     
     window.Preguntas[{{$Pregunta->id}}]["link_video_yt"] = "{{$Pregunta->link_video_yt}}";
-    window.Preguntas[{{$Pregunta->id}}]["iframe_video_yt"] = document.createRange().createContextualFragment('{{$Pregunta->iframe_video_yt}}');
+    window.Preguntas[{{$Pregunta->id}}]["iframe_video_yt"] ='{{$Pregunta->iframe_video_yt}}';
     window.Preguntas[{{$Pregunta->id}}]["img"]           = "{{$Pregunta->img}}";
     
     window.Preguntas[{{$Pregunta->id}}]["tipo_pregunta"] = {{$Pregunta->tipo}};
@@ -292,14 +251,14 @@ window.DuplicarPregunta=function(id){
 
 
 
-    window.QuizConfig={};
-    window.QuizConfig["nombre"]='{{$Datos["Quiz"]->nombre}}';
-    window.QuizConfig["descripcion"]="{{$Datos["Quiz"]->descripcion}}";
-    window.QuizConfig["img"]="{{$Datos["Quiz"]->img}}";
-    window.QuizConfig["credit_img"]="{{$Datos["Quiz"]->credit_img}}";
-    window.QuizConfig["video_lobby"]="{{$Datos["Quiz"]->video_lobby}}";
-    window.QuizConfig["idioma"]="{{$Datos["Quiz"]->idioma}}";
-    window.QuizConfig["visible"]="{{$Datos["Quiz"]->visible}}";
+    window.QuizConfig                ={};
+    window.QuizConfig["nombre"]      ='{{$Datos["Quiz"]->nombre}}';
+    window.QuizConfig["descripcion"] ="{{$Datos["Quiz"]->descripcion}}";
+    window.QuizConfig["img"]         ="{{$Datos["Quiz"]->img}}";
+    window.QuizConfig["credit_img"]  ="{{$Datos["Quiz"]->credit_img}}";
+    window.QuizConfig["video_lobby"] ="{{$Datos["Quiz"]->video_lobby}}";
+    window.QuizConfig["idioma"]      ="{{$Datos["Quiz"]->idioma}}";
+    window.QuizConfig["visible"]     ="{{$Datos["Quiz"]->visible}}";
 
 
     window.QuestionQuizTooltip._tippy.disable();
@@ -311,14 +270,14 @@ window.DuplicarPregunta=function(id){
 
     @endforeach
 
-
-    $(".cuadro_question_active:first").click();
+    ChangePregunta($(".cuadro_question_active:first")[0], true)
 
   })
 </script>
 
 
 
+@include("constructores.quiz.quiz_incomplete_modal")
 @include("constructores.quiz.media_credits")
 @include("constructores.quiz.pregunta_miniatura")
 @include("constructores.quiz.anadir_pregunta_tooltip")

@@ -6,7 +6,7 @@
              data-tippy-hideOnClick="false" 
              onkeyup='ChangeRespContent(this, "triangle_change_back", "1")'>
              <label for="resp1">
-                <i onclick='ChangeCorrectResp(this, "prev_resp_check_1_{{$Datos["QuestionID"]}}", 1)' class="fa fa-check check_res_quiz cursor-pointer i_check_1" aria-hidden="true"></i>
+                <i onclick='ChangeCorrectResp(this, 1)' class="fa fa-check check_res_quiz cursor-pointer i_check_1" aria-hidden="true"></i>
              </label>
              <input type="checkbox" id="resp1" class="d-none">
    </div>
@@ -17,7 +17,7 @@
              data-tippy-hideOnClick="false"
              onkeyup='ChangeRespContent(this, "exagon_change_back", "2")'>
              <label for="resp2">
-                <i onclick='ChangeCorrectResp(this, "prev_resp_check_2_{{$Datos["QuestionID"]}}", 2)' class="fa fa-check check_res_quiz cursor-pointer i_check_2" aria-hidden="true"></i>
+                <i onclick='ChangeCorrectResp(this, 2)' class="fa fa-check check_res_quiz cursor-pointer i_check_2" aria-hidden="true"></i>
              </label>
              <input type="checkbox" id="resp2" class="d-none">
    </div>
@@ -27,7 +27,7 @@
              placeholder="Respuesta 3 (opcional)" 
              onkeyup='ChangeRespContent(this, "circle_change_back", "3")'>
              <label for="resp3">
-                <i onclick='ChangeCorrectResp(this, "prev_resp_check_3_{{$Datos["QuestionID"]}}", 3)' class="fa fa-check check_res_quiz cursor-pointer i_check_3" aria-hidden="true"></i>
+                <i onclick='ChangeCorrectResp(this, 3)' class="fa fa-check check_res_quiz cursor-pointer i_check_3" aria-hidden="true"></i>
              </label>
              <input type="checkbox" id="resp3" class="d-none">
    </div>
@@ -37,7 +37,7 @@
              placeholder="Respuesta 4 (opcional)" 
              onkeyup='ChangeRespContent(this, "cua_change_back", "4")'>
              <label for="resp4">
-                <i onclick='ChangeCorrectResp(this, "prev_resp_check_4_{{$Datos["QuestionID"]}}", 4)' class="fa fa-check check_res_quiz cursor-pointer i_check_4" aria-hidden="true"></i>
+                <i onclick='ChangeCorrectResp(this, 4)' class="fa fa-check check_res_quiz cursor-pointer i_check_4" aria-hidden="true"></i>
              </label>
              <input type="checkbox" id="resp4" class="d-none">
    </div>

@@ -6455,7 +6455,7 @@ textarea.parsley-error {
 }
 
 .btn_quiz_hecho {
-  background: rgb(55, 209, 14) !important;
+  background: rgb(45, 173, 10) !important;
   border: none !important;
 }
 
@@ -6990,7 +6990,7 @@ textarea.parsley-error {
   margin-left: -8px !important;
   margin-top: -14px !important;
   position: absolute;
-  left: -56px;
+  left: -44px;
   font-size: 18px !important;
   background: white;
   padding: 3px;

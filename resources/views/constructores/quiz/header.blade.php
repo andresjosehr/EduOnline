@@ -55,10 +55,10 @@
                         <button type="button" class="btn btn-light btn-header font-weight-bold btn_quiz_visualizar text-white btn_quiz_header">Visualizar</button>
                     </li>
                     <li class="ml-lg-2 nav-item nav-item-quiz">
-                        <button type="button" class="btn btn-light btn-header font-weight-bold btn_quiz_salir text-white btn_quiz_header">Salir</button>
+                        <button onclick="SalirQuiz()" type="button" class="btn btn-light btn-header font-weight-bold btn_quiz_salir text-white btn_quiz_header">Salir</button>
                     </li>
                     <li class="ml-lg-2 nav-item nav-item-quiz">
-                        <button type="button" class="btn btn-light btn-header font-weight-bold text-white btn_quiz_hecho btn_quiz_header">Hecho</button>
+                        <button onclick="GuardarQuiz()" type="button" class="btn btn-light btn-header font-weight-bold text-white btn_quiz_hecho btn_quiz_header">Hecho</button>
                     </li>
                 </ul>
             </div>

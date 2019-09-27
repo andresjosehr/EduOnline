@@ -21,6 +21,7 @@ class QuizTable extends Migration
             $table->string('img_creditos')->nullable();
             $table->string('video_lobby')->nullable();
             $table->string('lenguaje')->nullable();
+            $table->string('borrador')->nullable()->default("1");
             $table->string('id_usuario');
             $table->timestamps();
         });

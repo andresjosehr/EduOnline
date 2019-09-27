@@ -39,7 +39,7 @@ class QuizController extends Controller
     public function CrearConsultarQuiz($codigo)
     {
 
-        $IdQuiz = Quiz::where("id_usuario", Auth::user()->id)->where("id", $codigo)->orderBy("id", "DESC")->first();
+        $IdQuiz = Quiz::where("id_usuario", Auth::user()->id)->where("id", $codigo)->orderBy("id", "DESC")->with("Preguntas")->first();
 
     	$Datos["QuizID"]=$IdQuiz->id;
     	$Datos["QuestionID"]=$IdQuiz->Preguntas[0]->id;
@@ -112,13 +112,62 @@ class QuizController extends Controller
 
 
 
-        // $Request->merge(["id_usuario" => Auth::user()->id, "id_quiz" => self::GetQuizID()]);
+        $Request->merge(["id_usuario" => Auth::user()->id, "id_quiz" => self::GetQuizID()]);
 
-        // Preguntas::insert($Request->all());
+        Preguntas::insert($Request->all());
 
-        // $UltimaPregunta = Preguntas::where("id_usuario", Auth::user()->id)->where("id_quiz", self::GetQuizID())->where("tipo", $Request->tipo)->orderBy("id", "DESC")->first();
+        $UltimaPregunta = Preguntas::where("id_usuario", Auth::user()->id)->where("id_quiz", self::GetQuizID())->where("tipo", $Request->tipo)->orderBy("id", "DESC")->first();
 
-        return "ExitoCrearPregunta('".Str::random(40)."')";
+        return "ExitoCrearPregunta('".$UltimaPregunta->id."')";
 
+    }
+
+
+    public function Borrador(Request $Request)
+    {
+        Quiz::where("id", self::GetQuizID())->update($Request->all());
+    }
+
+
+    public function DuplicarPregunta(Request $Request)
+    {
+            $Datos = array(     "id_usuario"      => Auth::user()->id,
+                                "id_quiz"         => self::GetQuizID(),
+                                "orden"           => end($Request->only("orden")["orden"]),
+                                "segundos"        => $Request->pregunta["segundos"],
+                                "correcta_1"      => $Request->pregunta["correcta_1"],
+                                "correcta_2"      => $Request->pregunta["correcta_2"],
+                                "correcta_3"      => $Request->pregunta["correcta_3"],
+                                "correcta_4"      => $Request->pregunta["correcta_4"],
+                                "credito_media"   => $Request->pregunta["credito_media"],
+                                "iframe_video_yt" => $Request->pregunta["iframe_video_yt"],
+                                "img"             => $Request->pregunta["img"],
+                                "link_video_yt"   => $Request->pregunta["link_video_yt"],
+                                "pregunta"        => $Request->pregunta["pregunta"],
+                                "respuesta_1"     => $Request->pregunta["respuesta_1"],
+                                "respuesta_2"     => $Request->pregunta["respuesta_2"],
+                                "respuesta_3"     => $Request->pregunta["respuesta_3"],
+                                "respuesta_4"     => $Request->pregunta["respuesta_4"],
+                                "tipo"            => $Request->pregunta["tipo_pregunta"],
+
+                        );
+
+            $id = Preguntas::insertGetId($Datos);
+
+            $Orden=$Request->only("orden")["orden"];
+            array_pop($Orden);
+
+            foreach ($Orden as $key => $value) {
+                Preguntas::where("id", $key)->update(["orden" => $value]);
+            }
+
+            return "ExitoDuplicar('".$Request->key."', '".$id."')";
+
+    }
+
+    public function EliminarPregunta(Request $Request)
+    {
+        Preguntas::where("id", $Request->id)->delete();
+        return "console.log('".$Request->id."')";
     }
 }
