@@ -50,7 +50,7 @@
                             Mis recursos</a>
                     </li>
                     <li class="ml-3 nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="{{ route('foro') }}"><i class="fa fa-comments"></i>
+                        <a class="nav-link text-white font-weight-bold" href="../../foro.EduOnline/public"><i class="fa fa-comments"></i>
                             Foro</a>
                     </li>
                 </ul>

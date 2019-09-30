@@ -130,22 +130,22 @@ class SeguridadController extends Controller
 
 		public function IngresarEmail(Request $Request)
 		{
-			// if (Auth::attempt(['email' => $Request->user, 'password' => $Request->password])){
-			//  	Auth::login(Usuarios::where("email", $Request->user)->first());
-			//  	return event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
-			//  	return "ExitoLogin()";
-			// } 
-			// if (Auth::attempt(['username' => $Request->user, 'password' => $Request->password])){
-			// 	Auth::login(Usuarios::where("username", $Request->user)->first());
-			// 	return event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
-			// 	return "ExitoLogin()";
-			// } 
+			if (Auth::attempt(['email' => $Request->user, 'password' => $Request->password])){
+			 	Auth::login(Usuarios::where("email", $Request->user)->first());
+			 	// return event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
+			 	return "ExitoLogin()";
+			} 
+			if (Auth::attempt(['username' => $Request->user, 'password' => $Request->password])){
+				Auth::login(Usuarios::where("username", $Request->user)->first());
+				// return event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
+				return "ExitoLogin()";
+			} 
 
-			// return "ErrorLogin()";
+			return "ErrorLogin()";
 
 			// return self::CreateSessionFlarum();
 
-			 return event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
+			 // return event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
 		}
 
 
@@ -303,13 +303,14 @@ class SeguridadController extends Controller
 	        $PasswordFlarum=$Request->password;
 	        $Request->merge(["password" => Hash::make($Request->password)]);
 
-			Usuarios::insert($Request->except("accept_terms_checkbox_input"));
+			$IdUsuario=Usuarios::insertGetId($Request->except("accept_terms_checkbox_input"));
 			Auth::login(Usuarios::where("email", $Request->email)->first());
 
 			$Request->merge(["password" => $PasswordFlarum]);
+			$Request->merge(["id" => $IdUsuario]);
 			event(new FlarumEventSubscriber($Request->all(), "onUserRegistration"));
-			event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
 
+			// event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
 
 			$EnvioEmail = new EmailController();
 			$EnvioEmail->confirmEmail($Request->email, $Request->email_confirm_code);

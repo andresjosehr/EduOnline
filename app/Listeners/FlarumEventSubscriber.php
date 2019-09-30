@@ -36,7 +36,7 @@ class FlarumEventSubscriber implements ShouldQueue
             $data = [
               'data' => [
                   'attributes' => [
-                      'id'       => 65486,
+                      'id'       => $usuario["id"],
                       'username' => $usuario["username"],
                       'password' => $usuario["password"],
                       'email'    => $usuario["email"]
@@ -64,7 +64,6 @@ class FlarumEventSubscriber implements ShouldQueue
               ]
             );
             $result = curl_exec($ch);
-            ?><script>alert("<?php print_r(json_decode($result, true)); ?>")</script><?php
             return json_decode($result, true);
         }
 
@@ -73,42 +72,41 @@ class FlarumEventSubscriber implements ShouldQueue
 
 
     
-        public function onUserLogin($usuario)
-        {
+        // public function onUserLogin($usuario)
+        // {
+        //     $response = $this->authenticate($usuario["user"], $usuario["password"]);
+        //     $token = $response['token'] ?: '';
+        //     return $this->setRememberMeCookie($token);
+        // }
 
-            $response = $this->authenticate($usuario["user"], $usuario["password"]);
-            $token = $response['token'] ?: '';
-            return $this->setRememberMeCookie($token);
-        }
+        // private function authenticate($id, $password)
+        // {
+        //     $endpoint = '/api/token';
+        //     $method = 'POST';
 
-        private function authenticate($id, $password)
-        {
-            $endpoint = '/api/token';
-            $method = 'POST';
-
-            $data = [
-                'identification' => "andresjosehr",
-                'password' => "Paralelepipe2",
-                'lifetime' => self::LIFETIME_IN_SECONDS
-            ];
+        //     $data = [
+        //         'identification' => "andresjosehr",
+        //         'password' => "Paralelepipe2",
+        //         'lifetime' => self::LIFETIME_IN_SECONDS
+        //     ];
             
-            return $this->sendRequest($endpoint, $method, $data);
-        }
+        //     return $this->sendRequest($endpoint, $method, $data);
+        // }
 
-        private function setRememberMeCookie($token)
-        {
-            $this->setCookie(self::SESSION_KEY, $token, time() + self::LIFETIME_IN_SECONDS);
-        }
+        // private function setRememberMeCookie($token)
+        // {
+        //     $this->setCookie(self::SESSION_KEY, $token, time() + self::LIFETIME_IN_SECONDS);
+        // }
 
-        private function removeRememberMeCookie()
-        {
-            $this->setCookie(self::SESSION_KEY, '', time() - 10);
-        }
+        // private function removeRememberMeCookie()
+        // {
+        //     $this->setCookie(self::SESSION_KEY, '', time() - 10);
+        // }
 
-        private function setCookie($key, $token, $time, $path = '/')
-        {
-            setcookie($key, $token, $time, $path, $this->root);
-        }
+        // private function setCookie($key, $token, $time, $path = '/')
+        // {
+        //     setcookie($key, $token, $time, $path, $this->root);
+        // }
 
 
 
@@ -137,10 +135,10 @@ class FlarumEventSubscriber implements ShouldQueue
             'App\Listeners\FlarumEventSubscriber@onUserRegistration'
         );
 
-        $events->listen(
-            'Illuminate\Auth\Events\Login',
-            'App\Listeners\FlarumEventSubscriber@onUserLogin'
-        );
+        // $events->listen(
+        //     'Illuminate\Auth\Events\Login',
+        //     'App\Listeners\FlarumEventSubscriber@onUserLogin'
+        // );
         
         $events->listen(
             'Illuminate\Auth\Events\Logout',
