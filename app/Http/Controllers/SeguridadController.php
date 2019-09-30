@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use Auth;
 use Hash;
 use Str;
+use Curl;
 use Socialite;
+use Cookie;
 use Validator;
 use App\Usuarios;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EmailController;
-
-
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
+use App\Listeners\FlarumEventSubscriber;
 
 class SeguridadController extends Controller
 {
@@ -129,17 +130,32 @@ class SeguridadController extends Controller
 
 		public function IngresarEmail(Request $Request)
 		{
-			if (Auth::attempt(['email' => $Request->user, 'password' => $Request->password])){
-			 	Auth::login(Usuarios::where("email", $Request->user)->first()); 
-			 	return "ExitoLogin()";
-			} 
-			if (Auth::attempt(['username' => $Request->user, 'password' => $Request->password])){
-				Auth::login(Usuarios::where("username", $Request->user)->first()); 
-				return "ExitoLogin()";
-			} 
+			// if (Auth::attempt(['email' => $Request->user, 'password' => $Request->password])){
+			//  	Auth::login(Usuarios::where("email", $Request->user)->first());
+			//  	return event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
+			//  	return "ExitoLogin()";
+			// } 
+			// if (Auth::attempt(['username' => $Request->user, 'password' => $Request->password])){
+			// 	Auth::login(Usuarios::where("username", $Request->user)->first());
+			// 	return event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
+			// 	return "ExitoLogin()";
+			// } 
 
-			return "ErrorLogin()";
+			// return "ErrorLogin()";
+
+			// return self::CreateSessionFlarum();
+
+			 return event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
 		}
+
+
+	
+
+
+
+
+
+
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		///////
@@ -284,16 +300,25 @@ class SeguridadController extends Controller
 	        if ($v->fails()) return "MostrarErrores(`".$v->errors()."`)";
 
 	        $Request->merge(["email_confirm_code" => Str::random(50)]);
+	        $PasswordFlarum=$Request->password;
 	        $Request->merge(["password" => Hash::make($Request->password)]);
 
 			Usuarios::insert($Request->except("accept_terms_checkbox_input"));
 			Auth::login(Usuarios::where("email", $Request->email)->first());
 
+			$Request->merge(["password" => $PasswordFlarum]);
+			event(new FlarumEventSubscriber($Request->all(), "onUserRegistration"));
+			event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
+
+
 			$EnvioEmail = new EmailController();
 			$EnvioEmail->confirmEmail($Request->email, $Request->email_confirm_code);
 
 			return "ExitoRegistro()";
+
 		}
+
+
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		///////

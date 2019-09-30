@@ -45,5 +45,14 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('secret')
             ]);
         }
+
+
+        // Create initial API key
+        DB::connection('flarum')->table('api_keys')->insert([
+            'key' => "jy8HbVSSh0BjGFTnM4mlN9WVPEu31YbZEFkBAu9E",
+            'created_at' => "2019-06-06 10:30:52",
+        ]);
+
+
     }
 }
