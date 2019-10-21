@@ -99,6 +99,17 @@ Route::group(['middleware' => ['ValidarSesion']], function () {
 	});
 
 
+	Route::prefix('realizar')->group(function () {
+		Route::prefix('quiz')->group(function () {
+			Route::get('anfitrion', function(){return view("presentadores.quiz.anfitrion.index"); });
+
+			Route::prefix('invitado')->group(function () {
+
+			});
+		});
+	});
+
+
 	Route::get('recursos', "RecursosController@Index")->name("recursos");;
 
 	Route::prefix('editor-js')->group(function () {

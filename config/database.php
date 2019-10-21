@@ -66,7 +66,7 @@ return [
         // Flarum database, used only for setup
         'flarum' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => "localhost",
             'port' => env('DB_PORT', '3306'),
             'database' => env('FLARUM_DATABASE', 'forge'),
             'username' => env('FLARUM_USERNAME', 'forge'),

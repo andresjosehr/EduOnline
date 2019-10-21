@@ -12,6 +12,9 @@ class EncryptCookies extends Middleware
      * @var array
      */
     protected $except = [
-        "flarum_remember"
+        "flarum_remember",
+        "flarum_session",
+        "COOKIE_PERSONALIZADA",
+
     ];
 }

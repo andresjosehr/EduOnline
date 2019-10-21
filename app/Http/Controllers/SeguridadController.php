@@ -9,6 +9,7 @@ use Curl;
 use Socialite;
 use Cookie;
 use Validator;
+use DB;
 use App\Usuarios;
 
 use Illuminate\Http\Request;
@@ -132,20 +133,16 @@ class SeguridadController extends Controller
 		{
 			if (Auth::attempt(['email' => $Request->user, 'password' => $Request->password])){
 			 	Auth::login(Usuarios::where("email", $Request->user)->first());
-			 	// return event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
+			 	event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
 			 	return "ExitoLogin()";
 			} 
 			if (Auth::attempt(['username' => $Request->user, 'password' => $Request->password])){
 				Auth::login(Usuarios::where("username", $Request->user)->first());
-				// return event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
+				event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
 				return "ExitoLogin()";
 			} 
 
 			return "ErrorLogin()";
-
-			// return self::CreateSessionFlarum();
-
-			 // return event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
 		}
 
 
@@ -191,6 +188,11 @@ class SeguridadController extends Controller
 
 	    function CerrarSesion()
 	    {
+	    	$IdUserFlarum=DB::connection("flarum")->table("users")->where("email", Auth::user()->email)->first()->id;
+	    	$token=DB::connection("flarum")->table("access_tokens")->where("user_id", $IdUserFlarum)->first()->token;
+	    	DB::connection("flarum")->table("access_tokens")->where("user_id", $IdUserFlarum)->delete();
+	    	unlink(Config::get('flarum.session_path')."/".$token);
+			Cookie::forget('flarum_session');
 	    	Auth::logout();
   			return redirect('/login');
 	    }
@@ -290,10 +292,11 @@ class SeguridadController extends Controller
 
 		public function Registro(Request $Request)
 		{
+
 		    $v = Validator::make($Request->all(), [
 	            'email' => 'required|unique:usuarios|email',
 		        'username' => 'required|unique:usuarios',
-		        'password' => 'required|min:8',
+
 		        'espacio_trabajo' => 'required',
 	        ]);
 	 
@@ -307,10 +310,11 @@ class SeguridadController extends Controller
 			Auth::login(Usuarios::where("email", $Request->email)->first());
 
 			$Request->merge(["password" => $PasswordFlarum]);
+			// return $Request->password;
 			$Request->merge(["id" => $IdUsuario]);
 			event(new FlarumEventSubscriber($Request->all(), "onUserRegistration"));
-
-			// event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
+			$Request->merge(["user" => $Request->email]);
+			event(new FlarumEventSubscriber($Request->all(), "onUserLogin"));
 
 			$EnvioEmail = new EmailController();
 			$EnvioEmail->confirmEmail($Request->email, $Request->email_confirm_code);

@@ -120,3 +120,6 @@ require('./ajax_request');
 
 window.dragula = require('./../../node_modules/dragula/dist/dragula.min.js');
 
+require('./bootstrap');
+window.Vue = require('vue');
+
